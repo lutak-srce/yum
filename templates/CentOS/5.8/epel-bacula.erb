@@ -1,0 +1,23 @@
+[epel-bacula]
+name=Bacula backports from rawhide
+baseurl=http://repos.fedorapeople.org/repos/slaanesh/bacula/epel-$releasever/$basearch/
+enabled=1
+skip_if_unavailable=1
+gpgkey=http://repos.fedorapeople.org/repos/slaanesh/bacula/RPM-GPG-KEY-slaanesh
+gpgcheck=1
+priority=<%= priority %>
+<% if exclude.to_s != '' -%>
+exclude = <%= exclude.join(' ') %>
+<% end -%>
+
+[epel-bacula-source]
+name=Bacula backports from rawhide - Source
+baseurl=http://repos.fedorapeople.org/repos/slaanesh/bacula/epel-$releasever/SRPMS
+enabled=0
+skip_if_unavailable=1
+gpgkey=http://repos.fedorapeople.org/repos/slaanesh/bacula/RPM-GPG-KEY-slaanesh
+gpgcheck=1
+priority=<%= priority %>
+<% if exclude.to_s != '' -%>
+exclude = <%= exclude.join(' ') %>
+<% end -%>

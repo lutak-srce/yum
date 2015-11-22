@@ -1,0 +1,14 @@
+[nux-dextop-testing]
+name=Nux.Ro RPMs for general desktop use - testing
+baseurl=http://li.nux.ro/download/nux/dextop-testing/el7/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nux.ro
+protect=0
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

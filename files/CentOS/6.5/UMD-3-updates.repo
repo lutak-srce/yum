@@ -1,0 +1,10 @@
+[UMD-3-updates]
+name=UMD 3 updates (SL6)
+baseurl=http://repository.egi.eu/sw/production/umd/3/sl6/$basearch/updates
+protect=1
+enabled=1
+# To use priorities you must have yum-priorities installed
+priority=1
+gpgcheck=1
+gpgkey=http://emisoft.web.cern.ch/emisoft/dist/EMI/3/RPM-GPG-KEY-emi http://repo-rpm.ige-project.eu/RPM-GPG-KEY-IGE http://repository.egi.eu/sw/production/umd/UMD-RPM-PGP-KEY http://www.qoscosgrid.org/qcg-packages/sl5/RPM-GPG-KEY-QCG http://download.nordugrid.org/RPM-GPG-KEY-nordugrid http://fedoraproject.org/static/0608B895.txt
+exclude=gridsafe-ige* json-c condor

@@ -1,0 +1,27 @@
+[puias-addons]
+name=PUIAS addons Base $releasever - $basearch
+mirrorlist=http://www.puias.princeton.edu/data/puias/$releasever/$basearch/os/Addons/mirrorlist
+#baseurl=http://www.puias.princeton.edu/data/puias/$releasever/$basearch/os/Addons
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puias
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[puias-addons-updates]
+name=PUIAS addons Updates $releasever - $basearch
+mirrorlist=http://www.puias.princeton.edu/data/puias/updates/$releasever/en/addons/$basearch/mirrorlist
+#baseurl=http://www.puias.princeton.edu/data/puias/updates/$releasever/en/addons/$basearch
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puias
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

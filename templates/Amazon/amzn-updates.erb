@@ -1,0 +1,36 @@
+# This is a generated file, changes may be overwritten.
+[amzn-updates]
+name=amzn-updates-Base
+mirrorlist=http://repo.eu-west-1.amazonaws.com/$releasever/updates/mirror.list
+mirror_expire=300
+metadata_expire=300
+failovermethod=priority
+fastestmirror_enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga
+enabled=1
+retries=5
+timeout=10
+report_instanceid=yes
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+
+[amzn-updates-debuginfo]
+name=amzn-updates-debuginfo
+mirrorlist=http://repo.eu-west-1.amazonaws.com/$releasever/updates/debuginfo/mirror.list
+mirror_expire=300
+metadata_expire=300
+failovermethod=priority
+fastestmirror_enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga
+enabled=0
+retries=5
+timeout=10
+report_instanceid=yes
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>

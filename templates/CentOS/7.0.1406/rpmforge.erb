@@ -1,0 +1,18 @@
+### Name: RPMforge RPM Repository for RHEL 7 - dag
+### URL: http://rpmforge.net/
+[rpmforge]
+name = RHEL $releasever - RPMforge.net - dag
+baseurl = http://apt.sw.be/redhat/el7/en/$basearch/rpmforge
+mirrorlist = http://mirrorlist.repoforge.org/el7/mirrors-rpmforge
+#mirrorlist = file:///etc/yum.repos.d/mirrors-rpmforge
+enabled = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
+gpgcheck = 1
+priority = <%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude = <%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

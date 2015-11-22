@@ -1,0 +1,71 @@
+# EGEE SA 1 Repositories for CentOS5 or SL5  
+
+[egee-sa1]
+name=EGEE Packages from SA1 for CentOS5
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee/$basearch
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5/$basearch
+enabled=1
+gpgcheck=0
+priority=10
+
+[egee-sa1-testing]
+name=EGEE Packages from SA1 for CentOS5 in status testing.
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee-testing/$basearch
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5-testing/$basearch
+enabled=0
+gpgcheck=0
+priority=10
+
+[egee-sa1-devel]
+name=EGEE Packages from SA1 for CentOS5 in status development.
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee-devel/$basearch
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5-devel/$basearch
+enabled=0
+gpgcheck=0
+priority=10
+
+[egee-sa1-debuginfo]
+name=EGEE Packages from SA1 for CentOS5 debuginfo
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee/$basearch/debug
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5/$basearch/debug
+enabled=0
+gpgcheck=0
+
+[egee-sa1-testing-debuginfo]
+name=EGEE Packages from SA1 for CentOS5 in status testing debuginfo.
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee-testing/$basearch/debug
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5-testing/$basearch/debug
+enabled=0
+gpgcheck=0
+
+[egee-sa1-devel-debuginfo]
+name=EGEE Packages from SA1 for CentOS5 in status development debuginfo.
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee-devel/$basearch/debug
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5-devel/$basearch/debug
+enabled=0
+gpgcheck=0
+
+
+
+[egee-sa1-source]
+name=EGEE Source Packages from SA1 for CentOS5
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee/SRPMS
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5/SRPMS
+enabled=0
+gpgcheck=0
+
+[egee-sa1-testing-source]
+name=EGEE Source Packages from SA1 for CentOS5 in status testing.
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee-testing/SRPMS
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5-testing/SRPMS
+enabled=0
+gpgcheck=0
+
+[egee-sa1-devel-source]
+name=EGEE Source Packages from SA1 for CentOS5 in status development.
+baseurl=http://rpm.hellasgrid.gr/mash/centos5-egee-devel/SRPMS
+        http://www.sysadmin.hep.ac.uk/rpms/egee-SA1/centos5-devel/SRPMS
+enabled=0
+gpgcheck=0
+
+

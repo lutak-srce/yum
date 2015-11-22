@@ -1,0 +1,25 @@
+[UMD-2-base]
+name=UMD 2 base (SL5)
+baseurl=http://repository.egi.eu/sw/production/umd/2/sl5/$basearch/base
+protect=1
+enabled=1
+# To use priorities you must have yum-priorities installed
+gpgcheck=1
+gpgkey=http://emisoft.web.cern.ch/emisoft/dist/EMI/2/RPM-GPG-KEY-emi http://repo-rpm.ige-project.eu/RPM-GPG-KEY-IGE
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+
+[UMD-2-updates]
+name=UMD 2 updates (SL5)
+baseurl=http://repository.egi.eu/sw/production/umd/2/sl5/$basearch/updates
+protect=1
+enabled=1
+# To use priorities you must have yum-priorities installed
+gpgcheck=1
+gpgkey=http://emisoft.web.cern.ch/emisoft/dist/EMI/2/RPM-GPG-KEY-emi http://repo-rpm.ige-project.eu/RPM-GPG-KEY-IGE
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>

@@ -1,0 +1,17 @@
+#
+# VMware OSPs for RHEL6
+#
+
+[vmware-tools-collection]
+name=vmware-tools-collection
+baseurl=http://packages.vmware.com/tools/esx/<%= @esxi_version %>/rhel<%= @operatingsystemmajrelease %>/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=http://packages.vmware.com/tools/keys/VMWARE-PACKAGING-GPG-RSA-KEY.pub
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

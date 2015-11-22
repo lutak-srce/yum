@@ -1,0 +1,7 @@
+[WANdisco-dev]
+name=WANdisco Repo (SVN 1.7)
+enabled=1
+baseurl=http://opensource.wandisco.com/centos/5/devel/RPMS/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-WANdisco
+priority=1

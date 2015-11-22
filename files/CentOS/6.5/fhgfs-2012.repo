@@ -1,0 +1,7 @@
+[fhgfs]
+name=FhGFS 2012.10 (RHEL6)
+baseurl=http://www.fhgfs.com/release/fhgfs_2012.10/dists/rhel6
+gpgkey=http://www.fhgfs.com/release/fhgfs_2012.10/gpg/RPM-GPG-KEY-fhgfs
+gpgcheck=1
+enabled=1
+priority=1

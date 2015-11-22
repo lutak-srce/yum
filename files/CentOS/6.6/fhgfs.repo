@@ -1,0 +1,7 @@
+[FhGFS]
+name=FhGFS
+baseurl=http://www.fhgfs.com/release/fhgfs_2011.04/dists/rhel6
+gpgkey=http://www.fhgfs.com/release/fhgfs_2011.04/gpg/RPM-GPG-KEY-fhgfs
+enabled=1
+gpgcheck=1
+priority=1

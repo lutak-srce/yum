@@ -1,0 +1,22 @@
+### Name: ELRepo.org Community Enterprise Linux Repository for el6
+### URL: http://elrepo.org/
+
+[elrepo-kernel]
+name=ELRepo.org Community Enterprise Linux Kernel Repository - el7
+baseurl=http://elrepo.org/linux/kernel/el7/$basearch/
+        http://mirrors.coreix.net/elrepo/kernel/el7/$basearch/
+        http://jur-linux.org/download/elrepo/kernel/el7/$basearch/
+        http://repos.lax-noc.com/elrepo/kernel/el7/$basearch/
+        http://mirror.ventraip.net.au/elrepo/kernel/el7/$basearch/
+mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-kernel.el7
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+protect=0
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

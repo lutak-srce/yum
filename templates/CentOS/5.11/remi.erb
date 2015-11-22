@@ -1,0 +1,24 @@
+[remi]
+name=Les RPM de remi pour Enterprise Linux 5 - $basearch
+#baseurl=http://rpms.famillecollet.com/enterprise/5/remi/$basearch/
+mirrorlist=http://rpms.famillecollet.com/enterprise/5/remi/mirror
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+
+<% if @debuginfo -%>
+[remi-debuginfo]
+name=Les RPM de remi pour Enterprise Linux 5 - $basearch - debuginfo
+baseurl=http://rpms.famillecollet.com/enterprise/5/debug-remi/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% end -%>
