@@ -27,21 +27,18 @@ class yum::repo::puppetlabspc1 (
     default: {}
     /^5.*/: {
       package { 'puppetlabs-release-pc1' :
-        ensure   => '1.0.0-1',
         provider => 'rpm',
         source   => 'https://yum.puppetlabs.com/puppetlabs-release-pc1-el-5.noarch.rpm',
       }
     }
     /^6.*/: {
       package { 'puppetlabs-release-pc1' :
-        ensure   => '1.0.0-1',
         provider => 'rpm',
         source   => 'https://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm',
       }
     }
     /^7.*/: {
       package { 'puppetlabs-release-pc1' :
-        ensure   => '1.0.0-1',
         provider => 'rpm',
         source   => 'https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm',
       }
