@@ -13,7 +13,7 @@ class yum::repo::puppetlabspc1 (
 ) {
   require yum::repo::base
 
-  file { '/etc/yum.repos.d/puppetlabis-pc1.repo' :
+  file { '/etc/yum.repos.d/puppetlabs-pc1.repo' :
     ensure  => file,
     mode    => '0644',
     owner   => root,
