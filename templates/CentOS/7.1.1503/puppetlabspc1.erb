@@ -1,0 +1,28 @@
+[puppetlabs-pc1]
+name=Puppet Labs PC1 Repository el 7 - $basearch
+baseurl=http://yum.puppetlabs.com/el/7/PC1/$basearch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
+enabled=1
+gpgcheck=1
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[puppetlabs-pc1-source]
+name=Puppet Labs PC1 Repository el 7 - Source
+baseurl=http://yum.puppetlabs.com/el/7/PC1/SRPMS
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
+failovermethod=priority
+enabled=0
+gpgcheck=1
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
