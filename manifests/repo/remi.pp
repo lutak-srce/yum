@@ -1,3 +1,4 @@
+#
 # = Class: yum::repo::remi
 #
 # This module manages Remi repo files for $lsbdistrelease

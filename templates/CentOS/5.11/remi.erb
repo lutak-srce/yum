@@ -6,7 +6,7 @@ enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
 <% end -%>
 
@@ -18,7 +18,7 @@ enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
 <% end -%>
 <% end -%>

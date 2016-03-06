@@ -5,7 +5,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=1
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>
 
@@ -17,7 +17,7 @@ enabled=1
 gpgcheck=1
 priority=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>
 
@@ -28,7 +28,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=0
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>
 
@@ -40,7 +40,7 @@ failovermethod=priority
 enabled=0
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>
 
@@ -51,7 +51,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=0
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>
 
@@ -62,6 +62,6 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
 enabled=0
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>

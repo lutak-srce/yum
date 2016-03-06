@@ -24,15 +24,15 @@ class yum::repo::pgdg92 (
     default: {}
     /^5.*/: {
       package { 'pgdg-centos92' :
-        ensure   => '9.2-7',
+        ensure   => '9.2-6',
         provider => 'rpm',
-        source   => 'http://yum.postgresql.org/9.2/redhat/rhel-5-i386/pgdg-centos92-9.2-7.noarch.rpm', }
+        source   => 'http://yum.postgresql.org/9.2/redhat/rhel-5-i386/pgdg-centos92-9.2-6.noarch.rpm', }
     }
     /^6.*/: {
       package { 'pgdg-centos92' :
-        ensure   => '9.2-7',
+        ensure   => '9.2-6',
         provider => 'rpm',
-        source   => 'http://yum.postgresql.org/9.2/redhat/rhel-6-i386/pgdg-centos92-9.2-7.noarch.rpm', }
+        source   => 'http://yum.postgresql.org/9.2/redhat/rhel-6-i386/pgdg-centos92-9.2-6.noarch.rpm', }
     }
   }
 }

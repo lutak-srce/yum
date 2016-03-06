@@ -7,8 +7,9 @@ class yum::repo::vmware (
   $stage        = 'yumsetup',
   $priority     = '1',
   $exclude      = [],
+  $include      = [],
   $esxi_version = '5.5latest',
-  $version      = '9.4.10-1.el6',
+  $version      = '9.4.12-1.el6',
 ){
   require ::yum::repo::base
 

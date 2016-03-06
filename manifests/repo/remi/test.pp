@@ -1,4 +1,5 @@
-# Class: yum::repo::remi::test
+#
+# = Class: yum::repo::remi::test
 #
 # This module manages Remi test repo files for $lsbdistrelease
 #
