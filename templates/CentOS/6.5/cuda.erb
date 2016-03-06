@@ -5,9 +5,9 @@ enabled=1
 gpgcheck=1
 gpgkey=http://developer.download.nvidia.com/compute/cuda/repos/rhel6/x86_64/7fa2af80.pub
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
+<% unless @include.empty? -%>
 includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>
