@@ -1,23 +1,23 @@
 [ius]
 name=IUS Community Packages for Enterprise Linux 6 - $basearch
-#baseurl=http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/$basearch
-mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-el6&arch=$basearch
+#baseurl=https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/$basearch
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-el6&arch=$basearch&protocol=http
 failovermethod=priority
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [ius-debuginfo]
 name=IUS Community Packages for Enterprise Linux 6 - $basearch - Debug
-#baseurl=http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/$basearch/debuginfo
-mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-el6-debuginfo&arch=$basearch
+#baseurl=https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/$basearch/debuginfo
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-el6-debuginfo&arch=$basearch&protocol=http
 failovermethod=priority
 <% if @debuginfo -%>
 enabled=1
@@ -27,25 +27,25 @@ enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [ius-source]
 name=IUS Community Packages for Enterprise Linux 6 - $basearch - Source
-#baseurl=http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/SRPMS
-mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-el6-source&arch=source
+#baseurl=https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/SRPMS
+mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-el6-source&arch=source&protocol=http
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>

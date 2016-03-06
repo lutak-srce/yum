@@ -37,5 +37,12 @@ class yum::repo::nginx (
         source   => 'http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm',
       }
     }
+    /^7.*/: {
+      package { 'nginx-release-centos' :
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm',
+      }
+    }
   }
 }
