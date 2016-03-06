@@ -1,4 +1,5 @@
-# Class: yum::repo::remi::php55
+#
+# = Class: yum::repo::remi::php55
 #
 # This module manages Remi php55 repo files for $lsbdistrelease
 #

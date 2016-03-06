@@ -3,9 +3,9 @@
 # This module manages Srce repo files for $lsbdistrelease
 #
 class yum::repo::srce (
-  $stage    = 'yumsetup',
-  $priority = '5',
-  $exclude  = [],
+  $stage     = 'yumsetup',
+  $priority  = '5',
+  $exclude   = [],
   $include   = [],
   $debuginfo = false,
 ) {
@@ -40,13 +40,6 @@ class yum::repo::srce (
         ensure   => present,
         provider => 'rpm',
         source   => 'http://ftp.srce.hr/srce-redhat/base/el7/x86_64/srce-release-5-3.el7.srce.noarch.rpm',
-      }
-    }
-    /^18.*/: {
-      package { 'srce-release' :
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://ftp.srce.hr/srce-redhat/base/el6/x86_64/srce-release-5-3.el6.srce.noarch.rpm',
       }
     }
   }

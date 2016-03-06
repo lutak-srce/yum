@@ -8,10 +8,10 @@ obsoletes=1
 gpgcheck=1
 plugins=1
 installonly_limit=5
-bugtracker_url=http://bugs.centos.org/set_project.php?project_id=16&ref=http://bugs.centos.org/bug_report_page.php?category=yum
+bugtracker_url=http://bugs.centos.org/set_project.php?project_id=19&ref=http://bugs.centos.org/bug_report_page.php?category=yum
 distroverpkg=centos-release
-<% if @yum_proxy != 'UNDEF' -%>
-proxy=<%= @yum_proxy %>
+<% if @http_proxy != 'UNDEF' -%>
+proxy=<%= @http_proxy %>
 <% end -%>
 
 #  This is the default, if you make this bigger yum won't see if the metadata
