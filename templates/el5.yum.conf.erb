@@ -10,8 +10,8 @@ obsoletes=1
 gpgcheck=1
 plugins=1
 bugtracker_url=http://bugs.centos.org/yum5bug
-<% if @yum_proxy != 'UNDEF' -%>
-proxy=<%= @yum_proxy %>
+<% if @http_proxy != 'UNDEF' -%>
+proxy=<%= @http_proxy %>
 <% end -%>
 
 # Note: yum-RHN-plugin doesn't honor this.

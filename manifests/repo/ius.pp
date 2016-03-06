@@ -3,9 +3,9 @@
 # This module manages IUS repo files for $lsbdistrelease
 #
 class yum::repo::ius (
-  $stage    = 'yumsetup',
-  $priority = '61',
-  $exclude  = [],
+  $stage     = 'yumsetup',
+  $priority  = '61',
+  $exclude   = [],
   $include   = [],
   $debuginfo = false,
 ){
@@ -42,6 +42,13 @@ class yum::repo::ius (
         ensure   => '1.0-15.ius.el7',
         provider => 'rpm',
         source   =>  'http://dl.iuscommunity.org/pub/ius/stable/Redhat/7/x86_64/ius-release-1.0-15.ius.el7.noarch.rpm',
+      }
+    }
+    /^7.*/: {
+      package { 'ius-release':
+        ensure   => '1.0-14.ius.centos7',
+        provider => 'rpm',
+        source   =>  'https://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-14.ius.centos7.noarch.rpm',
       }
     }
   }
