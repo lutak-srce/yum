@@ -1,0 +1,15 @@
+[rpmforge-testing]
+name = RHEL $releasever - RPMforge.net - testing
+baseurl = http://apt.sw.be/redhat/el6/en/$basearch/testing
+mirrorlist = http://mirrorlist.repoforge.org/el6/mirrors-rpmforge-testing
+#mirrorlist = file:///etc/yum.repos.d/mirrors-rpmforge-testing
+enabled = 0
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
+gpgcheck = 1
+<% if @exclude.to_s != '' -%>
+exclude = <%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

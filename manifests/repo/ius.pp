@@ -37,5 +37,12 @@ class yum::repo::ius (
         source   =>  'http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/ius-release-1.0-14.ius.el6.noarch.rpm',
       }
     }
+    /^7.*/: {
+      package { 'ius-release':
+        ensure   => '1.0-14.ius.el7',
+        provider => 'rpm',
+        source   =>  'http://dl.iuscommunity.org/pub/ius/stable/Redhat/7/x86_64/ius-release-1.0-14.ius.el7.noarch.rpm',
+      }
+    }
   }
 }
