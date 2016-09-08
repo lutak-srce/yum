@@ -1,0 +1,14 @@
+# EGI Software Repository - REPO META (releaseId,repositoryId,repofileId) - (6190,1307,1231)
+
+[egi-sam]
+name=EGI SAM repo 
+baseurl=http://repository.egi.eu/sw/production/sam/1/$basearch
+enabled=1
+priority=<%= @priority %>
+gpgcheck=0
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
