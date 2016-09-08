@@ -1,8 +1,9 @@
-[mongodb]
-name=MongoDB Repository
-baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/$basearch/
-gpgcheck=0
+[asterisk-13]
+name=CentOS-$releasever - Asterisk 13
+baseurl=http://packages.asterisk.org/centos/$releasever/asterisk-13/$basearch/
 enabled=1
+gpgcheck=0
+#gpgkey=http://packages.asterisk.org/RPM-GPG-KEY-Digium
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>

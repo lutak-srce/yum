@@ -1,11 +1,10 @@
-# EGI Software Repository - REPO META (releaseId,repositoryId,repofileId) - (6190,1307,1231)
-
-[egi-sam]
-name=EGI SAM repo 
-baseurl=http://repository.egi.eu/sw/production/sam/1/$basearch
+[zabbix]
+name=Zabbix Official Repository - $basearch
+baseurl=http://repo.zabbix.com/zabbix/2.4/rhel/6/$basearch/
 enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
 priority=<%= @priority %>
-gpgcheck=0
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>

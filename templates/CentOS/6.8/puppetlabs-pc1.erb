@@ -2,17 +2,14 @@
 name=Puppet Labs PC1 Repository el 6 - $basearch
 baseurl=http://yum.puppetlabs.com/el/6/PC1/$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
-<<<<<<< HEAD
        file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet-PC1
-=======
->>>>>>> 2016-09 big sync from bitbucket
 enabled=1
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
+<% unless @include.empty? -%>
 includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>
 
@@ -20,17 +17,14 @@ includepkgs=<%= @include.to_a.join(' ') %>
 name=Puppet Labs PC1 Repository el 6 - Source
 baseurl=http://yum.puppetlabs.com/el/6/PC1/SRPMS
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
-<<<<<<< HEAD
        file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet-PC1
-=======
->>>>>>> 2016-09 big sync from bitbucket
 failovermethod=priority
 enabled=0
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
+<% unless @include.empty? -%>
 includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>
