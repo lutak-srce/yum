@@ -1,0 +1,13 @@
+[WANdisco]
+name=WANdisco Repo (SVN <%= @version %>)
+enabled=1
+baseurl=http://opensource.wandisco.com/rhel/6/svn-<%= @version %>/RPMS/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-WANdisco
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

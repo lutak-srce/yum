@@ -1,0 +1,13 @@
+[cuda]
+name=cuda
+baseurl=http://developer.download.nvidia.com/compute/cuda/repos/rhel6/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=http://developer.download.nvidia.com/compute/cuda/repos/GPGKEY
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

@@ -1,0 +1,20 @@
+# Name: Atomic Rocket Turtle RPM Repository for CentOS / Red Hat Enterprise Linux 6 - 
+# URL: http://www.atomicrocketturtle.com/
+# Note: This isn't covered by ASL support. -Scott
+
+# Untested, Unstable, known buggy, and incomplete packages. 
+[atomic-bleeding]
+name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com - (Bleeding)
+baseurl = http://www.atomicorp.com/channels/atomic-bleeding/centos/$releasever/$basearch/
+enabled = 0
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
+	file:///etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt
+gpgcheck = 1
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
