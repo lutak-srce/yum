@@ -11,10 +11,10 @@ class yum::repo::emi2 (
   require yum::repo::base
 
   file { '/etc/yum.repos.d/emi2-base.repo' :
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/emi2-base.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/emi2-base.repo",
   }
 }
