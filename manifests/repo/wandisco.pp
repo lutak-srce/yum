@@ -14,11 +14,11 @@ class yum::repo::wandisco (
   require yum::repo::base
 
   file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-WANdisco':
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => 'puppet:///modules/yum/keys/RPM-GPG-KEY-WANdisco',
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => 'puppet:///modules/yum/keys/RPM-GPG-KEY-WANdisco',
   }
   file { "/etc/yum.repos.d/WANdisco-${version}.repo":
     ensure  => file,
