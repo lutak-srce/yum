@@ -1,0 +1,10 @@
+[google-chrome]
+name=google-chrome
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/<%= @architecture %>
+enabled=1
+gpgcheck=1
+gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
