@@ -11,10 +11,10 @@ class yum::repo::rhscl_devtoolset (
   $debuginfo = false,
 ) {
   file { '/etc/yum.repos.d/rhscl-devtoolset.repo':
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  =>  "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/rhscl-devtoolset.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source =>  "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/rhscl-devtoolset.repo",
   }
 }

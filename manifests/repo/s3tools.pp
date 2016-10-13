@@ -11,10 +11,10 @@ class yum::repo::s3tools (
   require yum::repo::base
 
   file { '/etc/yum.repos.d/s3tools.repo':
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  =>  "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/s3tools.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source =>  "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/s3tools.repo",
   }
 }

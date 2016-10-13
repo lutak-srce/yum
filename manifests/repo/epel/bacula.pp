@@ -12,11 +12,11 @@ class yum::repo::epel::bacula (
   require yum::repo::epel
 
   file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-slaanesh':
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => 'puppet:///modules/yum/keys/RPM-GPG-KEY-slaanesh',
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => 'puppet:///modules/yum/keys/RPM-GPG-KEY-slaanesh',
   }
 
   file { '/etc/yum.repos.d/epel-bacula.repo':
