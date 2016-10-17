@@ -3,7 +3,6 @@
 # This module manages Webmin repo files for $lsbdistrelease
 #
 class yum::repo::webmin (
-  $stage     = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

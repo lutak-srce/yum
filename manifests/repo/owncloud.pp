@@ -4,7 +4,6 @@
 # This module manages owncloud repo files for $lsbdistrelease
 #
 class yum::repo::owncloud (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

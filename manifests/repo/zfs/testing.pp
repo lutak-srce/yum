@@ -3,7 +3,6 @@
 # This module manages ZFS testing repo files for $lsbdistrelease
 #
 class yum::repo::zfs::testing (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

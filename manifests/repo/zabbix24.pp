@@ -3,7 +3,6 @@
 # This module manages Zabbix repo files for $lsbdistrelease
 #
 class yum::repo::zabbix24 (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

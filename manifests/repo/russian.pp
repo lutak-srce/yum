@@ -3,7 +3,6 @@
 # This module manages russian repo files for $operatingsystemrelease
 #
 class yum::repo::russian (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

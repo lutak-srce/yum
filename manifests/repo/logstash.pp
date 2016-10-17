@@ -3,7 +3,6 @@
 # This module manages logstash repo files for $operatingsystemrelease
 #
 class yum::repo::logstash (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

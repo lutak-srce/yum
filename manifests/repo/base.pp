@@ -5,7 +5,6 @@
 
 # CentOS
 class yum::repo::base (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],
@@ -13,6 +12,8 @@ class yum::repo::base (
 ){
 
   case $::operatingsystem {
+    default: {
+    }
     # Amazon AMI Linux (RedHat derivative)
     'Amazon' : {
       include ::yum::repo::base::amazon

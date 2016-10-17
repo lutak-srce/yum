@@ -5,7 +5,6 @@
 
 # CentOS
 class yum::repo::russian::updates (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

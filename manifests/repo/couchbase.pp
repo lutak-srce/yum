@@ -4,7 +4,6 @@
 # This module manages Couchbase Server repo files for $lsbdistrelease
 #
 class yum::repo::couchbase (
-  $stage     = 'yumsetup',
   $priority  = '11',
   $exclude   = [],
   $include   = [],

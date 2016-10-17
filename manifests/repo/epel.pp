@@ -3,7 +3,6 @@
 # This module manages EPEL repo files for $lsbdistrelease
 #
 class yum::repo::epel (
-  $stage     = 'yumsetup',
   $priority  = '11',
   $exclude   = [],
   $include   = [],

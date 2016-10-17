@@ -3,7 +3,6 @@
 # This module manages msg-devel repo files
 #
 class yum::repo::msgdevel(
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

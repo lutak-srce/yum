@@ -3,7 +3,6 @@
 # This module manages gLite UI repo
 #
 class yum::repo::gliteui (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

@@ -4,7 +4,6 @@
 # This module manages Nux DeXtop files for $lsbdistrelease
 #
 class yum::repo::nux::dextop (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

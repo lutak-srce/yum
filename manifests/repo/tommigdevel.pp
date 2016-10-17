@@ -3,7 +3,6 @@
 # This module manages Tom Mig Devel repo files for $lsbdistrelease
 #
 class yum::repo::tommigdevel (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

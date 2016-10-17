@@ -5,7 +5,6 @@
 
 # Amazon
 class yum::repo::base::amazon (
-  $stage     = 'yumsetup',
   $priority  = '10',
   $exclude   = [],
   $include   = [],

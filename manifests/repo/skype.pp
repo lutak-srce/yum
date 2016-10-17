@@ -4,7 +4,6 @@
 # This module manages skype repo files for $operatingsystemrelease
 #
 class yum::repo::skype (
-  $stage     = 'yumsetup',
   $priority  = 99,
   $exclude   = [],
   $include   = [],

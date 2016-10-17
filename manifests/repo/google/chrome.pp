@@ -4,7 +4,6 @@
 # This module manages Google Chrome repo files for $lsbdistrelease
 #
 class yum::repo::google::chrome (
-  $stage     = 'yumsetup',
   $priority  = 1,
   $exclude   = [],
   $include   = [],

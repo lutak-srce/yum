@@ -1,13 +1,59 @@
-# Class: yum
+#
+# = Class: yum
 #
 # This module manages yum packages
 #
-class yum {
-  # declare running stages
-  stage {'yumsetup': before => Stage['main'] }
-  stage {'yumconf':  before => Stage['yumsetup'] }
+class yum (
+  $yum_proxy     = 'UNDEF',
+  $http_proxy    = 'UNDEF',
+  $http_port     = '80',
+  $purge_repos_d = true,
+  $distroverpkg  = 'centos-release',
+) {
 
-  # brings yum, yum.conf and yum.repos.d
-  include ::yum::conf
+  File {
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    require => Package['yum'],
+  }
+
+  # base package
+  package {'yum': ensure => present }
+
+  case $::operatingsystemrelease {
+    default: {}
+    /^5.*/: {
+      file { '/etc/yum.conf' :
+        content => template('yum/el5.yum.conf.erb'),
+      }
+    }
+    /^6.*/: {
+      file { '/etc/yum.conf' :
+        content => template('yum/el6.yum.conf.erb'),
+      }
+    }
+    /^7.*/: {
+      file { '/etc/yum.conf' :
+        content => template('yum/el7.yum.conf.erb'),
+      }
+    }
+  }
+
+  if ( $http_proxy != 'UNDEF' ) {
+    file { '/etc/rpm/macros.proxy' :
+      content => template('yum/macros.proxy.erb'),
+    }
+  }
+
+
+  # directory for repositories
+  file { '/etc/yum.repos.d':
+    ensure  => directory,
+    recurse => true,
+    purge   => $purge_repos_d,
+    force   => true,
+  }
 
 }

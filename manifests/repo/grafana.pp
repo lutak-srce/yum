@@ -4,7 +4,6 @@
 # This module manages grafana repo files for $lsbdistrelease
 #
 class yum::repo::grafana (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

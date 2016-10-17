@@ -4,7 +4,6 @@
 # This class manages ovirt repo files for $lsbdistrelease
 #
 class yum::repo::ovirt (
-  $stage     = 'yumsetup',
   $priority  = '2',
   $version   = '4.2',
   $exclude   = [],
