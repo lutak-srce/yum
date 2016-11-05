@@ -1,4 +1,5 @@
-# Class: yum::repo::puppetlabls
+#
+# = Class: yum::repo::puppetlabls
 #
 # This module manages PuppetLabs repo files for $lsbdistrelease
 #
@@ -18,7 +19,7 @@ class yum::repo::puppetlabspc1 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/puppetlabspc1.erb"),
+    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/puppetlabs-pc1.erb"),
     require => Package['puppetlabs-release-pc1'],
   }
 
