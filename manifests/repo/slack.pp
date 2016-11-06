@@ -4,8 +4,9 @@
 # This module manages Slack repo
 #
 class yum::repo::slack (
-  $exclude   = [],
-  $include   = [],
+  $priority = '11',
+  $exclude  = [],
+  $include  = [],
 ){
   require ::yum::repo::base
 
@@ -14,6 +15,6 @@ class yum::repo::slack (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/generic/slack.erb"),
+    content => template('yum/generic/slack.erb'),
   }
 }
