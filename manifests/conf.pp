@@ -3,11 +3,12 @@
 # This module manages yum packages
 #
 class yum::conf (
-  $stage      = 'yumconf',
-  $yum_proxy  = 'UNDEF',
-  $http_proxy = 'UNDEF',
-  $http_port  = '80',
+  $stage         = 'yumconf',
+  $yum_proxy     = 'UNDEF',
+  $http_proxy    = 'UNDEF',
+  $http_port     = '80',
   $purge_repos_d = true,
+  $distroverpkg  = 'centos-release',
 ) {
   case $::operatingsystemrelease {
     default: {}
