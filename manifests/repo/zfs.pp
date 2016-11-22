@@ -10,6 +10,7 @@ class yum::repo::zfs (
   $include   = [],
   $debuginfo = false,
   $source    = false,
+  $kmod      = false,
 ) {
   require ::yum::repo::epel
 
