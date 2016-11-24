@@ -19,7 +19,7 @@ class yum::repo::influxdb (
     group   => root,
   }
 
-  file { "/etc/yum.repos.d/influxdb.repo":
+  file { '/etc/yum.repos.d/influxdb.repo':
     content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/influxdb.erb"),
   }
 }
