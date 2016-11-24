@@ -19,7 +19,7 @@ class yum::repo::grafana (
     group   => root,
   }
 
-  file { "/etc/yum.repos.d/grafana.repo":
+  file { '/etc/yum.repos.d/grafana.repo':
     content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/grafana.erb"),
   }
 }
