@@ -5,6 +5,9 @@ enabled=1
 gpgcheck=1
 gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>
