@@ -12,7 +12,7 @@ class yum::repo::google::talkplugin (
 ){
   require ::yum::repo::base
 
-  exec { 'googletalkrepokeyimport':
+  exec { 'rpm_keyimport_google_talkplugin':
     command => '/bin/rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub',
     unless  => '/bin/rpm -qa | /bin/grep -q gpg-pubkey-7fac5991-4615767f',
   }
@@ -23,7 +23,7 @@ class yum::repo::google::talkplugin (
     owner   => root,
     group   => root,
     content => template('yum/google/talkplugin.erb'),
-    require => Exec['googletalkrepokeyimport'],
+    require => Exec['rpm_keyimport_google_talkplugin'],
   }
 
 }
