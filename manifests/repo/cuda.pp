@@ -24,9 +24,9 @@ class yum::repo::cuda (
     default: {}
     /^6.*/: {
       package { 'cuda-repo-rhel6':
-        ensure   => present,
+        ensure   => '8.0.44-1',
         provider => 'rpm',
-        source   => 'http://developer.download.nvidia.com/compute/cuda/repos/rhel6/x86_64/cuda-repo-rhel6-5.5-0.x86_64.rpm',
+        source   => 'http://developer.download.nvidia.com/compute/cuda/repos/rhel6/x86_64/cuda-repo-rhel6-8.0.44-1.x86_64.rpm',
       }
     }
   }
