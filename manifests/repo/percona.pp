@@ -27,7 +27,7 @@ class yum::repo::percona (
       package { 'percona-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'https://www.percona.com/redir/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm',
+        source   => 'https://www.percona.com/redir/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm',
       }
     }
   }
