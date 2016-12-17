@@ -6,7 +6,7 @@
 class yum::repo::wandisco (
   $stage     = 'yumsetup',
   $priority  = '1',
-  $version  = '1.8',
+  $version   = '1.8',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
@@ -25,7 +25,7 @@ class yum::repo::wandisco (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/wandisco.erb"),
+    content => template("yum/${::operatingsystem}/wandisco.erb"),
     require => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-WANdisco'],
   }
 }
