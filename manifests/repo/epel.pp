@@ -40,7 +40,7 @@ class yum::repo::epel (
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://ftp.icm.edu.pl/pub/Linux/fedora/linux/epel/7/x86_64/e/epel-release-7-8.noarch.rpm'
+        source   => 'http://ftp.icm.edu.pl/pub/Linux/fedora/linux/epel/7/x86_64/e/epel-release-7-9.noarch.rpm'
       }
     }
   }
