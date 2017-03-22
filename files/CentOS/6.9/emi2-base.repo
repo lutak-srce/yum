@@ -1,0 +1,10 @@
+[EMI-2-base]
+name=EMI 2 base 
+baseurl=http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl6/$basearch/base
+protect=1
+enabled=1
+# To use priorities you must have yum-priorities installed
+priority=10
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+
