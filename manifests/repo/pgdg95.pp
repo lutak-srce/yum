@@ -24,15 +24,15 @@ class yum::repo::pgdg95 (
     default: {}
     /^6.*/: {
       package { 'pgdg-centos95' :
-        ensure   => '9.5-2',
+        ensure   => '9.5-3',
         provider => 'rpm',
-        source   => 'http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/pgdg-centos95-9.5-2.noarch.rpm', }
+        source   => 'http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/pgdg-centos95-9.5-3.noarch.rpm', }
     }
     /^7.*/: {
       package { 'pgdg-centos95' :
-        ensure   => '9.5-2',
+        ensure   => '9.5-3',
         provider => 'rpm',
-        source   => 'http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-2.noarch.rpm', }
+        source   => 'http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-3.noarch.rpm', }
     }
   }
 }
