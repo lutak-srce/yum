@@ -15,6 +15,6 @@ class yum::repo::gitlabce(
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/gitlab_gitlab-ce.repo",
+    content =>  template("yum/${::operatingsystem}/${::operatingsystemrelease}/gitlab_gitlab-ce.erb"),
   }
 }

@@ -8,6 +8,13 @@ gpgkey=https://packages.gitlab.com/gitlab/gitlab-ce/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
 
 [gitlab_gitlab-ce-source]
 name=gitlab_gitlab-ce-source
@@ -19,3 +26,9 @@ gpgkey=https://packages.gitlab.com/gitlab/gitlab-ce/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
