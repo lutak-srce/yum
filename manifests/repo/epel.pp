@@ -26,21 +26,21 @@ class yum::repo::epel (
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   =>  'http://mirror.bytemark.co.uk/fedora/epel/5/i386/epel-release-5-4.noarch.rpm',
+        source   =>  'https://dl.fedoraproject.org/pub/epel/epel-release-latest-5.noarch.rpm',
       }
     }
     /^6.*/: {
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://ftp-stud.hs-esslingen.de/pub/epel/6/i386/epel-release-6-8.noarch.rpm',
+        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm',
       }
     }
     /^7.*/: {
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://ftp.icm.edu.pl/pub/Linux/fedora/linux/epel/7/x86_64/e/epel-release-7-9.noarch.rpm'
+        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm'
       }
     }
   }
