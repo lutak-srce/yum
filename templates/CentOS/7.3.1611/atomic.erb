@@ -7,12 +7,12 @@ mirrorlist = http://updates.atomicorp.com/channels/mirrorlist/atomic/centos-$rel
 enabled = 1
 protect = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
-        file:///etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt
+	file:///etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt
 gpgcheck = 1
 priority = <%= @priority %>
-<% if @exclude.to_s != '' -%>
-exclude = <%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
