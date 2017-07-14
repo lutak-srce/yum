@@ -35,5 +35,12 @@ class yum::repo::remi (
         source   => 'http://rpms.famillecollet.com/enterprise/remi-release-6.rpm',
       }
     }
+    /^7.*/: {
+      package { 'remi-release':
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
+      }
+    }
   }
 }

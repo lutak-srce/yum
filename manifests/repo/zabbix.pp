@@ -8,6 +8,7 @@ class yum::repo::zabbix (
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
+  $version   = '2.2',
 ) {
   file { '/etc/yum.repos.d/zabbix.repo':
     ensure  => file,
@@ -25,14 +26,21 @@ class yum::repo::zabbix (
       package { 'zabbix-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://repo.zabbix.com/zabbix/2.2/rhel/5/x86_64/zabbix-release-2.2-1.el5.noarch.rpm',
+        source   => "http://repo.zabbix.com/zabbix/${version}/rhel/5/x86_64/zabbix-release-${version}-1.el5.noarch.rpm",
       }
     }
     /^6.*/: {
       package { 'zabbix-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm',
+        source   => "http://repo.zabbix.com/zabbix/${version}/rhel/6/x86_64/zabbix-release-${version}-1.el6.noarch.rpm",
+      }
+    }
+    /^7.*/: {
+      package { 'zabbix-release':
+        ensure   => present,
+        provider => 'rpm',
+        source   => "http://repo.zabbix.com/zabbix/${version}/rhel/7/x86_64/zabbix-release-${version}-1.el7.noarch.rpm",
       }
     }
   }

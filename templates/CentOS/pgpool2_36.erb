@@ -1,0 +1,13 @@
+[pgpool36]
+name=pgpool-II 3.6 $releasever - $basearch
+baseurl=http://www.pgpool.net/yum/rpms/3.6/redhat/rhel-$releasever-$basearch
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGPOOL2
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
