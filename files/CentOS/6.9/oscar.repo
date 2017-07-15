@@ -1,0 +1,4 @@
+[oscar]
+name=OSCAR
+baseurl=http://svn.oscar.openclustergroup.org/repos/unstable/rhel-6-x86_64/
+gpgcheck=0
