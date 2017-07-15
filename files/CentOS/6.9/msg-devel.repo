@@ -1,0 +1,6 @@
+[msg-devel]
+name=MSG Devel Repository
+baseurl=http://rpm.hellasgrid.gr/mash/centos6-msg-devel/$basearch
+enabled=1
+gpgcheck=0
+priority=1

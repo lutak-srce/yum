@@ -1,0 +1,6 @@
+[filesender-noarch]
+name=filesender-noarch
+baseurl=http://repository.filesender.org/rpm/stable
+gpgkey=http://repository.filesender.org/rpm/filesender.armor
+enabled=1
+gpgcheck=1
