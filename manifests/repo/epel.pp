@@ -33,14 +33,14 @@ class yum::repo::epel (
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://mirror.centos.org/centos/6/extras/x86_64/Packages/epel-release-6-8.noarch.rpm',
+        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm',
       }
     }
     /^7.*/: {
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm',
+        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
       }
     }
   }
