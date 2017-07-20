@@ -24,25 +24,18 @@ class yum::repo::ius (
   # install package depending on major version
   case $::operatingsystemrelease {
     default: {}
-    /^5.*/: {
-      package { 'ius-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/x86_64/ius-release-1.0-15.ius.el5.noarch.rpm',
-      }
-    }
     /^6.*/: {
       package { 'ius-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/ius-release-1.0-15.ius.el6.noarch.rpm',
+        source   => 'https://centos6.iuscommunity.org/ius-release.rpm',
       }
     }
     /^7.*/: {
       package { 'ius-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'https://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-15.ius.centos7.noarch.rpm',
+        source   => 'https://centos7.iuscommunity.org/ius-release.rpm',
       }
     }
   }
