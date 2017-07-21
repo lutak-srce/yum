@@ -1,4 +1,5 @@
-# Class: yum::repo::ius
+#
+# = Class: yum::repo::ius
 #
 # This module manages IUS repo files for $lsbdistrelease
 #
@@ -25,23 +26,23 @@ class yum::repo::ius (
     default: {}
     /^5.*/: {
       package { 'ius-release':
-        ensure   => '1.0-14.ius.el5',
+        ensure   => present,
         provider => 'rpm',
-        source   =>  'http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/x86_64/ius-release-1.0-14.ius.el5.noarch.rpm',
+        source   => 'http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/x86_64/ius-release-1.0-15.ius.el5.noarch.rpm',
       }
     }
     /^6.*/: {
       package { 'ius-release':
-        ensure   => '1.0-14.ius.el6',
+        ensure   => present,
         provider => 'rpm',
-        source   =>  'http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/ius-release-1.0-14.ius.el6.noarch.rpm',
+        source   => 'http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/ius-release-1.0-15.ius.el6.noarch.rpm',
       }
     }
     /^7.*/: {
       package { 'ius-release':
-        ensure   => '1.0-14.ius.centos7',
+        ensure   => present,
         provider => 'rpm',
-        source   =>  'https://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-14.ius.centos7.noarch.rpm',
+        source   => 'https://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-15.ius.centos7.noarch.rpm',
       }
     }
   }
