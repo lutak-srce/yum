@@ -1,7 +1,0 @@
-[isv_ownCloud_community_testing]
-name=Repository for testing version of ownCloud (CentOS_CentOS-6)
-type=rpm-md
-baseurl=http://download.opensuse.org/repositories/isv:/ownCloud:/community:/testing/CentOS_CentOS-6/
-gpgcheck=1
-gpgkey=http://download.opensuse.org/repositories/isv:/ownCloud:/community:/testing/CentOS_CentOS-6/repodata/repomd.xml.key
-enabled=1
