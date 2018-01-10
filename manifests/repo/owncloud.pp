@@ -5,9 +5,11 @@
 #
 class yum::repo::owncloud (
   $stage     = 'yumsetup',
+  $priority  = '1',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
+  $version   = 'production',
 ){
   require yum::repo::base
 
@@ -23,7 +25,7 @@ class yum::repo::owncloud (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/ownCloud.erb"),
+    content => template("yum/generic/ownCloud.erb"),
   }
 
 }
