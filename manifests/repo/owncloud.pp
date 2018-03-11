@@ -25,7 +25,7 @@ class yum::repo::owncloud (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/generic/ownCloud.erb"),
+    content => template('yum/generic/ownCloud.erb'),
   }
 
 }
