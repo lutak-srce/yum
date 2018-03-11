@@ -19,11 +19,11 @@ class yum::repo::nodesource (
     group   => root,
     content => template("yum/${::operatingsystem}/nodesource.erb"),
     require => Package['nodesource-release'],
-  }  
+  }
 
   package { 'nodesource-release':
     ensure   => present,
     provider => 'rpm',
     source   => "https://rpm.nodesource.com/pub_8.x/el/${facts['os']['release']['major']}/x86_64/nodesource-release-el${facts['os']['release']['major']}-1.noarch.rpm",
-  }  
+  }
 }
