@@ -3,7 +3,6 @@
 # This module manages EGI IGTF repo
 #
 class yum::repo::igtf (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

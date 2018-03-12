@@ -4,7 +4,6 @@
 # This module manages ElRrepo Extras repo files for $operatingsystemrelease
 #
 class yum::repo::percona::testing (
-  $stage     = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $source    = false,

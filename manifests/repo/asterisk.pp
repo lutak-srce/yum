@@ -5,11 +5,6 @@
 #
 # == Parameters
 #
-# [*stage*]
-#   Type: string, default: 'yumsetup'
-#   Defines run stage for this module. To avoid linking other resources to Asterisk,
-#   we run it in stage yumsetup by default (before main).
-#
 # [*priority*]
 #   Type: integer, default: 5
 #   Use priority 5 to be in front of EPEL.
@@ -35,14 +30,15 @@
 #    | asterisk   | 1.8-certified |
 #    | asterisk   | 11            |
 #    | asterisk   | 12            |
+#    | asterisk   | 13            |
 #    | digium     |               |
-#    | digium     | 11            |
-#    | digium     | 12            |
 #    | digium     | 1.8           |
 #    | digium     | 1.8-certified |
+#    | digium     | 11            |
+#    | digium     | 12            |
+#    | digium     | 13            |
 #
 class yum::repo::asterisk (
-  $stage     = 'yumsetup',
   $priority  = '5',
   $exclude   = [],
   $include   = [],

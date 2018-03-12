@@ -3,7 +3,6 @@
 # This module manages SysDig repo files for $lsbdistrelease
 #
 class yum::repo::sysdig (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

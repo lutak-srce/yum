@@ -4,7 +4,6 @@
 # This module manages vmware repo files for $operatingsystemrelease
 #
 class yum::repo::vmware (
-  $stage        = 'yumsetup',
   $priority     = '1',
   $exclude      = [],
   $include      = [],

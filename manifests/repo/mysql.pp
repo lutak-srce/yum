@@ -4,7 +4,6 @@
 # This module manages MySQL community repo files for $lsbdistrelease
 #
 class yum::repo::mysql (
-  $stage     = 'yumsetup',
   $priority  = '11',
   $exclude   = [],
   $include   = [],

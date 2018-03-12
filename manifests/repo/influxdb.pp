@@ -4,7 +4,6 @@
 # This module manages influxdb repo files for $lsbdistrelease
 #
 class yum::repo::influxdb (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

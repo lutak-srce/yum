@@ -3,7 +3,6 @@
 # This module manages chromium repo files for $operatingsystemrelease
 #
 class yum::repo::chromium (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

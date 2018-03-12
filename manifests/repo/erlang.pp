@@ -4,7 +4,6 @@
 # This module manages erlang repo files for $operatingsystemrelease
 #
 class yum::repo::erlang (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

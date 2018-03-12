@@ -6,12 +6,10 @@
 
 # CentOS
 class yum::repo::base::opstools (
-  $stage     = 'yumsetup',
   $priority  = '2',
   $exclude   = [],
   $include   = [],
 ){
-  require yum::repo::base
 
   case $::operatingsystem {
     default : {}
@@ -25,4 +23,5 @@ class yum::repo::base::opstools (
       }
     }
   }
+
 }

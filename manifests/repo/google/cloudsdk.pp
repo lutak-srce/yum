@@ -4,7 +4,6 @@
 # This module manages Google Cloud SDK repo files for $lsbdistrelease
 #
 class yum::repo::google::cloudsdk (
-  $stage     = 'yumsetup',
   $priority  = 1,
   $exclude   = [],
   $include   = [],

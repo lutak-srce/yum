@@ -3,7 +3,6 @@
 # This module manages rsyslog repo files for $lsbdistrelease
 #
 class yum::repo::rsyslog (
-  $stage    = 'yumsetup',
   $priority = 1,
   $exclude  = [],
 ){

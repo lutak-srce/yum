@@ -3,7 +3,6 @@
 # This module manages EMI SAM repo files
 #
 class yum::repo::sam (
-  $stage   = 'yumsetup',
   $priority  = '10',
   $exclude   = [],
   $include   = [],

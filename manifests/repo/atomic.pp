@@ -4,7 +4,6 @@
 # This module manages ATOMIC repo files for $operatingsystemrelease
 #
 class yum::repo::atomic (
-  $stage     = 'yumsetup',
   $priority  = '21',
   $exclude   = [ 'php*' ],
   $include   = [],
