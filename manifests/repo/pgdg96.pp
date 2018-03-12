@@ -4,7 +4,6 @@
 # This module manages PostgreSQL 9.3 repo files for $lsbdistrelease
 #
 class yum::repo::pgdg96 (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

@@ -4,7 +4,6 @@
 # This module manages shibboleth repo files for $lsbdistrelease
 #
 class yum::repo::bro(
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

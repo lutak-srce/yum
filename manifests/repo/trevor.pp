@@ -3,7 +3,6 @@
 # This module manages Filesender repo files for $lsbdistrelease
 #
 class yum::repo::trevor(
-  $stage   = 'yumsetup',
   $exclude  = [],
 ){
   require yum::repo::base

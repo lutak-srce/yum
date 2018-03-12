@@ -4,7 +4,6 @@
 # This module manages IUS repo files for $lsbdistrelease
 #
 class yum::repo::ius (
-  $stage     = 'yumsetup',
   $priority  = '61',
   $exclude   = [],
   $include   = [],
@@ -22,21 +21,8 @@ class yum::repo::ius (
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
-    default: {}
-    /^6.*/: {
-      package { 'ius-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'https://centos6.iuscommunity.org/ius-release.rpm',
-      }
-    }
-    /^7.*/: {
-      package { 'ius-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'https://centos7.iuscommunity.org/ius-release.rpm',
-      }
-    }
+  package { 'ius-release':
+    provider => 'rpm',
+    source   => "https://centos${::facts['os']['release']['major']}.iuscommunity.org/ius-release.rpm",
   }
 }

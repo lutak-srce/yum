@@ -3,7 +3,6 @@
 # This module manages FhGFS repo files for $lsbdistrelease
 #
 class yum::repo::fhgfs2012 (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

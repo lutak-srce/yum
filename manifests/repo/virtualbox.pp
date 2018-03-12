@@ -3,7 +3,6 @@
 # This module manages VirtualBox repo files for $lsbdistrelease
 #
 class yum::repo::virtualbox (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

@@ -4,7 +4,6 @@
 # This module manages nodejs repo files for $lsbdistrelease
 #
 class yum::repo::nodesource (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

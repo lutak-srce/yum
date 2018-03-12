@@ -4,7 +4,6 @@
 # This class manages CUDA repo files for $lsbdistrelease
 #
 class yum::repo::cuda (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

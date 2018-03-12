@@ -4,7 +4,6 @@
 # This module manages PuppetLabs repo files for $lsbdistrelease
 #
 class yum::repo::puppetlabspc1 (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],
