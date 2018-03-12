@@ -15,6 +15,6 @@ class yum::repo::shibboleth(
     mode   => '0644',
     owner  => root,
     group  => root,
-    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/security:shibboleth.repo",
+    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/security.shibboleth.repo",
   }
 }
