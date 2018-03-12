@@ -5,7 +5,6 @@
 
 # CentOS
 class yum::repo::srce::test (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

@@ -3,7 +3,6 @@
 # This module manages BeeGFS repo files for $lsbdistrelease
 #
 class yum::repo::beegfs (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

@@ -5,7 +5,6 @@
 
 # CentOS
 class yum::repo::puias::addons (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

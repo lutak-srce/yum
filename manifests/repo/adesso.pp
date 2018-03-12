@@ -3,7 +3,6 @@
 # This module manages Filesender repo files for $lsbdistrelease
 #
 class yum::repo::adesso(
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

@@ -3,7 +3,6 @@
 # This module adds RPMForge extras repo to $lsbdistrelease
 #
 class yum::repo::rpmforge::extras (
-  $stage     = 'yumsetup',
   $priority  = '53',
   $exclude   = [],
   $include   = [],

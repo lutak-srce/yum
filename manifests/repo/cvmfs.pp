@@ -3,7 +3,6 @@
 # This module manages CERN cvmfs repo files for $lsbdistrelease
 #
 class yum::repo::cvmfs (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [ ],
   $debuginfo = false,

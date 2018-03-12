@@ -3,7 +3,6 @@
 # This module manages MongoDB repo files for $lsbdistrelease
 #
 class yum::repo::mongodb (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

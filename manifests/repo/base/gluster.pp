@@ -6,13 +6,11 @@
 
 # CentOS
 class yum::repo::base::gluster (
-  $stage     = 'yumsetup',
   $priority  = '2',
   $version   = '3.12',
   $exclude   = [],
   $include   = [],
 ){
-  require yum::repo::base
 
   case $::operatingsystem {
     default : {}
@@ -26,4 +24,5 @@ class yum::repo::base::gluster (
       }
     }
   }
+
 }
