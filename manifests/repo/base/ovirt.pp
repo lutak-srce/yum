@@ -26,7 +26,7 @@ class yum::repo::base::ovirt (
         owner   => root,
         group   => root,
         content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-oVirt.erb"),
-	require => Package["centos-release-ovirt${version_nodot}"],
+        require => Package["centos-release-ovirt${version_nodot}"],
       }
     }
   }
