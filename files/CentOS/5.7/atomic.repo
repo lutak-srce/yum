@@ -1,0 +1,38 @@
+# Name: Atomic Rocket Turtle RPM Repository for CentOS / Red Hat Enterprise Linux 5 - 
+# URL: http://www.atomicrocketturtle.com/
+# Note: This isn't covered by ASL support. -Scott
+[atomic]
+priority=31
+name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com
+mirrorlist = http://www.atomicorp.com/mirrorlist/atomic/centos-5-$basearch
+#mirrorlist = http://www.atomicorp.com/channels/atomic/centos/5/mirrors-atomic
+enabled = 1
+priority = 21
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
+gpgcheck = 1
+exclude = sqlite libvirt* ebtables mysql*5.5* php-sqlite
+
+# Almost Stable, release candidates for [atomic]
+priority=31
+# Note these are not supported by anyone. -Scott
+[atomic-testing]
+priority=32
+name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com - (Testing)
+mirrorlist = http://www.atomicorp.com/mirrorlist/atomic-testing/centos-5-$basearch
+enabled = 0
+priority = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
+gpgcheck = 1
+
+# Untested, Unstable, known buggy, and incomplete packages. 
+# Note, you shouldn't be here unless you are me. -Scott
+#[atomic-bleeding]
+#name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com - (Bleeding)
+#baseurl = http://www.atomicorp.com/channels/atomic-bleeding/centos/5/$basearch/
+#enabled = 0
+#priority = 1
+#protect = 0
+#gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
+#gpgcheck = 1
