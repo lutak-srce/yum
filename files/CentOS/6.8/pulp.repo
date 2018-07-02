@@ -1,0 +1,10 @@
+# Place this file in your /etc/yum.repos.d/ directory
+
+# Version 2.11 Production Releases
+[pulp-2.11-stable]
+name=Pulp 2.11 Production Releases
+baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/stable/2.11/$releasever/$basearch/
+enabled=1
+skip_if_unavailable=1
+gpgcheck=1
+gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
