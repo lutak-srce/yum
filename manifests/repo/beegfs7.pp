@@ -1,4 +1,4 @@
-# Class: yum::repo::beegfs
+# Class: yum::repo::beegfs7
 #
 # This module manages BeeGFS repo files for $lsbdistrelease
 #
