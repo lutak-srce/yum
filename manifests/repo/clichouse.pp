@@ -9,10 +9,10 @@ class yum::repo::clickhouse(
   $include   = [],
 ){
   file { '/etc/yum.repos.d/clickhouse.repo' :
-    ensure => file,
-    mode   => '0644',
-    owner  => root,
-    group  => root,
+    ensure  => file,
+    mode    => '0644',
+    owner   => root,
+    group   => root,
     content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/clickhouse.erb"),
   }
 }
