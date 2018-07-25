@@ -1,10 +1,10 @@
 [zfs-testing]
 <% if @kmod -%>
 name=ZFS on Linux for EL7 - dkms - Testing
-baseurl=http://download.zfsonlinux.org/epel-testing/7/$basearch/
+baseurl=http://download.zfsonlinux.org/epel-testing/7.5/$basearch/
 <% else -%>
 name=ZFS on Linux for EL7 - kmod - Testing
-baseurl=http://download.zfsonlinux.org/epel-testing/7/kmod/$basearch/
+baseurl=http://download.zfsonlinux.org/epel-testing/7.5/kmod/$basearch/
 <% end -%>
 enabled=1
 metadata_expire=7d
@@ -20,7 +20,7 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [zfs-testing-source]
 name=ZFS on Linux for EL7 - Testing Source
-baseurl=http://download.zfsonlinux.org/epel-testing/7/SRPMS/
+baseurl=http://download.zfsonlinux.org/epel-testing/7.5/SRPMS/
 <% if @source -%>
 enabled=1
 <% else -%>
