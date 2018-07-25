@@ -1,10 +1,10 @@
 [zfs]
 <% if @kmod -%>
-name=ZFS on Linux for EL7.4 - kmod
-baseurl=http://download.zfsonlinux.org/epel/7.4/kmod/$basearch/
+name=ZFS on Linux for EL7.5 - kmod
+baseurl=http://download.zfsonlinux.org/epel/7.5/kmod/$basearch/
 <% else -%>
-name=ZFS on Linux for EL7.4 - dkms
-baseurl=http://download.zfsonlinux.org/epel/7.4/$basearch/
+name=ZFS on Linux for EL7.5 - dkms
+baseurl=http://download.zfsonlinux.org/epel/7.5/$basearch/
 <% end -%>
 enabled=1
 metadata_expire=7d
@@ -20,7 +20,7 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [zfs-source]
 name=ZFS on Linux for EL7.4 - Source
-baseurl=http://download.zfsonlinux.org/epel/7.4/SRPMS/
+baseurl=http://download.zfsonlinux.org/epel/7.5/SRPMS/
 <% if @source -%>
 enabled=1
 <% else -%>
