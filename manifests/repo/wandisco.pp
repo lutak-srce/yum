@@ -1,11 +1,12 @@
-# Class: yum::repo::wandisco
+#
+# = Class: yum::repo::wandisco
 #
 # This module manages Wandisco repo files for $lsbdistrelease
-# Repo serves SVN 1.7
+# Repo serves newer SVN releases
 #
 class yum::repo::wandisco (
   $priority  = '1',
-  $version   = '1.8',
+  $version   = '1.9',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
