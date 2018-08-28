@@ -1,0 +1,14 @@
+# testing repo, overrides srce-base
+[srce-test]
+name=Srce Testing Packages for Enterprise Linux $releasever - $basearch
+baseurl=http://ftp.srce.hr/redhat/test/el6/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SRCE
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
