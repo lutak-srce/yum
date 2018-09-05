@@ -8,6 +8,13 @@ enabled=1
 skip_if_unavailable=1
 gpgcheck=1
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
 
 # Latest Stable Release (disabled by default to prevent automatic major version upgrades)
 [pulp-stable]
@@ -17,3 +24,10 @@ enabled=0
 skip_if_unavailable=1
 gpgcheck=1
 gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
