@@ -3,6 +3,7 @@
 # This module manages Pulp repo files for $lsbdistrelease
 #
 class yum::repo::pulp (
+  $priority  = '10',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
@@ -14,6 +15,6 @@ class yum::repo::pulp (
     mode   => '0644',
     owner  => root,
     group  => root,
-    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/pulp.repo",
+    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/pulp.erb"),
   }
 }
