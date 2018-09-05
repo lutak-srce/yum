@@ -11,10 +11,10 @@ class yum::repo::pulp (
   require yum::repo::base
 
   file { '/etc/yum.repos.d/pulp.repo' :
-    ensure => file,
-    mode   => '0644',
-    owner  => root,
-    group  => root,
+    ensure  => file,
+    mode    => '0644',
+    owner   => root,
+    group   => root,
     content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/pulp.erb"),
   }
 }
