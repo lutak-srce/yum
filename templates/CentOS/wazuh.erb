@@ -1,13 +1,14 @@
 [wazuh]
 name = WAZUH OSSEC Repository - www.wazuh.com
-baseurl = http://ossec.wazuh.com/el/$releasever/$basearch
+baseurl = https://packages.wazuh.com/3.x/yum/
 gpgcheck = 1
 <% if @operatingsystem == 'CentOS' and @operatingsystemmajrelease == '5' -%>
 gpgkey = http://ossec.wazuh.com/key/RPM-GPG-KEY-OSSEC-RHEL5
 <% else -%>
-gpgkey = http://ossec.wazuh.com/key/RPM-GPG-KEY-OSSEC
+gpgkey = https://packages.wazuh.com/key/GPG-KEY-WAZUH
 <% end -%>
 enabled = 1
+protect = 1
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
