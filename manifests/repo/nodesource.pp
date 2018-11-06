@@ -5,6 +5,7 @@
 #
 class yum::repo::nodesource (
   $priority  = '99',
+  $version   = '10.x',
   $exclude   = [],
   $include   = [],
   $source    = false,
@@ -23,6 +24,6 @@ class yum::repo::nodesource (
   package { 'nodesource-release':
     ensure   => present,
     provider => 'rpm',
-    source   => "https://rpm.nodesource.com/pub_8.x/el/${facts['os']['release']['major']}/x86_64/nodesource-release-el${facts['os']['release']['major']}-1.noarch.rpm",
+    source   => "https://rpm.nodesource.com/pub_${version}/el/${facts['os']['release']['major']}/x86_64/nodesource-release-el${facts['os']['release']['major']}-1.noarch.rpm",
   }
 }
