@@ -15,7 +15,7 @@ class yum::repo::percona (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/percona.erb"),
+    content => template("yum/generic/percona.erb"),
     require => Package['percona-release'],
   }
 
@@ -26,7 +26,7 @@ class yum::repo::percona (
       package { 'percona-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'https://www.percona.com/redir/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm',
+        source   => 'http://repo.percona.com/percona/yum/release/percona-release-latest.noarch.rpm',
       }
     }
   }
