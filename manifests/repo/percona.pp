@@ -1,4 +1,5 @@
-# Class: yum::repo::percona
+#
+# = Class: yum::repo::percona
 #
 # This module manages Percona repo files for $lsbdistrelease
 #
@@ -15,7 +16,7 @@ class yum::repo::percona (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/generic/percona.erb"),
+    content => template('yum/generic/percona.erb'),
     require => Package['percona-release'],
   }
 
