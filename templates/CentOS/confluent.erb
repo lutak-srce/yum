@@ -1,8 +1,8 @@
 [Confluent.dist]
 name=Confluent repository (dist)
-baseurl=https://packages.confluent.io/rpm/5.0/7
+baseurl=https://packages.confluent.io/rpm/<%= @version %>/7
 gpgcheck=1
-gpgkey=https://packages.confluent.io/rpm/5.0/archive.key
+gpgkey=https://packages.confluent.io/rpm/<%= @version %>/archive.key
 enabled=1
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
@@ -14,9 +14,9 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [Confluent]
 name=Confluent repository
-baseurl=https://packages.confluent.io/rpm/5.0
+baseurl=https://packages.confluent.io/rpm/<%= @version %>
 gpgcheck=1
-gpgkey=https://packages.confluent.io/rpm/5.0/archive.key
+gpgkey=https://packages.confluent.io/rpm/<%= @version %>/archive.key
 enabled=1
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
