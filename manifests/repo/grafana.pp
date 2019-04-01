@@ -19,6 +19,6 @@ class yum::repo::grafana (
   }
 
   file { '/etc/yum.repos.d/grafana.repo':
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/grafana.erb"),
+    content => template("yum/${::operatingsystem}/grafana.erb"),
   }
 }
