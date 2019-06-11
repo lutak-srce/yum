@@ -1,4 +1,5 @@
-# Class: yum::repo::ius::archive
+#
+# = Class: yum::repo::ius::archive
 #
 # This module adds IUS archive repo to $lsbdistrelease
 #
@@ -15,6 +16,6 @@ class yum::repo::ius::archive (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/ius-archive.erb"),
+    content => template("yum/${facts['os']['name']}/ius-archive.erb"),
   }
 }

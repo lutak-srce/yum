@@ -16,7 +16,7 @@ class yum::repo::ius (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/ius.erb"),
+    content => template("yum/${facts['os']['name']}/ius.erb"),
     require => Package['ius-release'],
   }
 
