@@ -1,6 +1,6 @@
 [mongodb]
-name=MongoDB Repository
-baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/$basearch/
+name=MongoDB <%= @version %> Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/<%= @version %>/$basearch/
 gpgcheck=0
 enabled=1
 priority=<%= @priority %>
