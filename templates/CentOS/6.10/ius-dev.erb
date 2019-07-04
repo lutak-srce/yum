@@ -1,0 +1,51 @@
+[ius-dev]
+name=IUS Community Packages for Enterprise Linux 6 - $basearch - Dev
+#baseurl=http://dl.iuscommunity.org/pub/ius/development/Redhat/6/$basearch
+mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-el6-dev&arch=$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[ius-dev-debuginfo]
+name=IUS Community Packages for Enterprise Linux 6 - $basearch - Dev Debug Info
+#baseurl=http://dl.iuscommunity.org/pub/ius/development/Redhat/6/$basearch/debuginfo
+mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-el6-dev-debuginfo&arch=$basearch
+failovermethod=priority
+<% if @debuginfo -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[ius-dev-source]
+name=IUS Community Packages for Enterprise Linux 6 - $basearch - Dev Source
+#baseurl=http://dl.iuscommunity.org/pub/ius/development/Redhat/6/SRPMS
+mirrorlist=http://dmirr.iuscommunity.org/mirrorlist/?repo=ius-el6-dev-source&arch=source
+failovermethod=priority
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

@@ -1,0 +1,33 @@
+[remi-php56]
+name=Les RPM de remi de PHP 5.6 pour Enterprise Linux 6 - $basearch
+#baseurl=http://rpms.famillecollet.com/enterprise/6/php56/$basearch/
+mirrorlist=http://rpms.famillecollet.com/enterprise/6/php56/mirror
+# WARNING: If you enable this repository, you must also enable "remi"
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[remi-php56-debuginfo]
+name=Les RPM de remi de PHP 5.6 pour Enterprise Linux 6 - $basearch - debuginfo
+baseurl=http://rpms.famillecollet.com/enterprise/6/debug-php56/$basearch/
+<% if @debuginfo -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
