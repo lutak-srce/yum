@@ -1,6 +1,7 @@
-# Class: yum::repo::remi::test
 #
-# This module manages Remi test repo files for $lsbdistrelease
+# Class: yum::repo::remi::safe
+#
+# This module manages Remi safe repo files for $lsbdistrelease
 #
 class yum::repo::remi::safe(
   $stage     = 'yumsetup',

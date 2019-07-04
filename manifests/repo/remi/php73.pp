@@ -1,3 +1,8 @@
+#
+# = Class: yum::repo::remi::php73
+#
+# This module manages Remi php73 repo files for $lsbdistrelease
+#
 class yum::repo::remi::php73(
   $stage     = 'yumsetup',
   $priority  = '91',

@@ -1,6 +1,7 @@
-# Class: yum::repo::remi::php56
 #
-# This module manages Remi php56 repo files for $lsbdistrelease
+# = Class: yum::repo::remi::php71
+#
+# This module manages Remi php71 repo files for $lsbdistrelease
 #
 class yum::repo::remi::php71(
   $stage     = 'yumsetup',
