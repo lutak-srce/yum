@@ -10,11 +10,11 @@ class yum::repo::adesso(
 ){
   require yum::repo::base
 
-  file { '/etc/yum.repos.d/home:adesso.repo' :
+  file { '/etc/yum.repos.d/home.adesso.repo' :
     ensure  => file,
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/home:adesso.repo",
+    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/home.adesso.repo",
   }
 }
