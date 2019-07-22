@@ -5,7 +5,7 @@
 #
 class yum::repo::wazuh (
   $stage     = 'yumsetup',
-  $priority  = '15',
+  $priority  = '1',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
