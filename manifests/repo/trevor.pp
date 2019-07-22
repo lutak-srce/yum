@@ -1,4 +1,4 @@
-# Class: yum::repo::adesso
+# Class: yum::repo::trevor
 #
 # This module manages Filesender repo files for $lsbdistrelease
 #
