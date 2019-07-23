@@ -1,6 +1,7 @@
-# Class: yum::repo::shibboleth
 #
-# This module manages shibboleth repo files for $lsbdistrelease
+# = Class: yum::repo::gitlabce
+#
+# This module manages GitLab Community Edition repo files for $lsbdistrelease
 #
 class yum::repo::gitlabce(
   $stage   = 'yumsetup',
