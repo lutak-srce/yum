@@ -8,11 +8,13 @@ class yum::repo::clickhouse(
   $exclude   = [],
   $include   = [],
 ){
+
   file { '/etc/yum.repos.d/clickhouse.repo' :
     ensure  => file,
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/clickhouse.erb"),
+    content => template("yum/${::operatingsystem}/clickhouse.erb"),
   }
+
 }
