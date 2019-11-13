@@ -1,13 +1,14 @@
-# Class: yum::repo::ius
+#
+# = Class: yum::repo::ius
 #
 # This module manages IUS repo files for $lsbdistrelease
 #
 class yum::repo::ius (
-  $stage    = 'yumsetup',
-  $priority = '61',
-  $exclude  = [],
+  $priority  = '61',
+  $exclude   = [],
   $include   = [],
   $debuginfo = false,
+  $source    = false,
 ){
   require yum::repo::base
 
@@ -16,33 +17,13 @@ class yum::repo::ius (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/ius.erb"),
+    content => template("yum/${facts['os']['name']}/ius.erb"),
     require => Package['ius-release'],
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
-    default: {}
-    /^5.*/: {
-      package { 'ius-release':
-        ensure   => '1.0-15.ius.el5',
-        provider => 'rpm',
-        source   =>  'http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/x86_64/ius-release-1.0-15.ius.el5.noarch.rpm',
-      }
-    }
-    /^6.*/: {
-      package { 'ius-release':
-        ensure   => '1.0-15.ius.el6',
-        provider => 'rpm',
-        source   =>  'http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/ius-release-1.0-15.ius.el6.noarch.rpm',
-      }
-    }
-    /^7.*/: {
-      package { 'ius-release':
-        ensure   => '1.0-15.ius.el7',
-        provider => 'rpm',
-        source   =>  'http://dl.iuscommunity.org/pub/ius/stable/Redhat/7/x86_64/ius-release-1.0-15.ius.el7.noarch.rpm',
-      }
-    }
+  package { 'ius-release':
+    provider => 'rpm',
+    source   => "http://dl.iuscommunity.org/pub/ius/stable/Redhat/${::facts['os']['release']['major']}/x86_64/ius-release-2-1.el7.ius.noarch.rpm",
   }
 }
