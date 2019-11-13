@@ -8,7 +8,7 @@ class yum::repo::ius::archive (
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
-  $source = false,
+  $source    = false,
 ){
   require yum::repo::ius
 

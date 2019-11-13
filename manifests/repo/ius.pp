@@ -8,7 +8,7 @@ class yum::repo::ius (
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
-  $source = false,
+  $source    = false,
 ){
   require yum::repo::base
 
