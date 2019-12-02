@@ -1,7 +1,7 @@
 [epel]
 name=Extra Packages for Enterprise Linux 7 - $basearch
 #baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 enabled=1
 gpgcheck=1
@@ -17,7 +17,7 @@ includepkgs=<%= @include.join(' ') %>
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
 #baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch/debug
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&arch=$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 <% if @debuginfo -%>
 enabled=1
@@ -37,7 +37,7 @@ includepkgs=<%= @include.join(' ') %>
 [epel-source]
 name=Extra Packages for Enterprise Linux 7 - $basearch - Source
 #baseurl=http://download.fedoraproject.org/pub/epel/7/SRPMS
-metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&arch=$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&arch=$basearch&infra=$infra&content=$contentdir
 failovermethod=priority
 <% if @source -%>
 enabled=1
