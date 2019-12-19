@@ -1,9 +1,9 @@
 [nordugrid-updates]
 name=NorduGrid - $basearch - Updates
-baseurl=http://download.nordugrid.org/repos/15.03/centos/el6/$basearch/updates
+baseurl=http://download.nordugrid.org/repos/6/centos/el6/$basearch/updates
 enabled=1
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nordugrid
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nordugrid-6
 priority=<%= @priority %>
 <% if @exclude.to_s != '' -%>
 exclude=<%= @exclude.to_a.join(' ') %>
