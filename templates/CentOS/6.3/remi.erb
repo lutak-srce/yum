@@ -16,7 +16,6 @@ includepkgs=<%= @include.to_a.join(' ') %>
 [remi-debuginfo]
 name=Les RPM de remi pour Enterprise Linux 6 - $basearch - debuginfo
 baseurl=http://rpms.famillecollet.com/enterprise/6/debug-remi/$basearch/
-enabled=1
 <% if @debuginfo -%>
 enabled=1
 <% else -%>
