@@ -8,15 +8,15 @@ class yum::repo::percona (
   $include   = [],
   $source    = false,
   $priority  = '1',
+  $version   = 'original',
 ){
   require ::yum::repo::base
 
-  file { '/etc/yum.repos.d/percona-release.repo':
+  File {
     ensure  => file,
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template('yum/generic/percona.erb'),
     require => Package['percona-release'],
   }
 
@@ -31,4 +31,21 @@ class yum::repo::percona (
       }
     }
   }
+
+  case $version {
+    default: {
+      file { '/etc/yum.repos.d/percona-release.repo':
+        content => template('yum/generic/percona.erb'),
+      }
+    }
+    /8(\.)?0/: {
+      file { '/etc/yum.repos.d/percona-tools-release.rep.repo':
+        content => template('yum/generic/percona-tools-release.erb'),
+      }
+      file { '/etc/yum.repos.d/percona-ps-80-release.repo':
+        content => template('yum/generic/percona-ps-80-release.erb'),
+      }
+    }
+  }
+
 }
