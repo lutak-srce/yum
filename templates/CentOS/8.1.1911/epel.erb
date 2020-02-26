@@ -1,0 +1,55 @@
+[epel]
+name=Extra Packages for Enterprise Linux 8 - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/8/$basearch
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-8&arch=$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 8 - $basearch - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/8/$basearch/debug
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-8&arch=$basearch
+failovermethod=priority
+<% if @debuginfo -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgcheck=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 8 - $basearch - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/8/SRPMS
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-8&arch=$basearch
+failovermethod=priority
+<% if @source -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgcheck=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
