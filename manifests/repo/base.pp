@@ -13,9 +13,20 @@ class yum::repo::base (
 ){
 
   case $::operatingsystem {
+    default: {
+    }
     # Amazon AMI Linux (RedHat derivative)
     'Amazon' : {
       include ::yum::repo::base::amazon
+    }
+    # RedHat Enterprise Linux
+    'RedHat': {
+      file { '/etc/yum.repos.d/redhat.repo':
+        ensure => file,
+        mode   => '0644',
+        owner  => root,
+        group  => root,
+      }
     }
     # CentOS (Community Enterprise Operating System)
     'CentOS' : {
@@ -55,23 +66,12 @@ class yum::repo::base (
           package { 'yum-upgrade-helper': }
           package { 'yum-versionlock': }
         }
-        /^6\.[1-6]$/: {
+        /^6.*/: {
           package { 'centos-release': }
           # yum helpers
           package { 'yum-utils': }
           package { 'yum-plugin-changelog': }
-          package { 'yum-plugin-downloadonly': }
-          package { 'yum-plugin-merge-conf': }
-          package { 'yum-plugin-priorities': }
-          package { 'yum-plugin-protectbase': }
-          package { 'yum-plugin-upgrade-helper': }
-          package { 'yum-plugin-versionlock': }
-        }
-        /^6\.([7-9]$)|([1-6][0-9]$)/: {
-          package { 'centos-release': }
-          # yum helpers
-          package { 'yum-utils': }
-          package { 'yum-plugin-changelog': }
+          if ( 0 + $::operatingsystemrelease < 6.7 ) { package { 'yum-plugin-downloadonly': } }
           package { 'yum-plugin-merge-conf': }
           package { 'yum-plugin-priorities': }
           package { 'yum-plugin-protectbase': }
@@ -80,56 +80,6 @@ class yum::repo::base (
         }
         /^7.*/: {
           package { 'centos-release': }
-          # yum helpers
-          package { 'yum-utils': }
-          package { 'yum-plugin-changelog': }
-          package { 'yum-plugin-merge-conf': }
-          package { 'yum-plugin-priorities': }
-          package { 'yum-plugin-protectbase': }
-          package { 'yum-plugin-upgrade-helper': }
-          package { 'yum-plugin-versionlock': }
-        }
-      }
-    }
-    'Fedora': {
-      file { '/etc/yum.repos.d/fedora.repo':
-        ensure  => file,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/fedora.erb"),
-        require => Package['fedora-release'],
-      }
-      file { '/etc/yum.repos.d/fedora-updates.repo':
-        ensure  => file,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/fedora-updates.erb"),
-        require => Package['fedora-release'],
-      }
-      case $::operatingsystemrelease {
-        default: {
-          $nameaddon = '-plugin'
-        }
-        /^18.*/: {
-          $nameaddon = '-plugin'
-          package { 'fedora-release':
-            ensure   => present,
-            provider => rpm,
-            source   => 'http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/18/Fedora/x86_64/os/Packages/f/fedora-release-18-1.noarch.rpm',
-          }
-          package { 'fedora-release-notes':
-            ensure   => present,
-            provider => rpm,
-            source   => 'http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/18/Fedora/x86_64/os/Packages/f/fedora-release-notes-18.0.0-3.fc18.noarch.rpm',
-          }
-        }
-      }
-      case $::operatingsystemrelease {
-        default: {
-        }
-        /^18.*/: {
           # yum helpers
           package { 'yum-utils': }
           package { 'yum-plugin-changelog': }
