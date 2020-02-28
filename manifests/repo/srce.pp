@@ -42,6 +42,13 @@ class yum::repo::srce (
         source   => 'http://ftp.srce.hr/srce-redhat/base/el7/x86_64/srce-release-5-3.el7.srce.noarch.rpm',
       }
     }
+    /^8.*/: {
+      package { 'srce-release' :
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'http://ftp.srce.hr/srce-redhat/base/el8/x86_64/srce-release-5-3.el8.srce.noarch.rpm',
+      }
+    }
     /^18.*/: {
       package { 'srce-release' :
         ensure   => present,
