@@ -1,0 +1,14 @@
+[packages-microsoft-com-prod]
+name=packages-microsoft-com-prod
+baseurl=https://packages.microsoft.com/centos/<%= @facts['os']['release']['major'] %>/prod
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+sslverify=1
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.to_a.join(' ') %>
+<% end -%>
