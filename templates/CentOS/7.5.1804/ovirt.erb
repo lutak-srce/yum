@@ -1,0 +1,15 @@
+[ovirt-<%= @version %>]
+name=Latest oVirt <%= @version %> Release
+#baseurl=http://resources.ovirt.org/pub/ovirt-<%= @version %>/rpm/el$releasever/
+mirrorlist=http://resources.ovirt.org/pub/yum-repo/mirrorlist-ovirt-<%= @version %>-el$releasever
+enabled=1
+skip_if_unavailable=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-<%= @version %>
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
