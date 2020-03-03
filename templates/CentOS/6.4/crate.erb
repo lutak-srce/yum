@@ -1,0 +1,20 @@
+[crate]
+name=CRATE Packages for Enterprise Linux 6 - $basearch
+baseurl=https://cdn.crate.io/downloads/yum/6/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-crate
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[crate-testing]
+name=CRATE Packages for Enterprise Linux 6 - $basearch - Testing
+baseurl=https://cdn.crate.io/downloads/yum/testing/6/$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-crate
