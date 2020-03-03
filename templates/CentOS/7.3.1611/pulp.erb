@@ -1,0 +1,33 @@
+# Place this file in your /etc/yum.repos.d/ directory
+
+# Version 2.x Production Releases
+[pulp-2-stable]
+name=Pulp 2 Production Releases
+baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/stable/2/$releasever/$basearch/
+enabled=1
+skip_if_unavailable=1
+gpgcheck=1
+gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+# Latest Stable Release (disabled by default to prevent automatic major version upgrades)
+[pulp-stable]
+name=Pulp Production Releases
+baseurl=https://repos.fedorapeople.org/repos/pulp/pulp/stable/latest/$releasever/$basearch/
+enabled=0
+skip_if_unavailable=1
+gpgcheck=1
+gpgkey=https://repos.fedorapeople.org/repos/pulp/pulp/GPG-RPM-KEY-pulp-2
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>

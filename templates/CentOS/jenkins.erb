@@ -1,0 +1,17 @@
+[jenkins]
+name=Jenkins
+<% if @version == 'stable' or @version == 'LTS' -%>
+baseurl=https://pkg.jenkins.io/redhat-stable
+<% else -%>
+baseurl=https://pkg.jenkins.io/redhat
+<% end -%>
+enabled=1
+gpgcheck=1
+gpgkey=http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
