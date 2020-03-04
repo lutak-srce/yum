@@ -1,5 +1,4 @@
 class yum::repo::pgpool2_36 (
-  $stage    = 'yumsetup',
   $priority = '21',
   $exclude  = [],
   $include   = [],

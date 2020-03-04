@@ -4,7 +4,6 @@
 # This module manages Remi safe repo files for $lsbdistrelease
 #
 class yum::repo::remi::safe(
-  $stage     = 'yumsetup',
   $priority  = '91',
   $exclude   = [],
   $include   = [],

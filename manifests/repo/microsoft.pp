@@ -3,7 +3,6 @@
 # This module manages Microsoft repo files
 #
 class yum::repo::microsoft (
-  $stage     = 'yumsetup',
   $priority  = 99,
   $exclude   = [],
   $include   = [],

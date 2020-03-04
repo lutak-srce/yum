@@ -6,7 +6,6 @@
 # Amazon
 class yum::repo::base::openstack (
   $version   = 'stein',
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

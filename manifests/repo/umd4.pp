@@ -3,7 +3,6 @@
 # This module manages UMD4 repo files
 #
 class yum::repo::umd4 (
-  $stage     = 'yumsetup',
   $priority  = 1,
   $exclude   = [],
   $include   = [],

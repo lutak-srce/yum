@@ -4,7 +4,6 @@
 # This module manages Software collections repo files
 #
 class yum::repo::sclo (
-  $stage     = 'yumsetup',
   $priority  = 1,
   $exclude   = [],
   $include   = [],

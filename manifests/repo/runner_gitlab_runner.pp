@@ -1,5 +1,4 @@
 class yum::repo::runner_gitlab_runner (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

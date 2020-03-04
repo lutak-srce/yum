@@ -2,7 +2,6 @@
 # = Class: yum::repo::nodejs_v9
 #
 class yum::repo::nodejs_v9 (
-  $stage     = 'yumsetup',
   $priority  = '2',
   $exclude   = [],
   $include   = [],

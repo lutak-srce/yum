@@ -3,7 +3,6 @@
 # This module manages Mono repo files for $operatingsystemrelease
 #
 class yum::repo::mono (
-  $stage     = 'yumsetup',
   $priority  = 99,
   $exclude   = [],
   $include   = [],

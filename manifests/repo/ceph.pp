@@ -4,7 +4,6 @@
 # This module manages Ceph repo
 #
 class yum::repo::ceph (
-  $stage     = 'yumsetup',
   $priority  = 1,
   $exclude   = [],
   $include   = [],
