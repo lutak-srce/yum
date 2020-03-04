@@ -6,12 +6,10 @@
 
 # CentOS
 class yum::repo::base::sclorh (
-  $stage    = 'yumsetup',
   $priority = '2',
   $exclude  = [],
   $include  = [],
 ){
-  require yum::repo::base
 
   package { 'centos-release-scl-rh': }
 
@@ -28,4 +26,5 @@ class yum::repo::base::sclorh (
       }
     }
   }
+
 }

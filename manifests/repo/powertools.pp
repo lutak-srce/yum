@@ -5,7 +5,6 @@
 
 # CentOS
 class yum::repo::powertools (
-  $stage     = 'yumsetup',
   $priority  = '2',
   $exclude   = [],
   $include   = [],

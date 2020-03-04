@@ -3,7 +3,6 @@
 # This module manages cert repo files
 #
 class yum::repo::cert (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

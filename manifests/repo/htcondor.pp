@@ -3,7 +3,6 @@
 # This module manages HTCondor repo files for $lsbdistrelease
 #
 class yum::repo::htcondor (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

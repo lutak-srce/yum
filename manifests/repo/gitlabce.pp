@@ -4,7 +4,6 @@
 # This module manages GitLab Community Edition repo files for $lsbdistrelease
 #
 class yum::repo::gitlabce(
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

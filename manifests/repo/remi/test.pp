@@ -3,7 +3,6 @@
 # This module manages Remi test repo files for $lsbdistrelease
 #
 class yum::repo::remi::test(
-  $stage     = 'yumsetup',
   $priority  = '91',
   $exclude   = [],
   $include   = [],

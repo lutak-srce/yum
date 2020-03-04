@@ -4,7 +4,6 @@
 # This module manages Remi php72 repo files for $lsbdistrelease
 #
 class yum::repo::remi::php72(
-  $stage     = 'yumsetup',
   $priority  = '91',
   $exclude   = [],
   $include   = [],

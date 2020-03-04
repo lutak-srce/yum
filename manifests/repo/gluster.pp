@@ -3,7 +3,6 @@
 # This module manages Gluster repo files for $lsbdistrelease
 #
 class yum::repo::gluster(
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

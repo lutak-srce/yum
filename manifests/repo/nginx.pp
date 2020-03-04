@@ -4,7 +4,6 @@
 # https://nginx.org
 #
 class yum::repo::nginx (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

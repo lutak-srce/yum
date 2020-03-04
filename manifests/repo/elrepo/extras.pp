@@ -5,7 +5,6 @@
 
 # CentOS
 class yum::repo::elrepo::extras (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

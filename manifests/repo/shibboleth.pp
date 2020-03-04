@@ -3,7 +3,6 @@
 # This module manages shibboleth repo files for $lsbdistrelease
 #
 class yum::repo::shibboleth(
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

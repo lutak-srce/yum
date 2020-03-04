@@ -3,9 +3,8 @@
 # This module manages Srce repo files for $lsbdistrelease
 #
 class yum::repo::srce (
-  $stage    = 'yumsetup',
-  $priority = '5',
-  $exclude  = [],
+  $priority  = '5',
+  $exclude   = [],
   $include   = [],
   $debuginfo = false,
 ) {

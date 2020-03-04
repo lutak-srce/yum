@@ -3,7 +3,6 @@
 # This module manages CMD-OS repo files
 #
 class yum::repo::cmd_os (
-  $stage     = 'yumsetup',
   $priority  = 1,
   $exclude   = [],
   $include   = [],

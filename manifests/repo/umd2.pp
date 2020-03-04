@@ -3,7 +3,6 @@
 # This module manages UMD2 repo files
 #
 class yum::repo::umd2 (
-  $stage     = 'yumsetup',
   $priority  = 1,
   $exclude   = [],
   $include   = [],

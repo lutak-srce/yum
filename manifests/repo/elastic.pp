@@ -4,7 +4,6 @@
 # This module manages elastic repo files
 #
 class yum::repo::elastic (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

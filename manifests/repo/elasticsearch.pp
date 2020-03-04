@@ -3,7 +3,6 @@
 # This module manages elasticsearch repo files for $operatingsystemrelease
 #
 class yum::repo::elasticsearch (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

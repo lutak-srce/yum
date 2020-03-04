@@ -3,7 +3,6 @@
 # This module manages nordugrid repo files
 #
 class yum::repo::nordugrid (
-  $stage     = 'yumsetup',
   $priority  = 1,
   $exclude   = [],
   $include   = [],

@@ -4,7 +4,6 @@
 # This module manages rpmfusion repo files for $operatingsystemrelease
 #
 class yum::repo::rpmfusion::nonfree (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $testing  = false,
   $exclude   = [],

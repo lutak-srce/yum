@@ -5,7 +5,6 @@
 
 # CentOS
 class yum::repo::puias::computational (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

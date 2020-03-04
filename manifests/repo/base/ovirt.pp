@@ -6,7 +6,6 @@
 
 # CentOS
 class yum::repo::base::ovirt (
-  $stage     = 'yumsetup',
   $priority  = '2',
   $version   = '4.2',
   $exclude   = [],

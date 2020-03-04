@@ -3,7 +3,6 @@
 # This module manages EMI2 repo files
 #
 class yum::repo::emi2 (
-  $stage   = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

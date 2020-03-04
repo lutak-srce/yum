@@ -3,7 +3,6 @@
 # This module adds IUS dev repo to $lsbdistrelease
 #
 class yum::repo::ius::dev (
-  $stage     = 'yumsetup',
   $priority  = '63',
   $exclude   = [],
   $include   = [],

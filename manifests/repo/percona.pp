@@ -3,7 +3,6 @@
 # This module manages Percona repo files for $lsbdistrelease
 #
 class yum::repo::percona (
-  $stage     = 'yumsetup',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,

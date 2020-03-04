@@ -5,7 +5,6 @@
 
 # CentOS
 class yum::repo::elrepo::testing (
-  $stage     = 'yumsetup',
   $priority  = '99',
   $exclude   = [],
   $include   = [],

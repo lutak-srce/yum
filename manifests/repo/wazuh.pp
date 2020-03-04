@@ -4,7 +4,6 @@
 # This module manages Wazuh repo files for $lsbdistrelease
 #
 class yum::repo::wazuh (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],

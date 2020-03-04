@@ -4,7 +4,6 @@
 # This class manages RHEL Software Collection devtoolset repo files for $lsbdistrelease
 #
 class yum::repo::rhscl_devtoolset (
-  $stage     = 'yumsetup',
   $priority  = '1',
   $exclude   = [],
   $include   = [],
