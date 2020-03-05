@@ -18,14 +18,9 @@ includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>
 
 [remi-debuginfo]
-<<<<<<< HEAD
-name=Les RPM de remi pour Enterprise Linux 6 - $basearch - debuginfo
-baseurl=http://rpms.famillecollet.com/enterprise/6/debug-remi/$basearch/
-=======
 name=Remi's RPM repository for Enterprise Linux 6 - $basearch - debuginfo
 baseurl=http://rpms.remirepo.net/enterprise/6/debug-remi/$basearch/
 enabled=1
->>>>>>> 1a91abd... Sync with my yum
 <% if @debuginfo -%>
 enabled=1
 <% else -%>

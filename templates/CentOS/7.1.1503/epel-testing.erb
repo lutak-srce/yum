@@ -1,11 +1,7 @@
 [epel-testing]
 name=Extra Packages for Enterprise Linux 7 - Testing - $basearch
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/7/$basearch
-<<<<<<< HEAD
-metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&arch=$basearch
-=======
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&arch=$basearch
->>>>>>> 1a91abd... Sync with my yum
 failovermethod=priority
 enabled=0
 gpgcheck=1
@@ -20,11 +16,7 @@ includepkgs=<%= @include.join(' ') %>
 [epel-testing-debuginfo]
 name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Debug
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/7/$basearch/debug
-<<<<<<< HEAD
-metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&arch=$basearch
-=======
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&arch=$basearch
->>>>>>> 1a91abd... Sync with my yum
 failovermethod=priority
 <% if @debuginfo -%>
 enabled=1
@@ -43,11 +35,7 @@ includepkgs=<%= @include.join(' ') %>
 [epel-testing-source]
 name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Source
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/7/SRPMS
-<<<<<<< HEAD
-metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&arch=$basearch
-=======
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&arch=$basearch
->>>>>>> 1a91abd... Sync with my yum
 failovermethod=priority
 <% if @source -%>
 enabled=1
