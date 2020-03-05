@@ -6,11 +6,11 @@ failovermethod=priority
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [epel-testing-debuginfo]
@@ -25,11 +25,11 @@ enabled=0
 <% end -%>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 gpgcheck=1
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [epel-testing-source]
@@ -44,9 +44,9 @@ enabled=0
 <% end -%>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 gpgcheck=1
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>

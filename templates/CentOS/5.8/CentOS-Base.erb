@@ -17,7 +17,7 @@ mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo
 gpgcheck=1
 priority=<%= @priority %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>
 
@@ -29,6 +29,6 @@ mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo
 gpgcheck=1
 priority=<%= @priority %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>

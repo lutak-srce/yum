@@ -1,4 +1,5 @@
-# Class: yum::repo::shibboleth
+#
+# = Class: yum::repo::shibboleth
 #
 # This module manages shibboleth repo files for $lsbdistrelease
 #
@@ -14,7 +15,7 @@ class yum::repo::bro(
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  =>
-"puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/bro.repo",
+    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/bro.repo",
   }
+
 }

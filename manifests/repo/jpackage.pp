@@ -26,7 +26,7 @@ class yum::repo::jpackage (
       package { 'jpackage-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'ftp://jpackage.hmdc.harvard.edu/JPackage/6.0/generic/free/RPMS/jpackage-release-6-3.jpp6.noarch.rpm',
+        source   => 'http://mirrors.dotsrc.org/jpackage/6.0/generic/free/RPMS/jpackage-release-6-3.jpp6.noarch.rpm',
       }
     }
   }

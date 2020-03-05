@@ -6,6 +6,6 @@ gpgcheck=1
 enabled=1
 protect=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
 <% end -%>

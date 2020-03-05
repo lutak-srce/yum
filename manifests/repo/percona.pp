@@ -5,12 +5,12 @@
 class yum::repo::percona (
   $exclude   = [],
   $include   = [],
-  $debuginfo = false,
+  $source    = false,
   $priority  = '1',
 ){
   require ::yum::repo::base
 
-  file { '/etc/yum.repos.d/Percona.repo':
+  file { '/etc/yum.repos.d/percona-release.repo':
     ensure  => file,
     mode    => '0644',
     owner   => root,
@@ -22,11 +22,11 @@ class yum::repo::percona (
   # install package depending on major version
   case $::operatingsystemrelease {
     default: {}
-    /^6.*/: {
+    /^(6|7).*/: {
       package { 'percona-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://www.percona.com/downloads/percona-release/percona-release-0.0-1.x86_64.rpm',
+        source   => 'https://www.percona.com/redir/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm',
       }
     }
   }

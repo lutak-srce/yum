@@ -6,10 +6,10 @@ name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com
 mirrorlist = http://updates.atomicorp.com/channels/mirrorlist/atomic/centos-$releasever-$basearch
 enabled = 1
 protect = 0
-gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt   
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt
          file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
 gpgcheck = 1
 priority = <%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude = <%= @exclude.join(' ') %>
 <% end -%>

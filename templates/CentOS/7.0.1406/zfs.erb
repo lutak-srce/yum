@@ -6,11 +6,11 @@ metadata_expire=7d
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [zfs-source]
@@ -24,9 +24,9 @@ enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
-exclude=<%= @exclude.to_a.join(' ') %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
-includepkgs=<%= @include.to_a.join(' ') %>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
