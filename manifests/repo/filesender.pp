@@ -10,10 +10,10 @@ class yum::repo::filesender(
   require yum::repo::base
 
   file { '/etc/yum.repos.d/filesender-stable.repo' :
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/filesender-stable.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/filesender-stable.repo",
   }
 }

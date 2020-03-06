@@ -10,7 +10,7 @@ Puppet::Type.type(:yumgroup).provide(:default) do
     groups = []
 
     # get list of all groups
-    yum_content = yum('grouplist')
+    yum_content = yum('grouplist').split("\n")
 
     # turn of collecting to avoid lines like 'Loaded plugins'
     collect_groups = false

@@ -1,17 +1,37 @@
 [zfs-testing]
-name=ZFS on Linux for EL7 - Testing
-baseurl=http://archive.zfsonlinux.org/epel-testing/7/$basearch/
+<% if @kmod -%>
+name=ZFS on Linux for EL7 - dkms - Testing
+baseurl=http://download.zfsonlinux.org/epel-testing/7/$basearch/
+<% else -%>
+name=ZFS on Linux for EL7 - kmod - Testing
+baseurl=http://download.zfsonlinux.org/epel-testing/7/kmod/$basearch/
+<% end -%>
 enabled=1
 metadata_expire=7d
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
 
 [zfs-testing-source]
 name=ZFS on Linux for EL7 - Testing Source
-baseurl=http://archive.zfsonlinux.org/epel-testing/7/SRPMS/
+baseurl=http://download.zfsonlinux.org/epel-testing/7/SRPMS/
 <% if @source -%>
 enabled=1
 <% else -%>
 enabled=0
 <% end -%>
 gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

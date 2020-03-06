@@ -9,6 +9,7 @@ class yum::repo::zfs (
   $include   = [],
   $debuginfo = false,
   $source    = false,
+  $kmod      = false,
 ) {
   require ::yum::repo::epel
 
@@ -35,7 +36,7 @@ class yum::repo::zfs (
       package { 'zfs-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://archive.zfsonlinux.org/epel/zfs-release.el7.noarch.rpm',
+        source   => 'http://download.zfsonlinux.org/epel/zfs-release.el7.centos.noarch.rpm',
       }
     }
   }

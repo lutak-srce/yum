@@ -4,6 +4,7 @@
 #
 class yum::repo::mongodb (
   $priority  = '1',
+  $version   = '3.4',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
@@ -15,7 +16,7 @@ class yum::repo::mongodb (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/mongodb.erb"),
+    content => template("yum/generic/mongodb.erb"),
   }
 
 }

@@ -1,4 +1,5 @@
-# Class: yum::repo::jenkins
+#
+# = Class: yum::repo::jenkins
 #
 # This module manages Jenkins repo files for $lsbdistrelease
 #
@@ -20,7 +21,7 @@ class yum::repo::jenkins (
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/jenkins.repo",
+    content => template('yum/CentOS/jenkins.erb'),
     require => Exec['jenkins_key'],
   }
 }

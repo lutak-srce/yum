@@ -1,9 +1,8 @@
-# Class: yum::repo::base::debuginfo
+#
+# = Class: yum::repo::base::debuginfo
 #
 # This module manages Debuginfo repo files for $operatingsystemrelease
 #
-
-# CentOS
 class yum::repo::base::debuginfo (
   $priority  = '2',
   $exclude   = [],
@@ -20,7 +19,7 @@ class yum::repo::base::debuginfo (
         mode   => '0644',
         owner  => root,
         group  => root,
-        source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-Debuginfo.repo",
+        source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-Debuginfo.erb",
       }
     }
   }

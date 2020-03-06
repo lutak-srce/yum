@@ -10,10 +10,10 @@ class yum::repo::igtf (
   require yum::repo::base
 
   file { '/etc/yum.repos.d/EGI-trustanchors.repo' :
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/EGI-trustanchors.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/EGI-trustanchors.repo",
   }
 }

@@ -1,0 +1,44 @@
+#
+# This repo is managed by "percona-release" utility, do not edit!
+#
+[tools-release-x86_64]
+name = Percona Tools release/x86_64 YUM repository
+baseurl = http://repo.percona.com/tools/yum/release/$releasever/RPMS/x86_64
+enabled = 1
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.join(' ') %>
+<% end -%>
+
+[tools-release-noarch]
+name = Percona Tools release/noarch YUM repository
+baseurl = http://repo.percona.com/tools/yum/release/$releasever/RPMS/noarch
+enabled = 1
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.join(' ') %>
+<% end -%>
+
+[tools-release-sources]
+name = Percona Tools release/sources YUM repository
+baseurl = http://repo.percona.com/tools/yum/release/$releasever/SRPMS
+enabled = 0
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.join(' ') %>
+<% end -%>
