@@ -26,7 +26,7 @@ class yum::repo::srce (
       package { 'srce-release' :
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://ftp.srce.hr/srce-redhat/base/el6/x86_64/srce-release-5-3.el5.srce.noarch.rpm',
+        source   => 'http://ftp.srce.hr/srce-redhat/base/el5/x86_64/srce-release-5-3.el5.srce.noarch.rpm',
       }
     }
     /^6.*/ : {
