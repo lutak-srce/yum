@@ -1,26 +1,26 @@
-# Class: yum::repo::srce::extras
 #
-# This module manages Extras repo files for $operatingsystemrelease
+# = Class: yum::repo::srce::extras
 #
-
-# CentOS
+# This module manages Srce Extras repo files for $operatingsystemrelease
+#
 class yum::repo::srce::extras (
   $priority  = '1',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
 ){
+
   require yum::repo::srce
 
   case $::operatingsystem {
     default : {}
     'CentOS' : {
-      file { '/etc/yum.repos.d/srce-extras.repo':
+      file { '/etc/yum.repos.d/srce-extras.repo' :
         ensure  => file,
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/srce-extras.erb"),
+        content => template('yum/CentOS/srce-extras.erb'),
       }
     }
   }
