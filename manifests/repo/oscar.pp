@@ -10,10 +10,10 @@ class yum::repo::oscar (
   require yum::repo::base
 
   file { '/etc/yum.repos.d/oscar.repo' :
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/oscar.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/oscar.repo",
   }
 }

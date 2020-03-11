@@ -10,10 +10,10 @@ class yum::repo::beegfs (
   require yum::repo::base
 
   file { '/etc/yum.repos.d/beegfs.repo' :
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/beegfs.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/beegfs.repo",
   }
 }
