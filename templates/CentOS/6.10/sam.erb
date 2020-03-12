@@ -6,9 +6,9 @@ baseurl=http://repository.egi.eu/sw/production/sam/1/$basearch
 enabled=1
 priority=<%= @priority %>
 gpgcheck=0
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
+<% unless @include.empty? -%>
 includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>

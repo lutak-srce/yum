@@ -4,15 +4,19 @@
 [elrepo-extras]
 name=ELRepo.org Community Enterprise Linux Extras Repository - el6
 baseurl=http://elrepo.org/linux/extras/el6/$basearch/
-mirrorlist=http://elrepo.org/mirrors-elrepo-extras.el6
+	http://mirrors.coreix.net/elrepo/extras/el6/$basearch/
+	http://mirror.rackspace.com/elrepo/extras/el6/$basearch/
+	http://repos.lax-noc.com/elrepo/extras/el6/$basearch/
+	http://mirror.ventraip.net.au/elrepo/extras/el6/$basearch/
+mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-extras.el6
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
 protect=0
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
+<% unless @include.empty? -%>
 includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>

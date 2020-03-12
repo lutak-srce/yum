@@ -9,7 +9,7 @@ gpgcheck=1
 plugins=1
 installonly_limit=5
 bugtracker_url=http://bugs.centos.org/set_project.php?project_id=23&ref=http://bugs.centos.org/bug_report_page.php?category=yum
-distroverpkg=centos-release
+distroverpkg=<%= @distroverpkg %>
 <% if @http_proxy != 'UNDEF' -%>
 proxy=<%= @http_proxy %>
 <% end -%>

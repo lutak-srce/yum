@@ -8,7 +8,7 @@ class yum::repo::elastic (
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
-  $version   = '5.x',
+  $version   = '6.x',
 ){
   require yum::repo::base
 
