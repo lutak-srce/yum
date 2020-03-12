@@ -2,66 +2,105 @@
 name=Puppet Labs Products El 7 - $basearch
 baseurl=http://yum.puppetlabs.com/el/7/products/$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet
 enabled=1
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [puppetlabs-deps]
 name=Puppet Labs Dependencies El 7 - $basearch
 baseurl=http://yum.puppetlabs.com/el/7/dependencies/$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet
 enabled=1
 gpgcheck=1
-priority=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [puppetlabs-devel]
 name=Puppet Labs Devel El 7 - $basearch
 baseurl=http://yum.puppetlabs.com/el/7/devel/$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet
+<% if @devel -%>
+enabled=1
+<% else -%>
 enabled=0
+<% end -%>
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [puppetlabs-products-source]
 name=Puppet Labs Products El 7 - $basearch - Source
 baseurl=http://yum.puppetlabs.com/el/7/products/SRPMS
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet
 failovermethod=priority
+<% if @source -%>
+enabled=1
+<% else -%>
 enabled=0
+<% end -%>
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [puppetlabs-deps-source]
 name=Puppet Labs Source Dependencies El 7 - $basearch - Source
 baseurl=http://yum.puppetlabs.com/el/7/dependencies/SRPMS
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet
+<% if @source -%>
+enabled=1
+<% else -%>
 enabled=0
+<% end -%>
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
 [puppetlabs-devel-source]
 name=Puppet Labs Devel El 7 - $basearch - Source
 baseurl=http://yum.puppetlabs.com/el/7/devel/SRPMS
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet
+<% if @source and @devel -%>
+enabled=1
+<% else -%>
 enabled=0
+<% end -%>
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
 <% end -%>

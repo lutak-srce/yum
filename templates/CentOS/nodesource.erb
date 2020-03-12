@@ -1,6 +1,6 @@
 [nodesource]
 name=Node.js Packages for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch
-baseurl=https://rpm.nodesource.com/pub_8.x/el/<%= @facts['os']['release']['major'] %>/$basearch
+baseurl=https://rpm.nodesource.com/pub_<%= @version %>/el/<%= @facts['os']['release']['major'] %>/$basearch
 failovermethod=priority
 enabled=1
 gpgcheck=1
@@ -15,7 +15,7 @@ includepkgs=<%= @include.join(' ') %>
 
 [nodesource-source]
 name=Node.js for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch - Source
-baseurl=https://rpm.nodesource.com/pub_8.x/el/<%= @facts['os']['release']['major'] %>/SRPMS
+baseurl=https://rpm.nodesource.com/pub_<%= @version %>/el/<%= @facts['os']['release']['major'] %>/SRPMS
 failovermethod=priority
 <% if @source -%>
 enabled=1

@@ -11,11 +11,11 @@ class yum::repo::bro(
   require yum::repo::base
 
   file { '/etc/yum.repos.d/bro.repo' :
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/bro.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/bro.repo",
   }
 
 }
