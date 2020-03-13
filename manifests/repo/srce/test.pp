@@ -1,26 +1,26 @@
-# Class: yum::repo::srce::text
 #
-# This module manages Extras repo files for $operatingsystemrelease
+# = Class: yum::repo::srce::test
 #
-
-# CentOS
+# This module manages Srce Test repo files for $operatingsystemrelease
+#
 class yum::repo::srce::test (
   $priority  = '1',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
 ){
+
   require yum::repo::srce
 
   case $::operatingsystem {
     default : {}
     'CentOS' : {
-      file { '/etc/yum.repos.d/srce-test.repo':
+      file { '/etc/yum.repos.d/srce-test.repo' :
         ensure  => file,
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/srce-test.erb"),
+        content => template('yum/CentOS/srce-test.erb'),
       }
     }
   }
