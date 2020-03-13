@@ -8,7 +8,6 @@ class yum::repo::ius (
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
-  $source    = false,
 ){
   require yum::repo::base
 
@@ -24,6 +23,6 @@ class yum::repo::ius (
   # install package depending on major version
   package { 'ius-release':
     provider => 'rpm',
-    source   => "http://dl.iuscommunity.org/pub/ius/stable/Redhat/${::facts['os']['release']['major']}/x86_64/ius-release-2-1.el7.ius.noarch.rpm",
+    source   => "https://centos${::facts['os']['release']['major']}.iuscommunity.org/ius-release.rpm",
   }
 }

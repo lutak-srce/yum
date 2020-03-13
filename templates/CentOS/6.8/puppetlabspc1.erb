@@ -6,10 +6,10 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs-PC1
 enabled=1
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
+<% unless @include.empty? -%>
 includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>
 
@@ -22,9 +22,9 @@ failovermethod=priority
 enabled=0
 gpgcheck=1
 priority=<%= @priority %>
-<% if @exclude.to_s != '' -%>
+<% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
-<% if @include.to_s != '' -%>
+<% unless @include.empty? -%>
 includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>
