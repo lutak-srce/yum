@@ -8,7 +8,6 @@ class yum::repo::ius::testing (
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
-  $source    = false,
 ){
   require yum::repo::ius
 

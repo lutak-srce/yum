@@ -1,10 +1,11 @@
-# Class: yum::repo::atomic
+#
+# = Class: yum::repo::atomic
 #
 # This module manages ATOMIC repo files for $operatingsystemrelease
 #
 class yum::repo::atomic (
-  $priority = '21',
-  $exclude  = [ 'php*' ],
+  $priority  = '21',
+  $exclude   = [ 'php*' ],
   $include   = [],
   $debuginfo = false,
 ) {

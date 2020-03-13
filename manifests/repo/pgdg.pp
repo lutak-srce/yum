@@ -9,11 +9,7 @@ class yum::repo::pgdg {
   require yum::repo::base
 
   # install package depending on major version
-  if ( 0 + $facts['os']['release']['major'] > 6 ) {
-    $pgdg_subdir = "EL-${facts['os']['release']['major']}-${facts['os']['architecture']}"
-  } else {
-    $pgdg_subdir = "EL-${facts['os']['release']['major']}"
-  }
+  $pgdg_subdir = "EL-${facts['os']['release']['major']}-${facts['os']['architecture']}"
 
   package { 'pgdg-redhat-repo' :
     provider => 'rpm',
