@@ -25,7 +25,7 @@ class yum::repo::epel (
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   =>  'https://dl.fedoraproject.org/pub/epel/epel-release-latest-5.noarch.rpm',
+        source   => 'http://archives.fedoraproject.org/pub/archive/epel/epel-release-latest-5.noarch.rpm',
       }
     }
     /^6.*/: {
@@ -39,14 +39,14 @@ class yum::repo::epel (
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm'
+        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
       }
     }
     /^8.*/: {
       package { 'epel-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm'
+        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm',
       }
     }
   }
