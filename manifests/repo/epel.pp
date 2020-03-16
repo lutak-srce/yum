@@ -42,5 +42,12 @@ class yum::repo::epel (
         source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
       }
     }
+    /^8.*/: {
+      package { 'epel-release':
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm',
+      }
+    }
   }
 }
