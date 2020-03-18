@@ -9,7 +9,7 @@ class yum::repo::adesso(
 ){
   require yum::repo::base
 
-  file { '/etc/yum.repos.d/home:adesso.repo' :
+  file { '/etc/yum.repos.d/home.adesso.repo' :
     ensure => file,
     mode   => '0644',
     owner  => root,
