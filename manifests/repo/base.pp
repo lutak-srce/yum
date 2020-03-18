@@ -88,6 +88,9 @@ class yum::repo::base (
           package { 'yum-plugin-upgrade-helper': }
           package { 'yum-plugin-versionlock': }
         }
+        /^8.*/: {
+          package { 'centos-release': }
+        }
       }
     }
   }
