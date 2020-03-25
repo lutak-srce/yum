@@ -1,0 +1,29 @@
+[Ceph]
+name=Ceph packages for $basearch
+baseurl=http://download.ceph.com/rpm-<%= @release %>/el7/$basearch
+enabled=1
+gpgcheck=1
+type=rpm-md
+gpgkey=https://download.ceph.com/keys/release.asc
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[Ceph-noarch]
+name=Ceph noarch packages
+baseurl=http://download.ceph.com/rpm-<%= @release %>/el7/noarch
+enabled=1
+gpgcheck=1
+type=rpm-md
+gpgkey=https://download.ceph.com/keys/release.asc
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
