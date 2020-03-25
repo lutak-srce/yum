@@ -1,4 +1,5 @@
-# Class: yum::repo::shibboleth
+#
+# = Class: yum::repo::shibboleth
 #
 # This module manages shibboleth repo files for $lsbdistrelease
 #
@@ -9,7 +10,7 @@ class yum::repo::shibboleth(
 ){
   require yum::repo::base
 
-  file { '/etc/yum.repos.d/security:shibboleth.repo' :
+  file { '/etc/yum.repos.d/security.shibboleth.repo' :
     ensure => file,
     mode   => '0644',
     owner  => root,
