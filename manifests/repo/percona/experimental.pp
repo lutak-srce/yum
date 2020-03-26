@@ -1,15 +1,16 @@
 #
 # = Class: yum::repo::percona::experimental
 #
-# This module manages ElRrepo Extras repo files for $operatingsystemrelease
+# This module manages Percona Experimental repo files for $operatingsystemrelease
 #
 class yum::repo::percona::experimental (
-  $stage     = 'yumsetup',
-  $exclude   = [],
-  $include   = [],
-  $source    = false,
-  $priority  = '1',
+  $stage    = 'yumsetup',
+  $exclude  = [],
+  $include  = [],
+  $source   = false,
+  $priority = '1',
 ){
+
   require ::yum::repo::percona
 
   case $::operatingsystem {
@@ -24,4 +25,5 @@ class yum::repo::percona::experimental (
       }
     }
   }
+
 }

@@ -1,3 +1,8 @@
+#
+# = Class: yum::repo::runner_gitlab_runner 
+#
+# This module manages GitLab Runner repo files 
+#
 class yum::repo::runner_gitlab_runner (
   $priority  = '1',
   $exclude   = [],
@@ -7,7 +12,7 @@ class yum::repo::runner_gitlab_runner (
 
   require yum::repo::base
 
-  file { '/etc/yum.repos.d/runner_gitlab-runner.repo':
+  file { '/etc/yum.repos.d/runner_gitlab-runner.repo' :
     ensure  => file,
     mode    => '0644',
     owner   => root,

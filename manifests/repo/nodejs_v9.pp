@@ -19,11 +19,11 @@ class yum::repo::nodejs_v9 (
   }
 
   file { '/etc/yum.repos.d/nodesource-el7.repo':
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/nodesource-el7.repo",
+    ensure => file,
+    mode   => '0644',
+    owner  => root,
+    group  => root,
+    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/nodesource-el7.repo",
   }
 
 }

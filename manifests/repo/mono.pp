@@ -1,4 +1,5 @@
-# Class: yum::repo::mono
+#
+# = Class: yum::repo::mono
 #
 # This module manages Mono repo files for $operatingsystemrelease
 #
@@ -8,7 +9,6 @@ class yum::repo::mono (
   $include   = [],
   $debuginfo = false,
 ){
-#  require yum::repo::base
 
   exec {'monorepokeyimport':
     command => '/bin/rpm --import http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF',
