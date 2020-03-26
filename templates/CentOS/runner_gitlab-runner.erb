@@ -1,6 +1,6 @@
 [runner_gitlab-runner]
 name=runner_gitlab-runner
-baseurl=https://packages.gitlab.com/runner/gitlab-runner/el/7/$basearch
+baseurl=https://packages.gitlab.com/runner/gitlab-runner/el/<%= @facts['os']['release']['major'] %>/$basearch
 repo_gpgcheck=1
 gpgcheck=0
 enabled=1
@@ -12,7 +12,7 @@ exclude=gitlab-runner
 
 [runner_gitlab-runner-source]
 name=runner_gitlab-runner-source
-baseurl=https://packages.gitlab.com/runner/gitlab-runner/el/7/SRPMS
+baseurl=https://packages.gitlab.com/runner/gitlab-runner/el/<%= @facts['os']['release']['major'] %>/SRPMS
 repo_gpgcheck=1
 gpgcheck=0
 enabled=1
