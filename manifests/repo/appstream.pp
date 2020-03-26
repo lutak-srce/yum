@@ -1,15 +1,15 @@
-# Class: yum::repo::base::extras
 #
-# This module manages Extras repo files for $operatingsystemrelease
+# = Class: yum::repo::appstream
 #
-
-# CentOS
+# This module manages AppStream repo files for $operatingsystemrelease
+#
 class yum::repo::appstream (
   $priority  = '2',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
 ){
+
   require yum::repo::base
 
   case $::operatingsystem {
@@ -24,4 +24,5 @@ class yum::repo::appstream (
       }
     }
   }
+
 }

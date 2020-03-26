@@ -1,9 +1,8 @@
-# Class: yum::repo::base::openstack
 #
-# This module manages CentOS cloud repo files for $operatingsystemrelease
+# = Class: yum::repo::base::openstack
 #
-
-# Amazon
+# This module manages OpenStack repo files
+#
 class yum::repo::base::openstack (
   $version   = 'stein',
   $priority  = '1',
@@ -11,6 +10,7 @@ class yum::repo::base::openstack (
   $include   = [],
   $debuginfo = false,
 ){
+
   require ::yum::repo::base
   require ::yum::repo::base::extras
 
@@ -29,4 +29,5 @@ class yum::repo::base::openstack (
     ensure  => file,
     content => template('yum/CentOS/CentOS-OpenStack.erb'),
   }
+
 }

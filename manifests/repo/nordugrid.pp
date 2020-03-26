@@ -1,6 +1,7 @@
-# Class: yum::repo::nordugrid
 #
-# This module manages nordugrid repo files
+# = Class: yum::repo::nordugrid
+#
+# This module manages NorduGrid repo files
 #
 class yum::repo::nordugrid (
   $priority  = 1,
@@ -8,6 +9,7 @@ class yum::repo::nordugrid (
   $include   = [],
   $debuginfo = false,
 ){
+
   require yum::repo::base
 
   file { '/etc/yum.repos.d/nordugrid.repo':
@@ -18,6 +20,7 @@ class yum::repo::nordugrid (
     content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/nordugrid.erb"),
     require => Package['nordugrid-release'],
   }
+
   file { '/etc/yum.repos.d/nordugrid-updates.repo':
     ensure  => file,
     mode    => '0644',
@@ -26,6 +29,7 @@ class yum::repo::nordugrid (
     content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/nordugrid-updates.erb"),
     require => Package['nordugrid-release'],
   }
+
   case $::operatingsystemrelease {
     default: {}
     /^6.*/: {
@@ -36,4 +40,5 @@ class yum::repo::nordugrid (
       }
     }
   }
+
 }
