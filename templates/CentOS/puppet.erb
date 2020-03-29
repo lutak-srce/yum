@@ -11,22 +11,3 @@ exclude=<%= @exclude.to_a.join(' ') %>
 <% unless @include.empty? -%>
 includepkgs=<%= @include.to_a.join(' ') %>
 <% end -%>
-
-[puppet<%= @version %>-source]
-name=Puppet <%= @version %> Repository el <%= @facts['os']['release']['major'] %> - Source
-baseurl=https://yum.puppetlabs.com/puppet<%= @version %>/el/<%= @facts['os']['release']['major'] %>/SRPMS
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet<%= @version %>-release
-failovermethod=priority
-<% if @source -%>
-enabled=1
-<% else -%>
-enabled=0
-<% end -%>
-gpgcheck=1
-priority=<%= @priority %>
-<% unless @exclude.empty? -%>
-exclude=<%= @exclude.to_a.join(' ') %>
-<% end -%>
-<% unless @include.empty? -%>
-includepkgs=<%= @include.to_a.join(' ') %>
-<% end -%>
