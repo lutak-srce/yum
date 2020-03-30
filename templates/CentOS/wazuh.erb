@@ -8,7 +8,9 @@ gpgkey = http://ossec.wazuh.com/key/RPM-GPG-KEY-OSSEC-RHEL5
 gpgkey = https://packages.wazuh.com/key/GPG-KEY-WAZUH
 <% end -%>
 enabled = 1
+<% if @operatingsystem == 'CentOS' and @operatingsystemmajrelease < '8' -%>
 protect = 1
+<% end -%>
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
