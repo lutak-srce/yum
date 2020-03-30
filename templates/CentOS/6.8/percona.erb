@@ -1,0 +1,15 @@
+# Name: Percona RPM Repository
+# URL: http://www.percona.com/percona-lab.html
+[percona]
+name = CentOS $releasever - Percona
+baseurl=http://repo.percona.com/centos/$releasever/os/$basearch/
+enabled = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-percona
+gpgcheck = 1
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
