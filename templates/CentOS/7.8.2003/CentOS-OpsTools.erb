@@ -1,0 +1,32 @@
+# CentOS-OpsTools.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/OpsTools for more
+# information
+
+[centos-opstools-testing]
+name=CentOS-7 - OpsTools - testing repo
+baseurl=http://buildlogs.centos.org/centos/7/opstools/$basearch/
+gpgcheck=0
+enabled=0
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[centos-opstools-release]
+name=CentOS-7 - OpsTools - release
+baseurl=http://mirror.centos.org/centos/$releasever/opstools/$basearch/
+gpgcheck=1
+enabled=1
+skip_if_unavailable=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-OpsTools
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
