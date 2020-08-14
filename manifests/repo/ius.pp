@@ -23,6 +23,6 @@ class yum::repo::ius (
   # install package depending on major version
   package { 'ius-release':
     provider => 'rpm',
-    source   => "https://centos${::facts['os']['release']['major']}.iuscommunity.org/ius-release.rpm",
+    source   => "https://repo.ius.io/ius-release-el${::facts['os']['release']['major']}.rpm",
   }
 }
