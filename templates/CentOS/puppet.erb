@@ -2,6 +2,7 @@
 name=Puppet <%= @version %> Repository el <%= @facts['os']['release']['major'] %> - $basearch
 baseurl=https://yum.puppetlabs.com/puppet<%= @version %>/el/<%= @facts['os']['release']['major'] %>/$basearch
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet<%= @version %>-release
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2025-04-06-puppet<= @version %>-release
 enabled=1
 gpgcheck=1
 priority=<%= @priority %>
@@ -17,6 +18,7 @@ includepkgs=<%= @include.to_a.join(' ') %>
 name=Puppet <%= @version %> Repository el <%= @facts['os']['release']['major'] %> - Source
 baseurl=https://yum.puppetlabs.com/puppet<%= @version %>/el/<%= @facts['os']['release']['major'] %>/SRPMS
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet<%= @version %>-release
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2025-04-06-puppet<= @version %>-release
 failovermethod=priority
 <% if @source -%>
 enabled=1
