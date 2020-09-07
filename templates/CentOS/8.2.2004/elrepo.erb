@@ -1,0 +1,17 @@
+[elrepo]
+name=ELRepo.org Community Enterprise Linux Repository - el8
+baseurl=http://elrepo.org/linux/elrepo/el8/$basearch/
+        http://mirrors.coreix.net/elrepo/elrepo/el8/$basearch/
+        http://mirror.rackspace.com/elrepo/elrepo/el8/$basearch/
+        http://linux-mirrors.fnal.gov/linux/elrepo/elrepo/el8/$basearch/
+mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo.el8
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
