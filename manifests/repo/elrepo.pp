@@ -36,5 +36,12 @@ class yum::repo::elrepo (
         source   => 'http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm',
       }
     }
+    /^8.*/: {
+      package { 'elrepo-release' :
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'http://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm',
+      }
+    }
   }
 }
