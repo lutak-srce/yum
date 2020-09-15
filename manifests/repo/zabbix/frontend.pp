@@ -8,7 +8,6 @@ class yum::repo::zabbix::frontend (
   $priority  = '1',
   $exclude   = [],
   $include   = [],
-  $debuginfo = false,
 ){
   require yum::repo::zabbix
 
