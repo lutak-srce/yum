@@ -70,7 +70,7 @@ class yum::repo::base (
           # yum helpers
           package { 'yum-utils': }
           package { 'yum-plugin-changelog': }
-          if ( 0 + $::operatingsystemrelease < 6.7 ) { package { 'yum-plugin-downloadonly': } }
+          if Float($::operatingsystemrelease) < 6.7  { package { 'yum-plugin-downloadonly': } }
           package { 'yum-plugin-merge-conf': }
           package { 'yum-plugin-priorities': }
           package { 'yum-plugin-protectbase': }
