@@ -5,14 +5,20 @@
 #
 class yum::repo::remi::php74(
 ) {
+
   require yum::repo::remi
   require yum::repo::remi::modular
 
-  file { '/etc/dnf/modules.d/php.module':
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    content => template("yum/generic/php.module.erb"),
+  case $::operatingsystemrelease {
+    default: {
+      fail("The ${name} module is not supported on ${operatingsystem} ${operatingsystemrelease}.")
+    }
+    /^8.*/: {
+      package { 'php:remi-7.4':
+        enable_only => true,
+        provider    => 'dnfmodule',
+      }
+    }
   }
+
 }
