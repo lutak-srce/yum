@@ -3,9 +3,9 @@
 # This module manages EPEL modular repo files for $lsbdistrelease
 #
 class yum::repo::epel::modular (
-  $priority  = '11',
-  $exclude   = [],
-  $include   = [],
+  $priority = '11',
+  $exclude  = [],
+  $include  = [],
 ) {
   require yum::repo::epel
 
