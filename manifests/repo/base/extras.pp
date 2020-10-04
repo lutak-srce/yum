@@ -8,6 +8,7 @@ class yum::repo::base::extras (
   $priority  = '2',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
 ){
   require yum::repo::base
