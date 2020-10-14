@@ -1,0 +1,33 @@
+[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[nginx-mainline]
+name=nginx mainline repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=1
+<% if @mainline -%>
+enabled = 1
+<% else -%>
+enabled = 0
+<% end -%>
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
