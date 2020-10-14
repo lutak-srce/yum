@@ -4,9 +4,10 @@
 # https://nginx.org
 #
 class yum::repo::nginx (
-  $exclude   = [],
-  $include   = [],
-  $debuginfo = false,
+  $priority = '1',
+  $exclude  = [],
+  $include  = [],
+  $mainline = false,
 ){
   require yum::repo::base
 
@@ -15,33 +16,7 @@ class yum::repo::nginx (
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/nginx.repo",
-    require => Package['nginx-release-centos'],
+    content => template("yum/${::operatingsystem}/nginx.erb"),
   }
 
-  # install package depending on major version
-  case $::operatingsystemrelease {
-    default : { }
-    /^5.*/: {
-      package { 'nginx-release-centos' :
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://nginx.org/packages/centos/5/noarch/RPMS/nginx-release-centos-5-0.el5.ngx.noarch.rpm',
-      }
-    }
-    /^6.*/: {
-      package { 'nginx-release-centos' :
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm',
-      }
-    }
-    /^7.*/: {
-      package { 'nginx-release-centos' :
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm',
-      }
-    }
-  }
 }
