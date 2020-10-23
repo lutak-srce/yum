@@ -42,5 +42,12 @@ class yum::repo::zabbix (
         source   => "https://repo.zabbix.com/zabbix/${version}/rhel/7/x86_64/zabbix-release-${version}-${release}.el7.noarch.rpm",
       }
     }
+    /^8.*/: {
+      package { 'zabbix-release':
+        provider => 'rpm',
+        source   => "https://repo.zabbix.com/zabbix/${version}/rhel/8/x86_64/zabbix-release-${version}-${release}.el8.noarch.rpm",
+      }
+    }
+
   }
 }
