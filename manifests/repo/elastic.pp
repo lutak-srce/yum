@@ -7,6 +7,7 @@ class yum::repo::elastic (
   $priority  = '99',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
   $version   = '6.x',
 ){
