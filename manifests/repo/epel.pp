@@ -6,9 +6,11 @@ class yum::repo::epel (
   $priority  = '11',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
   $source    = false,
 ) {
+
   file { '/etc/yum.repos.d/epel.repo':
     ensure  => file,
     mode    => '0644',

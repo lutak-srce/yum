@@ -1,7 +1,11 @@
 [epel]
 name=Extra Packages for Enterprise Linux 6 - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch
+<% end -%>
 failovermethod=priority
 enabled=1
 gpgcheck=1
@@ -16,8 +20,12 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux 6 - $basearch - Debug
+<% if @baseurl -%>
+baseurl=<%= @baseurl + '/debug' %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch/debug
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-6&arch=$basearch
+<% end -%>
 failovermethod=priority
 <% if @debuginfo -%>
 enabled=1
@@ -36,8 +44,12 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [epel-source]
 name=Extra Packages for Enterprise Linux 6 - $basearch - Source
+<% if @baseurl -%>
+baseurl=<%= @baseurl + '/SRPMS' %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/6/SRPMS
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-6&arch=$basearch
+<% end -%>
 failovermethod=priority
 <% if @source -%>
 enabled=1
