@@ -1,7 +1,11 @@
 [epel-testing]
 name=Extra Packages for Enterprise Linux 6 - Testing - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('epel/','epel/testing/') %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/6/$basearch
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel6&arch=$basearch
+<% end -%>
 failovermethod=priority
 enabled=1
 gpgcheck=1
@@ -16,8 +20,12 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [epel-testing-debuginfo]
 name=Extra Packages for Enterprise Linux 6 - Testing - $basearch - Debug
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('epel/','epel/testing/') + '/debug' %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/6/$basearch/debug
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel6&arch=$basearch
+<% end -%>
 failovermethod=priority
 <% if @debuginfo -%>
 enabled=1
@@ -36,8 +44,12 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [epel-testing-source]
 name=Extra Packages for Enterprise Linux 6 - Testing - $basearch - Source
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('epel/','epel/testing/') + '/SRPMS' %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/6/SRPMS
 mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel6&arch=$basearch
+<% end -%>
 failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6

@@ -1,7 +1,11 @@
 [epel-testing]
 name=Extra Packages for Enterprise Linux 7 - Testing - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('epel/','epel/testing/') %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/7/$basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&arch=$basearch&infra=$infra&content=$contentdir
+<% end -%>
 failovermethod=priority
 enabled=0
 gpgcheck=1
@@ -15,8 +19,12 @@ includepkgs=<%= @include.join(' ') %>
 
 [epel-testing-debuginfo]
 name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Debug
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('epel/','epel/testing/') + '/debug' %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/7/$basearch/debug
 metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&arch=$basearch&infra=$infra&content=$contentdir
+<% end -%>
 failovermethod=priority
 <% if @debuginfo -%>
 enabled=1
@@ -34,8 +42,12 @@ includepkgs=<%= @include.join(' ') %>
 
 [epel-testing-source]
 name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Source
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('epel/','epel/testing/') + '/SRPMS' %>
+<% else -%>
 #baseurl=http://download.fedoraproject.org/pub/epel/testing/7/SRPMS
 metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&arch=$basearch&infra=$infra&content=$contentdir
+<% end -%>
 failovermethod=priority
 <% if @source -%>
 enabled=1

@@ -6,7 +6,9 @@ class yum::repo::epel::testing (
   $priority  = '11',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
+  $source    = false,
 ) {
   require yum::repo::epel
 
