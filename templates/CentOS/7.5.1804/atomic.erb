@@ -3,7 +3,11 @@
 # Note: This isn't covered by ASL support. -Scott
 [atomic]
 name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% else -%>
 mirrorlist = http://updates.atomicorp.com/channels/mirrorlist/atomic/centos-$releasever-$basearch
+<% end -%>
 enabled = 1
 protect = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
