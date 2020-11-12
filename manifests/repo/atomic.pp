@@ -7,6 +7,7 @@ class yum::repo::atomic (
   $priority  = '21',
   $exclude   = [ 'php*' ],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
 ) {
   require yum::repo::base

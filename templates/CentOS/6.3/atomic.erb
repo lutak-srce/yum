@@ -2,7 +2,11 @@
 # URL: http://www.atomicrocketturtle.com/
 [atomic]
 name = CentOS / Red Hat Enterprise Linux $releasever - atomic
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% else -%>
 mirrorlist = http://updates.atomicorp.com/channels/mirrorlist/atomic/centos-$releasever-$basearch
+<% end -%>
 enabled = 1
 protect = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt

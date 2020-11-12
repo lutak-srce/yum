@@ -5,7 +5,11 @@
 # Almost Stable, release candidates for [atomic]
 [atomic-testing]
 name = CentOS / Red Hat Enterprise Linux $releasever - atomic - (Testing)
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% else -%>
 mirrorlist = http://updates.atomicorp.com/channels/mirrorlist/atomic-testing/centos-$releasever-$basearch
+<% end -%>
 enabled = 1
 protect = 0
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt
