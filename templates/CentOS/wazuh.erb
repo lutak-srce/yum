@@ -1,6 +1,6 @@
 [wazuh]
 name = WAZUH OSSEC Repository - www.wazuh.com
-baseurl = https://packages.wazuh.com/3.x/yum/
+baseurl = https://packages.wazuh.com/<%= @version %>.x/yum/
 gpgcheck = 1
 <% if @operatingsystem == 'CentOS' and @operatingsystemmajrelease == '5' -%>
 gpgkey = http://ossec.wazuh.com/key/RPM-GPG-KEY-OSSEC-RHEL5

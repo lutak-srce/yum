@@ -8,6 +8,7 @@ class yum::repo::wazuh (
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
+  $version   = '3',
 ) {
 
   require yum::repo::base
