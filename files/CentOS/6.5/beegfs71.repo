@@ -1,7 +1,0 @@
-[beegfs]
-name=BeeGFS 7 (rhel6)
-baseurl=https://www.beegfs.io/release/beegfs_7_1/dists/rhel6
-
-gpgkey=https://www.beegfs.io/release/beegfs_7_1/gpg/RPM-GPG-KEY-beegfs
-gpgcheck=0
-enabled=1
