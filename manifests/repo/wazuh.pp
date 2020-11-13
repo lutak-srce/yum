@@ -7,6 +7,7 @@ class yum::repo::wazuh (
   $priority  = '1',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
   $version   = '3',
 ) {
