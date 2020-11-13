@@ -8,6 +8,7 @@ class yum::repo::puppet (
   $priority = '1',
   $exclude  = [],
   $include  = [],
+  $baseurl  = undef,
   $source   = false,
 ) {
 
