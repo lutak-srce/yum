@@ -5,7 +5,11 @@ name=BeeGFS 7 (RHEL<%= @facts['os']['release']['major'] %>)
 # to retrieve early updates. Replace username/password with your account for
 # the BeeGFS customer login area.
 #baseurl=http://username:password@www.beegfs.io/login/release/beegfs_7/dists/rhel7
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 baseurl=http://www.beegfs.io/release/beegfs_7/dists/rhel<%= @facts['os']['release']['major'] %>
+<% end -%>
 
 gpgkey=http://www.beegfs.io/release/beegfs_7/gpg/RPM-GPG-KEY-beegfs
 gpgcheck=0
