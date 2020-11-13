@@ -6,6 +6,7 @@
 class yum::repo::beegfs (
   $exclude = [],
   $include = [],
+  $baseurl = undef,
 ){
   require yum::repo::base
 

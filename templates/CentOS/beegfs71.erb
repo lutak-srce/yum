@@ -1,6 +1,10 @@
 [beegfs]
 name=BeeGFS 7.1 (rhel<%= @facts['os']['release']['major'] %>)
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 baseurl=https://www.beegfs.io/release/beegfs_7_1/dists/rhel<%= @facts['os']['release']['major'] %>
+<% end -%>
 
 gpgkey=https://www.beegfs.io/release/beegfs_7_1/gpg/RPM-GPG-KEY-beegfs
 gpgcheck=0
