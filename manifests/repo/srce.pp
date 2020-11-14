@@ -7,6 +7,7 @@ class yum::repo::srce (
   $priority  = '5',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
 ) {
 

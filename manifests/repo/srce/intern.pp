@@ -6,6 +6,7 @@
 class yum::repo::srce::intern (
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
 ) {
 
