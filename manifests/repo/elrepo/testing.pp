@@ -20,7 +20,7 @@ class yum::repo::elrepo::testing (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/elrepo-testing.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['major']}/elrepo-testing.erb"),
       }
     }
   }

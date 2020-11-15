@@ -16,32 +16,14 @@ class yum::repo::elrepo (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/elrepo.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['major']}/elrepo.erb"),
     require => Package['elrepo-release'],
   }
 
-  case $::operatingsystemrelease {
-    default: {}
-    /^6.*/: {
-      package { 'elrepo-release' :
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://elrepo.org/elrepo-release-6-8.el6.elrepo.noarch.rpm',
-      }
-    }
-    /^7.*/: {
-      package { 'elrepo-release' :
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm',
-      }
-    }
-    /^8.*/: {
-      package { 'elrepo-release' :
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm',
-      }
-    }
+  package { 'elrepo-release' :
+    ensure   => present,
+    provider => 'rpm',
+    source   => "https://www.elrepo.org/elrepo-release-${facts['os']['release']['major']}.el${facts['os']['release']['major']}.elrepo.noarch.rpm",
   }
+
 }

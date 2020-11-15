@@ -20,7 +20,7 @@ class yum::repo::elrepo::extras (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/elrepo-extras.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['major']}/elrepo-extras.erb"),
       }
     }
   }

@@ -20,7 +20,7 @@ class yum::repo::elrepo::kernel (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/elrepo-kernel.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['major']}/elrepo-kernel.erb"),
       }
     }
   }
