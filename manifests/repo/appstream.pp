@@ -7,7 +7,7 @@ class yum::repo::appstream (
   $priority  = '2',
   $exclude   = [],
   $include   = [],
-  $debuginfo = false,
+  $baseurl = undef,
 ){
 
   require yum::repo::base
