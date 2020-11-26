@@ -30,7 +30,7 @@ class yum::repo::sclo (
 
   case $::operatingsystemrelease {
     default: {}
-    /^7.*/: {
+    /^[6-7].*/: {
       package {'centos-release-scl':
         ensure => present,
       }
