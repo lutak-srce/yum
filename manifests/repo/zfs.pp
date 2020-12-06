@@ -7,6 +7,7 @@ class yum::repo::zfs (
   $priority  = '99',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
   $source    = false,
   $kmod      = false,
@@ -29,14 +30,21 @@ class yum::repo::zfs (
       package { 'zfs-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://archive.zfsonlinux.org/epel/zfs-release-1-4.el6.noarch.rpm',
+        source   => 'http://download.zfsonlinux.org/epel/zfs-release.el6.noarch.rpm',
       }
     }
     /^7.*/: {
       package { 'zfs-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'http://download.zfsonlinux.org/epel/zfs-release.el7.centos.noarch.rpm',
+        source   => "http://download.zfsonlinux.org/epel/zfs-release.el7_${facts['os']['release']['minor']}.noarch.rpm",
+      }
+    }
+    /^8.*/: {
+      package { 'zfs-release':
+        ensure   => present,
+        provider => 'rpm',
+        source   => "http://download.zfsonlinux.org/epel/zfs-release.el8_${facts['os']['release']['minor']}.noarch.rpm",
       }
     }
   }
