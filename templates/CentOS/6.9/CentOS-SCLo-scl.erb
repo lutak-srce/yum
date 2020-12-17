@@ -1,6 +1,6 @@
 [centos-sclo-sclo]
 name=CentOS-6 - SCLo sclo
-# baseurl=https://vault.centos.org/6/sclo/$basearch/sclo/
+baseurl=https://vault.centos.org/$releasever.<%= @facts['os']['release']['minor'] %>/sclo/$basearch/sclo/
 #mirrorlist=https://mirrorlist.centos.org?arch=$basearch&release=6&repo=sclo-sclo
 gpgcheck=1
 enabled=1
