@@ -1,8 +1,8 @@
 #contrib - packages by Centos Users
 [contrib]
 name=CentOS-$releasever - Contrib
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib
-#baseurl=http://mirror.centos.org/centos/$releasever/contrib/$basearch/
+#mirrorlist=https://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib
+baseurl=https://vault.centos.org/$releasever.<%= @facts['os']['release']['minor'] %>/contrib/$basearch/
 gpgcheck=1
 enabled=1
 priority=<%= @priority %>
