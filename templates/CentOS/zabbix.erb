@@ -18,6 +18,7 @@ baseurl=http://repo.zabbix.com/zabbix/<%= @version %>/rhel/$releasever/$basearch
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX-A14FE591
+priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
@@ -31,6 +32,7 @@ baseurl=http://repo.zabbix.com/non-supported/rhel/$releasever/$basearch/
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
 gpgcheck=1
+priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
 <% end -%>
