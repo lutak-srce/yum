@@ -4,10 +4,10 @@
 # This module manages elrepo repo files for $operatingsystemrelease
 #
 class yum::repo::elrepo (
-  $priority  = '99',
-  $exclude   = [],
-  $include   = [],
-  $debuginfo = false,
+  $priority = '99',
+  $exclude  = [],
+  $include  = [],
+  $baseurl  = undef,
 ){
   require yum::repo::base
 

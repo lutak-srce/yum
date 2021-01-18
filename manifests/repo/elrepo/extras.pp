@@ -5,10 +5,10 @@
 
 # CentOS
 class yum::repo::elrepo::extras (
-  $priority  = '99',
-  $exclude   = [],
-  $include   = [],
-  $debuginfo = false,
+  $priority = '99',
+  $exclude  = [],
+  $include  = [],
+  $baseurl  = undef,
 ){
   require yum::repo::elrepo
 
