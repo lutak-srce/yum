@@ -7,6 +7,7 @@ class yum::repo::prometheus (
   $priority = '11',
   $exclude  = [],
   $include  = [],
+  $baseurl  = undef,
 ){
 
   file { '/etc/yum.repos.d/prometheus.repo':
