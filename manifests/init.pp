@@ -41,7 +41,7 @@ class yum (
     }
     /^8.*/: {
       file { '/etc/dnf/dnf.conf' :
-        content => template('yum/el8.yum.conf.erb'),
+        content => template('yum/el8.dnf.conf.erb'),
       }
     }
   }
