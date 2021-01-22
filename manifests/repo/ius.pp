@@ -7,6 +7,7 @@ class yum::repo::ius (
   $priority  = '61',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
 ){
   require yum::repo::base

@@ -1,6 +1,10 @@
 [ius-testing]
 name = IUS for Enterprise Linux <%= @facts['os']['release']['major'] %> - Testing - $basearch
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% else -%>
 baseurl = https://repo.ius.io/testing/<%= @facts['os']['release']['major'] %>/$basearch/
+<% end -%>
 enabled = 0
 repo_gpgcheck = 0
 gpgcheck = 1
@@ -14,7 +18,11 @@ includepkgs = <%= @include.to_a.join(' ') %>
 
 [ius-testing-debuginfo]
 name = IUS for Enterprise Linux <%= @facts['os']['release']['major'] %> - Testing - $basearch - Debug
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>debug/
+<% else -%>
 baseurl = https://repo.ius.io/testing/<%= @facts['os']['release']['major'] %>/$basearch/debug/
+<% end -%>
 <% if @debuginfo -%>
 enabled = 1
 <% else -%>
@@ -32,7 +40,11 @@ includepkgs = <%= @include.to_a.join(' ') %>
 
 [ius-testing-source]
 name = IUS for Enterprise Linux <%= @facts['os']['release']['major'] %> - Testing - Source
+<% if @baseurl -%>
+baseurl = <%= @baseurl.sub('$basearch','src') %>
+<% else -%>
 baseurl = https://repo.ius.io/testing/<%= @facts['os']['release']['major'] %>/src/
+<% end -%>
 <% if @source -%>
 enabled = 1
 <% else -%>
