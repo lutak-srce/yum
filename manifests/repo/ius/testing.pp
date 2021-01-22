@@ -7,6 +7,7 @@ class yum::repo::ius::testing (
   $priority  = '62',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
 ){
   require yum::repo::ius
