@@ -1,0 +1,13 @@
+[icinga-stable-release]
+name=ICINGA (stable release for epel)
+baseurl=http://packages.icinga.com/epel/$releasever/release/
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.icinga.com/icinga.key
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
