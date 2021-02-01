@@ -39,14 +39,14 @@ class yum::repo::umd4 (
     default: {}
     /^6.*/: {
       package {'umd-release':
-        ensure   => '4.1.3-1.el6',
+        ensure   => present,
         provider => 'rpm',
         source   => 'http://repository.egi.eu/sw/production/umd/4/sl6/x86_64/updates/umd-release-4.1.3-1.el6.noarch.rpm',
       }
     }
     /^7.*/: {
       package {'umd-release':
-        ensure   => '4.1.3-1.el7',
+        ensure   => present,
         provider => 'rpm',
         source   => 'http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/updates/umd-release-4.1.3-1.el7.centos.noarch.rpm',
       }
