@@ -17,7 +17,7 @@ class yum::repo::nordugrid (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/nordugrid.erb"),
+    content => template("yum/${::operatingsystem}/nordugrid.erb"),
     require => Package['nordugrid-release'],
   }
 
@@ -26,7 +26,7 @@ class yum::repo::nordugrid (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/nordugrid-updates.erb"),
+    content => template("yum/${::operatingsystem}/nordugrid-updates.erb"),
     require => Package['nordugrid-release'],
   }
 
@@ -34,9 +34,23 @@ class yum::repo::nordugrid (
     default: {}
     /^6.*/: {
       package {'nordugrid-release':
-        ensure   => '6-1.el6',
+        ensure   => present,
         provider => 'rpm',
         source   => 'https://download.nordugrid.org/packages/nordugrid-release/releases/6/centos/el6/x86_64/nordugrid-release-6-1.el6.noarch.rpm',
+      }
+    }
+    /^7.*/: {
+      package {'nordugrid-release':
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'https://download.nordugrid.org/packages/nordugrid-release/releases/6/centos/el7/x86_64/nordugrid-release-6-1.el7.noarch.rpm',
+      }
+    }
+    /^8.*/: {
+      package {'nordugrid-release':
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'https://download.nordugrid.org/packages/nordugrid-release/releases/6/centos/el8/x86_64/nordugrid-release-6-1.el8.noarch.rpm',
       }
     }
   }
