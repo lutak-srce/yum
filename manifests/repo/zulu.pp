@@ -7,6 +7,7 @@ class yum::repo::zulu (
   $priority  = '99',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
   $source    = false,
 ) {
@@ -21,7 +22,7 @@ class yum::repo::zulu (
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => 'puppet:///modules/yum/zulu.repo',
+    content => template('yum/CentOS/zulu.erb'),
     require => Exec['zulurepokeyimport'],
   }
 

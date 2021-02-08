@@ -5,10 +5,12 @@
 # https://docs.confluent.io/current/installation/installing_cp/rhel-centos.html#systemd-rhel-centos-install
 #
 class yum::repo::confluent (
-  $priority  = '1',
-  $exclude   = [],
-  $include   = [],
-  $version   = '5.1',
+  $priority     = '1',
+  $exclude      = [],
+  $include      = [],
+  $baseurl      = undef,
+  $baseurl_dist = undef,
+  $version      = '5.1',
 ){
   require yum::repo::base
 
