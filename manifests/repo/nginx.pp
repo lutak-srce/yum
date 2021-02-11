@@ -4,10 +4,12 @@
 # https://nginx.org
 #
 class yum::repo::nginx (
-  $priority = '1',
-  $exclude  = [],
-  $include  = [],
-  $mainline = false,
+  $priority         = '1',
+  $exclude          = [],
+  $include          = [],
+  $mainline         = false,
+  $baseurl          = undef,
+  $baseurl_mainline = undef,
 ){
   require yum::repo::base
 
