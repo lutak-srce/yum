@@ -4,7 +4,7 @@
 # This module manages ARGO repo files for $lsbdistrelease
 #
 class yum::repo::argo (
-  $priority  = '99',
+  $priority  = '1',
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
