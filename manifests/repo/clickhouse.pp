@@ -7,6 +7,7 @@ class yum::repo::clickhouse(
   $priority  = '1',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
 ){
 
   file { '/etc/yum.repos.d/clickhouse.repo' :
