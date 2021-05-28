@@ -11,7 +11,6 @@ class yum::repo::erlang (
 
   require ::yum::repo::base
   require ::yum::repo::epel
-  require ::yum::repo::rpmforge
 
 
   file { '/etc/yum.repos.d/erlang.repo' :
