@@ -7,6 +7,7 @@ class yum::repo::erlang (
   $priority  = '1',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
 ){
 
   require ::yum::repo::base
