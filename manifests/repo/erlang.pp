@@ -19,7 +19,7 @@ class yum::repo::erlang (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/erlang.erb"),
+    content => template("yum/${::operatingsystem}/erlang.erb"),
   }
 
 }
