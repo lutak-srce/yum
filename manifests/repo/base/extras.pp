@@ -1,9 +1,8 @@
-# Class: yum::repo::base::extras
+#
+# = Class: yum::repo::base::extras
 #
 # This module manages Extras repo files for $operatingsystemrelease
 #
-
-# CentOS
 class yum::repo::base::extras (
   $priority  = '2',
   $exclude   = [],
@@ -13,16 +12,17 @@ class yum::repo::base::extras (
 ){
   require yum::repo::base
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
-    'CentOS' : {
-      file { '/etc/yum.repos.d/CentOS-Extras.repo':
+    /(CentOS|Rocky)/ : {
+      file { "/etc/yum.repos.d/${facts['os']['name']}-Extras.repo":
         ensure  => file,
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-Extras.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/${facts['os']['name']}-Extras.erb"),
       }
     }
   }
+
 }

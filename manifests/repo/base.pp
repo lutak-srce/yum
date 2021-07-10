@@ -28,6 +28,37 @@ class yum::repo::base (
         group  => root,
       }
     }
+
+    'Rocky' : {
+      file { '/etc/yum.repos.d/Rocky-Base.repo':
+        ensure  => file,
+        mode    => '0644',
+        owner   => root,
+        group   => root,
+        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-Base.erb"),
+        require => Package['rocky-release'],
+      }
+
+      if ( $debuginfo ) {
+        file { '/etc/yum.repos.d/Rocky-Debuginfo.repo':
+          ensure  => file,
+          mode    => '0644',
+          owner   => root,
+          group   => root,
+          content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-Debuginfo.erb"),
+          require => Package['rocky-release'],
+        }
+      }
+
+      case $::operatingsystemrelease {
+        default: {
+        }
+        /^8.*/: {
+          package { 'rocky-release': }
+        }
+      }
+    }
+
     # CentOS (Community Enterprise Operating System)
     'CentOS' : {
       file { '/etc/yum.repos.d/CentOS-Base.repo':

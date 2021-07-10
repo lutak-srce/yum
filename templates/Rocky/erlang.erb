@@ -1,0 +1,17 @@
+[erlang-solutions]
+name=Centos $releasever - $basearch - Erlang Solutions
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://packages.erlang-solutions.com/rpm/centos/$releasever/$basearch
+<% end -%>
+gpgcheck=1
+gpgkey=https://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+enabled=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

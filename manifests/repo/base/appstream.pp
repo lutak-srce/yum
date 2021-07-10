@@ -23,6 +23,15 @@ class yum::repo::base::appstream (
         content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-AppStream.erb"),
       }
     }
+    'Rocky' : {
+      file { '/etc/yum.repos.d/Rocky-AppStream.repo':
+        ensure  => file,
+        mode    => '0644',
+        owner   => root,
+        group   => root,
+        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-AppStream.erb"),
+      }
+    }
   }
 
 }
