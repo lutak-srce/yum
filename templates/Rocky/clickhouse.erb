@@ -1,0 +1,17 @@
+[clickhouse]
+name=Clickhouse Yandex Ru
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://repo.clickhouse.tech/rpm/stable/x86_64
+<% end -%>
+gpgcheck=1
+enabled=1
+gpgkey=https://repo.clickhouse.tech/CLICKHOUSE-KEY.GPG
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>

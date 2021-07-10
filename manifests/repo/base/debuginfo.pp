@@ -11,16 +11,17 @@ class yum::repo::base::debuginfo (
 ){
   require yum::repo::base
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
-    'CentOS' : {
-      file { '/etc/yum.repos.d/CentOS-Debuginfo.repo':
-        ensure => file,
-        mode   => '0644',
-        owner  => root,
-        group  => root,
-        source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-Debuginfo.erb",
+    /(CentOS|Rocky)/ : {
+      file { "/etc/yum.repos.d/${facts['os']['name']}-Debuginfo.repo":
+        ensure  => file,
+        mode    => '0644',
+        owner   => root,
+        group   => root,
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/${facts['os']['name']}-Debuginfo.erb"),
       }
     }
   }
+
 }

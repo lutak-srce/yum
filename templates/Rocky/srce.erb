@@ -1,0 +1,15 @@
+# Srce base packages, safe to use with base/updates+epel repos
+[srce-base]
+name=Srce Packages for Enterprise Linux $releasever - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://ftp.srce.hr/redhat/base/el<%= @facts['os']['release']['major'] %>/$basearch/
+<% end -%>
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SRCE
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>

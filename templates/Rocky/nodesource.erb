@@ -1,0 +1,33 @@
+[nodesource]
+name=Node.js Packages for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch
+baseurl=https://rpm.nodesource.com/pub_<%= @version %>/el/<%= @facts['os']['release']['major'] %>/$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[nodesource-source]
+name=Node.js for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch - Source
+baseurl=https://rpm.nodesource.com/pub_<%= @version %>/el/<%= @facts['os']['release']['major'] %>/SRPMS
+failovermethod=priority
+<% if @source -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgkey=file:///etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
+gpgcheck=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>

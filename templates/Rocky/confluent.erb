@@ -1,0 +1,35 @@
+[Confluent.dist]
+name=Confluent repository (dist)
+<% if @baseurl_dist -%>
+baseurl = <%= @baseurl_dist %>
+<% else -%>
+baseurl=https://packages.confluent.io/rpm/<%= @version %>/7
+<% end -%>
+gpgcheck=1
+gpgkey=https://packages.confluent.io/rpm/<%= @version %>/archive.key
+enabled=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[Confluent]
+name=Confluent repository
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% else -%>
+baseurl=https://packages.confluent.io/rpm/<%= @version %>
+<% end -%>
+gpgcheck=1
+gpgkey=https://packages.confluent.io/rpm/<%= @version %>/archive.key
+enabled=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

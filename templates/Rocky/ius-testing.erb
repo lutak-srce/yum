@@ -1,0 +1,61 @@
+[ius-testing]
+name = IUS for Enterprise Linux <%= @facts['os']['release']['major'] %> - Testing - $basearch
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% else -%>
+baseurl = https://repo.ius.io/testing/<%= @facts['os']['release']['major'] %>/$basearch/
+<% end -%>
+enabled = 0
+repo_gpgcheck = 0
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-IUS-<%= @facts['os']['release']['major'] %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.to_a.join(' ') %> 
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.to_a.join(' ') %> 
+<% end -%>
+
+[ius-testing-debuginfo]
+name = IUS for Enterprise Linux <%= @facts['os']['release']['major'] %> - Testing - $basearch - Debug
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>debug/
+<% else -%>
+baseurl = https://repo.ius.io/testing/<%= @facts['os']['release']['major'] %>/$basearch/debug/
+<% end -%>
+<% if @debuginfo -%>
+enabled = 1
+<% else -%>
+enabled = 0
+<% end -%>
+repo_gpgcheck = 0
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-IUS-<%= @facts['os']['release']['major'] %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.to_a.join(' ') %> 
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.to_a.join(' ') %> 
+<% end -%>
+
+[ius-testing-source]
+name = IUS for Enterprise Linux <%= @facts['os']['release']['major'] %> - Testing - Source
+<% if @baseurl -%>
+baseurl = <%= @baseurl.sub('$basearch','src') %>
+<% else -%>
+baseurl = https://repo.ius.io/testing/<%= @facts['os']['release']['major'] %>/src/
+<% end -%>
+<% if @source -%>
+enabled = 1
+<% else -%>
+enabled = 0
+<% end -%>
+repo_gpgcheck = 0
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-IUS-<%= @facts['os']['release']['major'] %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.to_a.join(' ') %> 
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.to_a.join(' ') %> 
+<% end -%>
