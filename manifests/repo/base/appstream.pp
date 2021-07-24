@@ -12,26 +12,12 @@ class yum::repo::base::appstream (
 
   require yum::repo::base
 
-  case $::operatingsystem {
-    default : {}
-    'CentOS' : {
-      file { '/etc/yum.repos.d/CentOS-AppStream.repo':
-        ensure  => file,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-AppStream.erb"),
-      }
-    }
-    'Rocky' : {
-      file { '/etc/yum.repos.d/Rocky-AppStream.repo':
-        ensure  => file,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-AppStream.erb"),
-      }
-    }
+  file { "/etc/yum.repos.d/${facts['os']['name']}-AppStream.repo":
+    ensure  => file,
+    mode    => '0644',
+    owner   => root,
+    group   => root,
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/${facts['os']['name']}-AppStream.erb"),
   }
 
 }
