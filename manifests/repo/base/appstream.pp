@@ -1,9 +1,9 @@
 #
-# = Class: yum::repo::appstream
+# = Class: yum::repo::base::appstream
 #
 # This module manages AppStream repo files for $operatingsystemrelease
 #
-class yum::repo::appstream (
+class yum::repo::base::appstream (
   $priority  = '2',
   $exclude   = [],
   $include   = [],
