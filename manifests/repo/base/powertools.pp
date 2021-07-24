@@ -1,10 +1,10 @@
-# Class: yum::repo::base::powertools
 #
-# This module manages Extras repo files for $operatingsystemrelease
+# = Class: yum::repo::base::powertools
+#
+# This module manages PoweTools repo files for $operatingsystemrelease
 #
 
-# CentOS
-class yum::repo::powertools (
+class yum::repo::base::powertools (
   $priority  = '2',
   $exclude   = [],
   $include   = [],
