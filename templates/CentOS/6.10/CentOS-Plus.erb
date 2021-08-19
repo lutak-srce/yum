@@ -1,8 +1,12 @@
 #additional packages that extend functionality of existing packages
 [centosplus]
 name=CentOS-$releasever - Plus
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 #mirrorlist=https://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus
 baseurl=https://vault.centos.org/$releasever.<%= @facts['os']['release']['minor'] %>/centosplus/$basearch/
+<% end -%>
 gpgcheck=1
 enabled=1
 priority=<%= @priority %>

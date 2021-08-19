@@ -5,7 +5,11 @@
 
 [centos-sclo-rh]
 name=CentOS-6 - SCLo rh
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 baseurl=https://vault.centos.org/$releasever.<%= @facts['os']['release']['minor'] %>/sclo/$basearch/rh/
+<% end -%>
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo
@@ -19,7 +23,11 @@ includepkgs=<%= @include.join(' ') %>
 
 [centos-sclo-rh-testing]
 name=CentOS-6 - SCLo rh Testing
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 baseurl=https://buildlogs.centos.org/centos/6/sclo/$basearch/rh/
+<% end -%>
 gpgcheck=0
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo
@@ -33,7 +41,11 @@ includepkgs=<%= @include.join(' ') %>
 
 [centos-sclo-rh-source]
 name=CentOS-6 - SCLo rh Sources
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 baseurl=https://vault.centos.org/centos/$releasever.<%= @facts['os']['release']['minor'] %>/sclo/Source/rh/
+<% end -%>
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo
@@ -47,7 +59,11 @@ includepkgs=<%= @include.join(' ') %>
 
 [centos-sclo-rh-debuginfo]
 name=CentOS-6 - SCLo rh Debuginfo
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 baseurl=https://debuginfo.centos.org/centos/6/sclo/$basearch/
+<% end -%>
 gpgcheck=1
 <% if @debuginfo -%>
 enabled=1
