@@ -1,0 +1,21 @@
+[elrepo-testing]
+name=ELRepo.org Community Enterprise Linux Testing Repository - el8
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=http://elrepo.org/linux/testing/el8/$basearch/
+        http://mirrors.coreix.net/elrepo/testing/el8/$basearch/
+        http://mirror.rackspace.com/elrepo/testing/el8/$basearch/
+        http://linux-mirrors.fnal.gov/linux/elrepo/testing/el8/$basearch/
+mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-testing.el8
+<% end -%>
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
