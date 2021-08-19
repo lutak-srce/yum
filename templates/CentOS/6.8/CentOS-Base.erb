@@ -12,8 +12,12 @@
 
 [base]
 name=CentOS-$releasever - Base
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 #mirrorlist=https://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
 baseurl=https://vault.centos.org/$releasever.<%= @facts['os']['release']['minor'] %>/os/$basearch/
+<% end -%>
 gpgcheck=1
 priority=<%= @priority %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
@@ -27,8 +31,12 @@ includepkgs=<%= @include.to_a.join(' ') %>
 #released updates 
 [updates]
 name=CentOS-$releasever - Updates
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('/os/','/updates/') %>
+<% else -%>
 #mirrorlist=https://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
 baseurl=https://vault.centos.org/$releasever.<%= @facts['os']['release']['minor'] %>/updates/$basearch/
+<% end -%>
 gpgcheck=1
 priority=<%= @priority %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6

@@ -1,8 +1,12 @@
 #additional packages that may be useful
 [extras]
 name=CentOS-$releasever - Extras
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 #mirrorlist=https://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
 baseurl=https://vault.centos.org/$releasever.<%= @facts['os']['release']['minor'] %>/extras/$basearch/
+<% end -%>
 gpgcheck=1
 priority=<%= @priority %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6

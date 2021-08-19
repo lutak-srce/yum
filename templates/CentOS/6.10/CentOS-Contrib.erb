@@ -1,8 +1,12 @@
 #contrib - packages by Centos Users
 [contrib]
 name=CentOS-$releasever - Contrib
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
 #mirrorlist=https://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=contrib
 baseurl=https://vault.centos.org/$releasever.<%= @facts['os']['release']['minor'] %>/contrib/$basearch/
+<% end -%>
 gpgcheck=1
 enabled=1
 priority=<%= @priority %>
