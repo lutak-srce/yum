@@ -1,13 +1,31 @@
-[clickhouse]
-name=Clickhouse Yandex Ru
+[clickhouse-stable]
+name=ClickHouse - Stable Repository
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=https://repo.clickhouse.tech/rpm/stable/x86_64
+baseurl=https://repo.clickhouse.tech/rpm/stable/$basearch/
 <% end -%>
+gpgkey=https://repo.clickhouse.tech/CLICKHOUSE-KEY.GPG
 gpgcheck=1
 enabled=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+ 
+[clickhouse-lts]
+name=ClickHouse - LTS Repository
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('stable', 'lts') %>
+<% else -%>
+baseurl=https://repo.clickhouse.tech/rpm/lts/$basearch/
+<% end -%>
 gpgkey=https://repo.clickhouse.tech/CLICKHOUSE-KEY.GPG
+gpgcheck=1
+enabled=0
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
