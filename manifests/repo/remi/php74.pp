@@ -32,6 +32,7 @@ class yum::repo::remi::php74(
         group   => root,
         content => template('yum/generic/php.module.erb'),
       }
+    }
   }
 
 }
