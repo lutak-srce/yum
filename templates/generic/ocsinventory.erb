@@ -1,0 +1,13 @@
+[ocsinventory]
+name=OCS Inventory NG repository for Enterprise Linux $releasever - $basearch
+baseurl=http://rpm.ocsinventory-ng.org/enterprise/$releasever/$basearch/
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ocs
+gpgcheck=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
