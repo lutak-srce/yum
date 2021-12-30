@@ -4,8 +4,9 @@ name=Extra Packages for Enterprise Linux $releasever - $basearch
 # place it's address here.
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 <% else -%>
-#baseurl=https://download.fedoraproject.org/pub/epel/$releasever/Everything/$basearch
+#baseurl=https://download.example/pub/epel/$releasever/Everything/$basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 <% end -%>
 enabled=1
@@ -19,3 +20,51 @@ exclude=<%= @exclude.join(' ') %>
 <% unless @include.empty? -%>
 includepkgs=<%= @include.join(' ') %>
 <% end -%>
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux $releasever - $basearch - Debug
+# It is much more secure to use the metalink, but if you wish to use a local mirror
+# place it's address here.
+<% if @baseurl -%>
+baseurl=<%= @baseurl + '/debug' %>
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$releasever&arch=$basearch&infra=$infra&content=$contentdir
+<% else -%>
+#baseurl=https://download.example/pub/epel/$releasever/Everything/$basearch/debug
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$releasever&arch=$basearch&infra=$infra&content=$contentdir
+<% end -%>
+<% if @debuginfo -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgcheck=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[epel-source]
+name=Extra Packages for Enterprise Linux $releasever - $basearch - Source
+# It is much more secure to use the metalink, but if you wish to use a local mirror
+# place it's address here.
+<% if @baseurl -%>
+baseurl=<%= @baseurl + '/SRPMS' %>
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
+<% else -%>
+#baseurl=https://download.example/pub/epel/$releasever/Everything/SRPMS
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
+<% end -%>
+<% if @source -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgcheck=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>

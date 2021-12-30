@@ -1,9 +1,12 @@
 [epel]
 name=Extra Packages for Enterprise Linux 7 - $basearch
+# It is much more secure to use the metalink, but if you wish to use a local mirror
+# place its address here.
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch&infra=$infra&content=$contentdir
 <% else -%>
-#baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch
+#baseurl=http://download.example/pub/epel/7/$basearch
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch&infra=$infra&content=$contentdir
 <% end -%>
 failovermethod=priority
@@ -20,10 +23,13 @@ includepkgs=<%= @include.join(' ') %>
 
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
+# It is much more secure to use the metalink, but if you wish to use a local mirror
+# place its address here.
 <% if @baseurl -%>
 baseurl=<%= @baseurl + '/debug' %>
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&arch=$basearch&infra=$infra&content=$contentdir
 <% else -%>
-#baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch/debug
+#baseurl=http://download.example/pub/epel/7/$basearch/debug
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&arch=$basearch&infra=$infra&content=$contentdir
 <% end -%>
 failovermethod=priority
@@ -44,10 +50,13 @@ includepkgs=<%= @include.join(' ') %>
 
 [epel-source]
 name=Extra Packages for Enterprise Linux 7 - $basearch - Source
+# It is much more secure to use the metalink, but if you wish to use a local mirror
+# place it's address here.
 <% if @baseurl -%>
 baseurl=<%= @baseurl + '/SRPMS' %>
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&arch=$basearch&infra=$infra&content=$contentdir
 <% else -%>
-#baseurl=http://download.fedoraproject.org/pub/epel/7/SRPMS
+#baseurl=http://download.example/pub/epel/7/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&arch=$basearch&infra=$infra&content=$contentdir
 <% end -%>
 failovermethod=priority
