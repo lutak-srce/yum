@@ -14,7 +14,7 @@ class yum::repo::elrepo::extras (
 
   case $::operatingsystem {
     default : {}
-    'CentOS' : {
+    /(CentOS|Rocky)/ : {
       file { '/etc/yum.repos.d/elrepo-extras.repo':
         ensure  => file,
         mode    => '0644',

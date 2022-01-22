@@ -14,7 +14,7 @@ class yum::repo::elrepo::kernel (
 
   case $::operatingsystem {
     default : {}
-    'CentOS' : {
+    /(CentOS|Rocky)/ : {
       file { '/etc/yum.repos.d/elrepo-kernel.repo':
         ensure  => file,
         mode    => '0644',
