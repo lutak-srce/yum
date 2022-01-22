@@ -14,7 +14,7 @@ class yum::repo::elrepo::testing (
 
   case $::operatingsystem {
     default : {}
-    'CentOS' : {
+    /(CentOS|Rocky)/ : {
       file { '/etc/yum.repos.d/elrepo-testing.repo':
         ensure  => file,
         mode    => '0644',
