@@ -4,11 +4,12 @@
 # This module manages yum packages
 #
 class yum (
-  $yum_proxy     = 'UNDEF',
-  $http_proxy    = 'UNDEF',
-  $http_port     = '80',
-  $purge_repos_d = true,
-  $distroverpkg  = 'centos-release',
+  $yum_proxy         = 'UNDEF',
+  $http_proxy        = 'UNDEF',
+  $http_port         = '80',
+  $purge_repos_d     = true,
+  $distroverpkg      = 'centos-release',
+  $installonly_limit = 5,
 ) {
 
   File {
