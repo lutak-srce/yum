@@ -1,6 +1,6 @@
 [slack]
 name=Slack
-baseurl=https://packagecloud.io/slacktechnologies/slack/fedora/21/$basearch
+baseurl=https://packagecloud.io/slacktechnologies/slack/fedora/21/<%= @facts['os']['architecture'] %>
 gpgcheck=1
 enabled=1
 gpgkey=https://slack.com/gpg/slack_pubkey_20210901.gpg
