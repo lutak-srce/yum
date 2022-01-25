@@ -17,7 +17,7 @@ proxy=<%= @http_proxy %>
 # Note: yum-RHN-plugin doesn't honor this.
 metadata_expire=1h
 
-installonly_limit = 5
+installonly_limit = <%= @installonly_limit %>
 
 # PUT YOUR REPOS HERE OR IN separate files named file.repo
 # in /etc/yum.repos.d
