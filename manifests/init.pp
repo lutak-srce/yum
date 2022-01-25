@@ -9,7 +9,7 @@ class yum (
   $http_port         = '80',
   $purge_repos_d     = true,
   $distroverpkg      = 'centos-release',
-  $installonly_limit = 5,
+  $installonly_limit,
 ) {
 
   File {
