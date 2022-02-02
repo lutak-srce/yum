@@ -114,6 +114,7 @@ class yum::repo::base (
           # yum helpers
           package { 'yum-utils': }
           package { 'yum-plugin-changelog': }
+          package { 'yum-plugin-copr': }
           package { 'yum-plugin-merge-conf': }
           package { 'yum-plugin-priorities': }
           package { 'yum-plugin-protectbase': }
