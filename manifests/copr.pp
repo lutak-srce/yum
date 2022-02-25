@@ -36,7 +36,7 @@ define yum::copr (
       'enabled': {
         exec { "/bin/yum -y copr enable ${repo}":
           creates => "/etc/yum.repos.d/_copr_${repo_filename}.repo",
-        } -> file { "/etc/yum.repos.d/_copr_${repo_filename}": }
+        } -> file { "/etc/yum.repos.d/_copr_${repo_filename}.repo": }
       }
       default: {
         exec { "/bin/yum -y copr remove ${repo}":
