@@ -25,8 +25,15 @@ name=prometheus-source
 baseurl=https://packagecloud.io/prometheus-rpm/release/el/$releasever/SRPMS
 repo_gpgcheck=1
 gpgcheck=0
-enabled=1
+enabled=0
 gpgkey=https://packagecloud.io/prometheus-rpm/release/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
