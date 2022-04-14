@@ -1,11 +1,6 @@
 [extras]
 name=CentOS-$releasever - Extras
-<% if @baseurl -%>
-baseurl=<%= @baseurl %>
-<% else -%>
-mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
-#baseurl=http://mirror.centos.org/$contentdir/$releasever/extras/$basearch/os/
-<% end -%>
+baseurl=http://vault.centos.org/$contentdir/$releasever/Extras/$basearch/os/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
