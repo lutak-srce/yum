@@ -123,7 +123,9 @@ repo_gpgcheck = 1
 
 [pgdg14-source-updates-testing]
 name=PostgreSQL 14 for RHEL/CentOS $releasever - $basearch - Source updates testing
+<% if @operatingsystemmajrelease < '8' -%>
 failovermethod=priority
+<% end -%>
 baseurl=https://download.postgresql.org/pub/repos/yum/srpms/testing/14/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
@@ -132,7 +134,9 @@ repo_gpgcheck = 1
 
 [pgdg13-source-updates-testing]
 name=PostgreSQL 13 for RHEL/CentOS $releasever - $basearch - Source updates testing
+<% if @operatingsystemmajrelease < '8' -%>
 failovermethod=priority
+<% end -%>
 baseurl=https://download.postgresql.org/pub/repos/yum/srpms/testing/13/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
@@ -141,7 +145,9 @@ repo_gpgcheck = 1
 
 [pgdg12-source]
 name=PostgreSQL 12 for RHEL/CentOS $releasever - $basearch - Source
+<% if @operatingsystemmajrelease < '8' -%>
 failovermethod=priority
+<% end -%>
 baseurl=https://download.postgresql.org/pub/repos/yum/srpms/12/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
@@ -150,7 +156,9 @@ repo_gpgcheck = 1
 
 [pgdg12-source-updates-testing]
 name=PostgreSQL 12 for RHEL/CentOS $releasever - $basearch - Source update testing
+<% if @operatingsystemmajrelease < '8' -%>
 failovermethod=priority
+<% end -%>
 baseurl=https://download.postgresql.org/pub/repos/yum/srpms/testing/12/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
@@ -159,7 +167,9 @@ repo_gpgcheck = 1
 
 [pgdg11-source]
 name=PostgreSQL 11 for RHEL/CentOS $releasever - $basearch - Source
+<% if @operatingsystemmajrelease < '8' -%>
 failovermethod=priority
+<% end -%>
 baseurl=https://download.postgresql.org/pub/repos/yum/srpms/11/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
@@ -168,7 +178,9 @@ repo_gpgcheck = 1
 
 [pgdg11-source-updates-testing]
 name=PostgreSQL 11 for RHEL/CentOS $releasever - $basearch - Source update testing
+<% if @operatingsystemmajrelease < '8' -%>
 failovermethod=priority
+<% end -%>
 baseurl=https://download.postgresql.org/pub/repos/yum/srpms/testing/11/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
@@ -177,7 +189,9 @@ repo_gpgcheck = 1
 
 [pgdg10-source]
 name=PostgreSQL 10 for RHEL/CentOS $releasever - $basearch - Source
+<% if @operatingsystemmajrelease < '8' -%>
 failovermethod=priority
+<% end -%>
 baseurl=https://download.postgresql.org/pub/repos/yum/srpms/10/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
@@ -186,7 +200,9 @@ repo_gpgcheck = 1
 
 [pgdg96-source]
 name=PostgreSQL 9.6 for RHEL/CentOS $releasever - $basearch - Source
+<% if @operatingsystemmajrelease < '8' -%>
 failovermethod=priority
+<% end -%>
 baseurl=https://download.postgresql.org/pub/repos/yum/srpms/9.6/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
