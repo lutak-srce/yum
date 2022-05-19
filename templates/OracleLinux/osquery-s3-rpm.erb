@@ -1,0 +1,17 @@
+[osquery-s3-rpm]
+name=osquery RPM repository - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://s3.amazonaws.com/osquery-packages/rpm/$basearch/
+<% end -%>
+enabled=1
+gpgkey=https://pkg.osquery.io/rpm/GPG
+gpgcheck=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

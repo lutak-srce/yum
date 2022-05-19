@@ -1,0 +1,39 @@
+# Repository: https://rpms.remirepo.net/
+# Blog:       https://blog.remirepo.net/
+# Forum:      https://forum.remirepo.net/
+
+[remi-modular]
+name=Remi's Modular repository for Enterprise Linux 8 - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/8/modular/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/8/modular/$basearch/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/8/modular/$basearch/mirror
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi.el8
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[remi-modular-test]
+name=Remi's Modular testing repository for Enterprise Linux 8 - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/8/modular-test/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/8/modular-test/$basearch/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/8/modular-test/$basearch/mirror
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi.el8
+<% if @test -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>

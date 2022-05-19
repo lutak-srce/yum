@@ -1,0 +1,15 @@
+[centos-openstack-<%= @version %>]
+name=CentOS-$releasever - OpenStack <%= @version %>
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=cloud-openstack-<%= @version %>
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Cloud
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = sip PyQt4 <%= @exclude.to_a.join(' ') %>
+<% else -%>
+exclude = sip PyQt4
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.to_a.join(' ') %>
+<% end -%>
