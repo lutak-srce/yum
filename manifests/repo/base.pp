@@ -59,6 +59,22 @@ class yum::repo::base (
       }
     }
 
+    'OracleLinux' : {
+      file { '/etc/yum.repos.d/oracle-linux.repo':
+        ensure  => file,
+        mode    => '0644',
+        owner   => root,
+        group   => root,
+        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/oracle-linux.erb"),
+        require => Package['oraclelinux-release'],
+      }
+      case $::operatingsystemrelease {
+        default: {
+          package { 'oraclelinux-release': }
+        }
+      }
+    }
+
     # CentOS (Community Enterprise Operating System)
     'CentOS' : {
       file { '/etc/yum.repos.d/CentOS-Base.repo':

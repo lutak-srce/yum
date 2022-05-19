@@ -1,0 +1,27 @@
+[ol7_latest]
+name=Oracle Linux $releasever Latest ($basearch)
+baseurl=https://yum$ociregion.$ocidomain/repo/OracleLinux/OL7/latest/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[ol7_UEKR6]
+name=Latest Unbreakable Enterprise Kernel Release 6 for Oracle Linux $releasever ($basearch)
+baseurl=https://yum$ociregion.$ocidomain/repo/OracleLinux/OL7/UEKR6/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
