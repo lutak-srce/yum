@@ -1,0 +1,29 @@
+[couchbase-server]
+name=Couchbase Server
+baseurl=http://packages.couchbase.com/releases/couchbase-server/enterprise/rpm/$releasever/$basearch/
+enabled=0
+s3_enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/GPG-KEY-COUCHBASE-1.0
+
+[couchbase-server-community]
+name=Couchbase Server (Community Edition)
+baseurl=http://packages.couchbase.com/releases/couchbase-server/community/rpm/$releasever/$basearch/
+enabled=1
+s3_enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/GPG-KEY-COUCHBASE-1.0
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[couchbase-sdk]
+name=Couchbase SDK package repository
+baseurl=http://packages.couchbase.com/rpm/6.2/$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/GPG-KEY-COUCHBASE-1.0

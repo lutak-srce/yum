@@ -1,0 +1,18 @@
+[zulu]
+name=zulu-$releasever - Azul Systems Inc., Zulu packages for $basearch
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% else -%>
+baseurl=http://repos.azulsystems.com/rhel/$releasever/$basearch
+<% end -%>
+gpgkey=http://repos.azulsystems.com/RPM-GPG-KEY-azulsystems
+enabled=1
+gpgcheck=1
+protect=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>

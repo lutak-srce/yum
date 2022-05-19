@@ -1,0 +1,19 @@
+# additional packages that override packages from base/updates
+# use with caution
+[srce-extras]
+name=Srce Extra Packages for Enterprise Linux (overrides Base) $releasever - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://ftp.srce.hr/redhat/extras/el<%= @facts['os']['release']['major'] %>/$basearch/
+<% end -%>
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SRCE
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
