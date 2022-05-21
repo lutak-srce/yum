@@ -7,3 +7,6 @@ skip_if_unavailable=False
 <% if @http_proxy != 'UNDEF' -%>
 proxy=<%= @http_proxy %>
 <% end -%>
+<% case @ip_resolve when '4', 'IPv4', '6', 'IPv6' then -%>
+ip_resolve=<%= @ip_resolve %>
+<% end -%>
