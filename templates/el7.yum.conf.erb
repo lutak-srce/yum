@@ -13,6 +13,9 @@ distroverpkg=<%= @distroverpkg %>
 <% if @http_proxy != 'UNDEF' -%>
 proxy=<%= @http_proxy %>
 <% end -%>
+<% case @ip_resolve when '4', 'IPv4', '6', 'IPv6' then -%>
+ip_resolve=<%= @ip_resolve %>
+<% end -%>
 
 #  This is the default, if you make this bigger yum won't see if the metadata
 # is newer on the remote and so you'll "gain" the bandwidth of not having to
