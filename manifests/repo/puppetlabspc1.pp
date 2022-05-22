@@ -7,9 +7,8 @@ class yum::repo::puppetlabspc1 (
   $priority  = '1',
   $exclude   = [],
   $include   = [],
-  $debuginfo = false,
   $source    = false,
-  $devel     = false,
+  $baseurl   = undef,
 ) {
   require yum::repo::base
 
@@ -18,7 +17,7 @@ class yum::repo::puppetlabspc1 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/puppetlabs-pc1.erb"),
+    content => template("yum/${::operatingsystem}/puppetlabs-pc1.erb"),
     require => Package['puppetlabs-release-pc1'],
   }
 
