@@ -49,9 +49,9 @@ class yum (
   }
 
   if ( $http_proxy != 'UNDEF' ) {
-    file { '/etc/rpm/macros.proxy' :
-      content => template('yum/macros.proxy.erb'),
-    }
+    file { '/etc/rpm/macros.proxy': content => template('yum/macros.proxy.erb') }
+  } else {
+    file { '/etc/rpm/macros.proxy': ensure => absent }
   }
 
 
