@@ -14,7 +14,7 @@ class yum::repo::google::cloudsdk (
 
   exec { 'rpm_keyimport_google_cloudsdk_yumkey':
     command => '/bin/rpm --import https://packages.cloud.google.com/yum/doc/yum-key.gpg',
-    unless  => '/bin/rpm -qa | /bin/grep -q gpg-pubkey-a7317b0f-551deab2',
+    unless  => '/bin/rpm -qa | /bin/grep -q gpg-pubkey-dc6315a3-6091b7b3',
   }
 
   exec { 'rpm_keyimport_google_cloudsdk_rpmkey':
