@@ -1,17 +1,16 @@
 [prometheus]
-name=Repository with Prometheus RPM packages for CentOS 7
+name=prometheus
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=https://packagecloud.io/prometheus-rpm/release/el/7/$basearch
+baseurl=https://packagecloud.io/prometheus-rpm/release/el/$releasever/$basearch
 <% end -%>
-gpgcheck=1
-gpgkey=https://packagecloud.io/prometheus-rpm/release/gpgkey https://raw.githubusercontent.com/lest/prometheus-rpm/master/RPM-GPG-KEY-prometheus-rpm
 repo_gpgcheck=1
 enabled=1
+gpgkey=https://packagecloud.io/prometheus-rpm/release/gpgkey
+       https://raw.githubusercontent.com/lest/prometheus-rpm/master/RPM-GPG-KEY-prometheus-rpm
+gpgcheck=1
 metadata_expire=300
-sslcacert=/etc/pki/tls/certs/ca-bundle.crt
-sslverify=1
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
