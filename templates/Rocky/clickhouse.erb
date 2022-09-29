@@ -3,10 +3,11 @@ name=ClickHouse - Stable Repository
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=https://repo.clickhouse.tech/rpm/stable/$basearch/
+baseurl=https://packages.clickhouse.com/rpm/stable/
 <% end -%>
-gpgkey=https://repo.clickhouse.tech/CLICKHOUSE-KEY.GPG
-gpgcheck=1
+gpgkey=https://packages.clickhouse.com/rpm/stable/repodata/repomd.xml.key
+gpgcheck=0
+repo_gpgcheck=1
 enabled=1
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
@@ -15,16 +16,55 @@ exclude=<%= @exclude.join(' ') %>
 <% unless @include.empty? -%>
 includepkgs=<%= @include.join(' ') %>
 <% end -%>
- 
+
 [clickhouse-lts]
 name=ClickHouse - LTS Repository
 <% if @baseurl -%>
 baseurl=<%= @baseurl.sub('stable', 'lts') %>
 <% else -%>
-baseurl=https://repo.clickhouse.tech/rpm/lts/$basearch/
+baseurl=https://packages.clickhouse.com/rpm/lts/
 <% end -%>
-gpgkey=https://repo.clickhouse.tech/CLICKHOUSE-KEY.GPG
-gpgcheck=1
+gpgkey=https://packages.clickhouse.com/rpm/lts/repodata/repomd.xml.key
+gpgcheck=0
+repo_gpgcheck=1
+enabled=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[clickhouse-prestable]
+name=ClickHouse - Pre-stable Repository
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('stable', 'prestable') %>
+<% else -%>
+baseurl=https://packages.clickhouse.com/rpm/prestable/
+<% end -%>
+gpgkey=https://packages.clickhouse.com/rpm/prestable/repodata/repomd.xml.key
+gpgcheck=0
+repo_gpgcheck=1
+enabled=0
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[clickhouse-testing]
+name=ClickHouse - Testing Repository
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('stable', 'testing') %>
+<% else -%>
+baseurl=https://packages.clickhouse.com/rpm/testing/
+<% end -%>
+gpgkey=https://packages.clickhouse.com/rpm/testing/repodata/repomd.xml.key
+gpgcheck=0
+repo_gpgcheck=1
 enabled=0
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
