@@ -5,8 +5,8 @@ baseurl=<%= @baseurl %>
 <% else -%>
 baseurl=https://yum.puppetlabs.com/puppet<%= @version %>/el/<%= @facts['os']['release']['major'] %>/$basearch
 <% end -%>
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet<%= @version %>-release
-       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2025-04-06-puppet<%= @version %>-release
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2025-04-06-puppet<%= @version %>-release
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet<%= @version %>-release
 enabled=1
 gpgcheck=1
 priority=<%= @priority %>
@@ -25,8 +25,8 @@ baseurl=<%= @baseurl.sub('$basearch', 'SRPMS') %>
 <% else -%>
 baseurl=https://yum.puppetlabs.com/puppet<%= @version %>/el/<%= @facts['os']['release']['major'] %>/SRPMS
 <% end -%>
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet<%= @version %>-release
-       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2025-04-06-puppet<%= @version %>-release
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-2025-04-06-puppet<%= @version %>-release
+       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet<%= @version %>-release
 failovermethod=priority
 <% if @source -%>
 enabled=1
