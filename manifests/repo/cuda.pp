@@ -43,5 +43,20 @@ class yum::repo::cuda (
         source   => 'https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-repo-rhel7-10.0.130-1.x86_64.rpm',
       }
     }
+    /^8.*/: {
+      file { '/etc/yum.repos.d/cuda.repo':
+        ensure  => file,
+        mode    => '0644',
+        owner   => root,
+        group   => root,
+        content => template("yum/${::operatingsystem}/cuda.erb"),
+        require => Package['cuda-repo-rhel8'],
+      }
+      package { 'cuda-repo-rhel8':
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-repo-rhel8-10.2.89-1.x86_64.rpm',
+      }
+    }
   }
 }
