@@ -1,0 +1,16 @@
+[treasuredata]
+name=TreasureData
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=http://packages.treasuredata.com/4/redhat/$releasever/$basearch
+<% end -%>
+gpgcheck=1
+gpgkey=https://packages.treasuredata.com/GPG-KEY-td-agent
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
