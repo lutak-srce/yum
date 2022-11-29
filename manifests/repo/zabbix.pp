@@ -11,6 +11,15 @@ class yum::repo::zabbix (
   $include   = [],
   $debuginfo = false,
 ) {
+ 
+  case $::operatingsystemrelease {
+    default: {
+      $gpgkey = 'RPM-GPG-KEY-ZABBIX-A14FE591'
+    }
+    /^9.*/: {
+      $gpgkey = 'RPM-GPG-KEY-ZABBIX-08EFA7DD'
+    }
+  }
 
   file { '/etc/yum.repos.d/zabbix.repo':
     ensure  => file,
