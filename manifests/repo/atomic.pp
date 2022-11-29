@@ -62,5 +62,12 @@ class yum::repo::atomic (
         source   => 'https://www6.atomicorp.com/channels/atomic/centos/8/x86_64/RPMS/atomic-release-1.0-21.el8.art.noarch.rpm',
       }
     }
+    /^9.*/: {
+      package { 'atomic-release' :
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'https://www6.atomicorp.com/channels/atomic/centos/9/x86_64/RPMS/atomic-release-1.0-23.el9.art.noarch.rpm',
+      }
+    }
   }
 }

@@ -1,9 +1,9 @@
-[cuda-rhel8-x86_64]
-name=cuda-rhel8-x86_64
-baseurl=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64
+[cuda-rhel<%= @facts['os']['release']['major'] %>-x86_64]
+name=cuda-rhel<%= @facts['os']['release']['major'] %>-x86_64
+baseurl=https://developer.download.nvidia.com/compute/cuda/repos/rhel<%= @facts['os']['release']['major'] %>/x86_64
 enabled=1
 gpgcheck=1
-gpgkey=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/D42D0685.pub
+gpgkey=https://developer.download.nvidia.com/compute/cuda/repos/rhel<%= @facts['os']['release']['major'] %>/x86_64/D42D0685.pub
 priority=<%= @priority %>
 <% if @exclude.to_s != '' -%>
 exclude=<%= @exclude.to_a.join(' ') %>

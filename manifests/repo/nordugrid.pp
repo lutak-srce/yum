@@ -53,6 +53,12 @@ class yum::repo::nordugrid (
         source   => 'https://download.nordugrid.org/packages/nordugrid-release/releases/6/centos/el8/x86_64/nordugrid-release-6-1.el8.noarch.rpm',
       }
     }
+    /^9.*/: {
+      package {'nordugrid-release':
+        ensure   => present,
+        provider => 'rpm',
+        source   => 'https://download.nordugrid.org/packages/nordugrid-release/releases/6/rocky/9/x86_64/nordugrid-release-6-1.el9.noarch.rpm',
+      }
+    }
   }
-
 }

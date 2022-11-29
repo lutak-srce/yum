@@ -5,11 +5,14 @@
 
 # CentOS
 class yum::repo::base (
-  $priority  = '1',
-  $exclude   = [],
-  $include   = [],
-  $baseurl   = undef,
-  $debuginfo = false,
+  $priority       = '1',
+  $exclude        = [],
+  $include        = [],
+  $baseurl        = undef,
+  $baseurl_debug  = undef,
+  $baseurl_source = undef,
+  $debuginfo      = false,
+  $source         = false,
 ){
 
   case $::operatingsystem {
@@ -30,31 +33,41 @@ class yum::repo::base (
     }
 
     'Rocky' : {
-      file { '/etc/yum.repos.d/Rocky-Base.repo':
-        ensure  => file,
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-Base.erb"),
-        require => Package['rocky-release'],
-      }
-
-      if ( $debuginfo ) {
-        file { '/etc/yum.repos.d/Rocky-Debuginfo.repo':
-          ensure  => file,
-          mode    => '0644',
-          owner   => root,
-          group   => root,
-          content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-Debuginfo.erb"),
-          require => Package['rocky-release'],
-        }
-      }
-
       case $::operatingsystemrelease {
         default: {
         }
+        /^9.*/: {
+          package { 'rocky-release': }
+          file { '/etc/yum.repos.d/rocky.repo':
+            ensure  => file,
+            mode    => '0644',
+            owner   => root,
+            group   => root,
+            content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rocky.erb"),
+            require => Package['rocky-release'],
+          }
+        }
         /^8.*/: {
           package { 'rocky-release': }
+          file { '/etc/yum.repos.d/Rocky-Base.repo':
+            ensure  => file,
+            mode    => '0644',
+            owner   => root,
+            group   => root,
+            content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-Base.erb"),
+            require => Package['rocky-release'],
+          }
+
+          if ( $debuginfo ) {
+            file { '/etc/yum.repos.d/Rocky-Debuginfo.repo':
+              ensure  => file,
+              mode    => '0644',
+              owner   => root,
+              group   => root,
+              content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-Debuginfo.erb"),
+              require => Package['rocky-release'],
+            }
+          }
         }
       }
     }
