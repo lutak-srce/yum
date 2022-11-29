@@ -20,37 +20,9 @@ class yum::repo::remi (
     content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/remi.erb"),
     require => Package['remi-release'],
   }
-
-  # install package depending on major version
-  case $::operatingsystemrelease {
-    default: {}
-    /^5.*/: {
-      package { 'remi-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://rpms.famillecollet.com/enterprise/remi-release-5.rpm',
-      }
-    }
-    /^6.*/: {
-      package { 'remi-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://rpms.famillecollet.com/enterprise/remi-release-6.rpm',
-      }
-    }
-    /^7.*/: {
-      package { 'remi-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
-      }
-    }
-    /^8.*/: {
-      package { 'remi-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://rpms.famillecollet.com/enterprise/remi-release-8.rpm',
-      }
-    }
+  package { 'remi-release' :
+    ensure   => present,
+    provider => 'rpm',
+    source   => "http://rpms.famillecollet.com/enterprise/remi-release-${facts['os']['release']['major']}.rpm",
   }
 }

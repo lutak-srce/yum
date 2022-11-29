@@ -46,6 +46,11 @@ class yum (
         content => template('yum/el8.dnf.conf.erb'),
       }
     }
+    /^9.*/: {
+      file { '/etc/dnf/dnf.conf' :
+        content => template('yum/el9.dnf.conf.erb'),
+      }
+    }
   }
 
   if ( $http_proxy != 'UNDEF' ) {

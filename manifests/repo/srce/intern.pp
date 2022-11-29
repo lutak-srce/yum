@@ -22,39 +22,9 @@ class yum::repo::srce::intern (
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
-    default : { }
-    /^5.*/ : {
-      package { 'srce-release-intern' :
-        ensure   => '5-3.el5.srce',
-        provider => 'rpm',
-        source   => 'http://ftp.srce.hr/srce-redhat/base/el5/x86_64/srce-release-intern-5-3.el5.srce.noarch.rpm',
-        require  => Package['srce-release'],
-      }
-    }
-    /^6.*/ : {
-      package { 'srce-release-intern' :
-        ensure   => '5-3.el6.srce',
-        provider => 'rpm',
-        source   => 'http://ftp.srce.hr/srce-redhat/base/el6/x86_64/srce-release-intern-5-3.el6.srce.noarch.rpm',
-        require  => Package['srce-release'],
-      }
-    }
-    /^7.*/ : {
-      package { 'srce-release-intern' :
-        ensure   => '5-3.el7.srce',
-        provider => 'rpm',
-        source   => 'http://ftp.srce.hr/srce-redhat/base/el7/x86_64/srce-release-intern-5-3.el7.srce.noarch.rpm',
-        require  => Package['srce-release'],
-      }
-    }
-    /^8.*/ : {
-      package { 'srce-release-intern' :
-        ensure   => '5-3.el8.srce',
-        provider => 'rpm',
-        source   => 'http://ftp.srce.hr/srce-redhat/base/el8/x86_64/srce-release-intern-5-3.el8.srce.noarch.rpm',
-        require  => Package['srce-release'],
-      }
-    }
+  package { 'srce-release-intern' :
+    provider => 'rpm',
+    source   => "http://ftp.srce.hr/srce-redhat/base/el${facts['os']['release']['major']}/x86_64/srce-release-intern-5-3.el${facts['os']['release']['major']}.srce.noarch.rpm",
+    require  => Package['srce-release'],
   }
 }

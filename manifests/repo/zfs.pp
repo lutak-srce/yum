@@ -47,5 +47,12 @@ class yum::repo::zfs (
         source   => "http://download.zfsonlinux.org/epel/zfs-release.el8_${facts['os']['release']['minor']}.noarch.rpm",
       }
     }
+    /^9.*/: {
+      package { 'zfs-release':
+        ensure   => present,
+        provider => 'rpm',
+        source   => "https://zfsonlinux.org/epel/zfs-release-2-2.el9.noarch.rpm",
+      }
+    }
   }
 }
