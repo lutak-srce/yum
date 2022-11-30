@@ -22,32 +22,9 @@ class yum::repo::zabbix (
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
-    default: {}
-    /^5.*/: {
-      package { 'zabbix-release':
-        provider => 'rpm',
-        source   => "https://repo.zabbix.com/zabbix/${version}/rhel/5/x86_64/zabbix-release-${version}-${release}.el5.noarch.rpm",
-      }
-    }
-    /^6.*/: {
-      package { 'zabbix-release':
-        provider => 'rpm',
-        source   => "https://repo.zabbix.com/zabbix/${version}/rhel/6/x86_64/zabbix-release-${version}-${release}.el6.noarch.rpm",
-      }
-    }
-    /^7.*/: {
-      package { 'zabbix-release':
-        provider => 'rpm',
-        source   => "https://repo.zabbix.com/zabbix/${version}/rhel/7/x86_64/zabbix-release-${version}-${release}.el7.noarch.rpm",
-      }
-    }
-    /^8.*/: {
-      package { 'zabbix-release':
-        provider => 'rpm',
-        source   => "https://repo.zabbix.com/zabbix/${version}/rhel/8/x86_64/zabbix-release-${version}-${release}.el8.noarch.rpm",
-      }
-    }
-
+  package { 'zabbix-release':
+    provider => 'rpm',
+    source   => "https://repo.zabbix.com/zabbix/${version}/rhel/${facts['os']['release']['major']}/x86_64/zabbix-release-${version}-${release}.el${facts['os']['release']['major']}.noarch.rpm",
   }
+
 }

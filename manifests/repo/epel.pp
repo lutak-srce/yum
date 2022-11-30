@@ -21,35 +21,9 @@ class yum::repo::epel (
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
-    default: {}
-    /^5.*/: {
-      package { 'epel-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://archives.fedoraproject.org/pub/archive/epel/epel-release-latest-5.noarch.rpm',
-      }
-    }
-    /^6.*/: {
-      package { 'epel-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm',
-      }
-    }
-    /^7.*/: {
-      package { 'epel-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
-      }
-    }
-    /^8.*/: {
-      package { 'epel-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm',
-      }
-    }
+  package { 'epel-release':
+    provider => 'rpm',
+    source   => "https://dl.fedoraproject.org/pub/epel/epel-release-latest-${facts['os']['release']['major']}.noarch.rpm",
   }
+
 }
