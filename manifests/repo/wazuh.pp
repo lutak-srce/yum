@@ -19,7 +19,7 @@ class yum::repo::wazuh (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/wazuh.erb"),
+    content => template("yum/generic/wazuh.erb"),
   }
 
 }
