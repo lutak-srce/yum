@@ -17,7 +17,7 @@ class yum::repo::scylla (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/scylla.erb"),
+    content => template("yum/generic/scylla.erb"),
   }
 
 }
