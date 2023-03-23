@@ -55,7 +55,7 @@ name=Copr repo for scylla-3rdparty owned by scylladb
 <% if @baseurl -%>
 baseurl=<%= @baseurl.sub(/\/scylla-enterprise.*/,'/scylladb-scylla-3rdparty') %>
 <% else -%>
-baseurl=https://copr-be.cloud.fedoraproject.org/results/scylladb/scylla-3rdparty/epel-7-$basearch/
+baseurl=https://copr-be.cloud.fedoraproject.org/results/scylladb/scylla-3rdparty/epel-${facts['os']['release']['major']}-$basearch/
 <% end -%>
 type=rpm-md
 skip_if_unavailable=True
