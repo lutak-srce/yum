@@ -28,7 +28,7 @@ includepkgs=<%= @include.join(' ') %>
 [scylla-enterprise-generic-<%= @version %>]
 name=Scylla for centos $releasever
 <% if @baseurl -%>
-baseurl=<%= @baseurl.sub('$basearch/','noarch/').sub('scylla-enterprise-', 'scylla-enterprise-generic-') %>
+baseurl=<%= @baseurl.sub('$basearch','noarch').sub('scylla-enterprise-', 'scylla-enterprise-generic-') %>
 <% else -%>
 baseurl=http://downloads.scylladb.com/downloads/scylla-enterprise/rpm/centos/scylladb-<%= @version %>/noarch/
 <% end -%>
@@ -36,34 +36,13 @@ baseurl=http://downloads.scylladb.com/downloads/scylla-enterprise/rpm/centos/scy
 [scylla-generic-<%= @version %>]
 name=Scylla for centos $releasever
 <% if @baseurl -%>
-baseurl=<%= @baseurl.sub('$basearch/','noarch/').sub('scylla-', 'scylla-generic-') %>
+baseurl=<%= @baseurl.sub('$basearch','noarch').sub('scylla-', 'scylla-generic-') %>
 <% else -%>
 baseurl=http://downloads.scylladb.com/downloads/scylla/rpm/centos/scylladb-<%= @version %>/7/$basearch/
 <% end -%>
 <% end -%>
 enabled=1
 gpgcheck=0
-<% unless @exclude.empty? -%>
-exclude=<%= @exclude.join(' ') %>
-<% end -%>
-<% unless @include.empty? -%>
-includepkgs=<%= @include.join(' ') %>
-<% end -%>
-
-[scylladb-scylla-3rdparty]
-name=Copr repo for scylla-3rdparty owned by scylladb
-<% if @baseurl -%>
-baseurl=<%= @baseurl.sub(/\/scylla-enterprise.*/,'/scylladb-scylla-3rdparty') %>
-<% else -%>
-baseurl=https://copr-be.cloud.fedoraproject.org/results/scylladb/scylla-3rdparty/epel-<%= @facts['os']['release']['major'] %>-$basearch/
-<% end -%>
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://copr-be.cloud.fedoraproject.org/results/scylladb/scylla-3rdparty/pubkey.gpg
-repo_gpgcheck=0
-enabled=1
-enabled_metadata=1
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
 <% end -%>
