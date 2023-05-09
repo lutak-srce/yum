@@ -1,0 +1,21 @@
+[influxdata]
+name = InfluxData Repository - Stable
+<% if @baseurl -%>
+baseurl = <%= @baseurl %>
+<% else -%>
+baseurl = https://repos.influxdata.com/rhel/$releasever/$basearch/stable
+<% end -%>
+enabled = 1
+gpgcheck = 1
+<% if @facts['os']['release']['major'].to_i > 7 -%>
+gpgkey = https://repos.influxdata.com/influxdata-archive.key
+<% else -%>
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
+<% end -%>
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.join(' ') %>
+<% end -%>
