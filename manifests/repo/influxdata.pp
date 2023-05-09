@@ -1,9 +1,9 @@
 #
-# = Class: yum::repo::influxdb
+# = Class: yum::repo::influxdata
 #
-# OBSOLETED BY yum::repo::influxdata !!!
+# This module manages influxdata repo files for $lsbdistrelease
 #
-class yum::repo::influxdb (
+class yum::repo::influxdata (
   $priority  = '1',
   $exclude   = [],
   $include   = [],
@@ -19,8 +19,8 @@ class yum::repo::influxdb (
     group   => root,
   }
 
-  file { '/etc/yum.repos.d/influxdb.repo':
-    content => template('yum/generic/influxdb.erb'),
+  file { '/etc/yum.repos.d/influxdata.repo':
+    content => template('yum/generic/influxdata.erb'),
   }
 
 }
