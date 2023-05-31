@@ -14,12 +14,17 @@ class yum::repo::puppet (
 
   require yum::repo::base
 
-  file { "/etc/yum.repos.d/puppet${version}.repo" :
+  $puppet_repo_file = $version ? {
+    '7'     => "puppet${version}-release.repo",
+    default => "puppet${version}.repo"
+  }
+
+  file { "/etc/yum.repos.d/${puppet_repo_file}":
     ensure  => file,
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/puppet.erb"),
+    content => template("yum/generic/puppet.erb"),
     require => Package["puppet${version}-release"],
   }
 
