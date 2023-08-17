@@ -3,7 +3,7 @@ name=nginx stable repo
 <% if @baseurl -%>
 baseurl = <%= @baseurl %>
 <% else -%>
-baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+baseurl=https://nginx.org/packages/centos/$releasever/$basearch/
 <% end -%>
 gpgcheck=1
 enabled=1
@@ -22,7 +22,7 @@ name=nginx mainline repo
 <% if @baseurl_mainline -%>
 baseurl = <%= @baseurl_mainline %>
 <% else -%>
-baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+baseurl=https://nginx.org/packages/mainline/centos/$releasever/$basearch/
 <% end -%>
 gpgcheck=1
 <% if @mainline -%>
