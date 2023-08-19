@@ -22,6 +22,7 @@ class yum::repo::base (
     'Amazon' : {
       include ::yum::repo::base::amazon
     }
+
     # RedHat Enterprise Linux
     'RedHat': {
       file { '/etc/yum.repos.d/redhat.repo':
@@ -29,6 +30,11 @@ class yum::repo::base (
         mode   => '0644',
         owner  => root,
         group  => root,
+      }
+
+      case $facts['os']['release']['major'] {
+        default: { }
+        '8': { package { 'yum-utils': } }
       }
     }
 
@@ -49,6 +55,7 @@ class yum::repo::base (
         }
         /^8.*/: {
           package { 'rocky-release': }
+          package { 'yum-utils': }
           file { '/etc/yum.repos.d/Rocky-Base.repo':
             ensure  => file,
             mode    => '0644',
@@ -135,6 +142,7 @@ class yum::repo::base (
           package { 'yum-plugin-versionlock': }
         }
         /^8.*/: {
+          package { 'yum-utils': }
           package { 'centos-release': }
         }
       }
