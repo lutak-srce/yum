@@ -7,6 +7,7 @@ class yum::repo::grafana (
   $priority  = '1',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
 ) {
   require yum::repo::base
