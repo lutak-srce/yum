@@ -5,9 +5,10 @@
 #
 
 class yum::repo::base::powertools (
-  $priority  = '2',
+  $priority  = '1',
   $exclude   = [],
   $include   = [],
+  $baseurl   = undef,
   $debuginfo = false,
 ){
   require yum::repo::base
