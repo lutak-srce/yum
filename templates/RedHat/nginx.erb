@@ -1,7 +1,7 @@
 [nginx-stable]
 name=nginx stable repo
 <% if @baseurl -%>
-baseurl = <%= @baseurl %>
+baseurl=<%= @baseurl %>
 <% else -%>
 baseurl=https://nginx.org/packages/centos/$releasever/$basearch/
 <% end -%>
@@ -20,7 +20,7 @@ includepkgs=<%= @include.to_a.join(' ') %>
 [nginx-mainline]
 name=nginx mainline repo
 <% if @baseurl_mainline -%>
-baseurl = <%= @baseurl_mainline %>
+baseurl=<%= @baseurl_mainline %>
 <% else -%>
 baseurl=https://nginx.org/packages/mainline/centos/$releasever/$basearch/
 <% end -%>
