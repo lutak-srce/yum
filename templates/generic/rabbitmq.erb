@@ -11,9 +11,8 @@ baseurl=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-server/rpm/el/8/$basea
 <% end -%>
 repo_gpgcheck=1
 enabled=1
-# Cloudsmith's repository key and RabbitMQ package signing key
+skip_if_unavailable=1
 gpgkey=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-server/gpg.9F4587F226208342.key
-       https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc
 gpgcheck=1
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
@@ -38,9 +37,8 @@ baseurl=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-server/rpm/el/8/noarch
 <% end -%>
 repo_gpgcheck=1
 enabled=1
-# Cloudsmith's repository key and RabbitMQ package signing key
+skip_if_unavailable=1
 gpgkey=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-server/gpg.9F4587F226208342.key
-       https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc
 gpgcheck=1
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
@@ -65,6 +63,7 @@ baseurl=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-server/rpm/el/8/SRPMS
 <% end -%>
 repo_gpgcheck=1
 enabled=0
+skip_if_unavailable=1
 gpgkey=https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-server/gpg.9F4587F226208342.key
 gpgcheck=1
 sslverify=1
