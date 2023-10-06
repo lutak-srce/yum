@@ -44,6 +44,7 @@ class yum::repo::base (
         }
         /^9.*/: {
           package { 'rocky-release': }
+          package { 'yum-utils': }
           file { '/etc/yum.repos.d/rocky.repo':
             ensure  => file,
             mode    => '0644',
