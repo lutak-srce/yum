@@ -1,0 +1,13 @@
+[graylog-sidecar]
+name=graylog-sidecar
+baseurl=https://packages.graylog2.org/repo/el/sidecar-stable/1.4/$basearch/
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-graylog-sidecar
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.join(' ') %>
+<% end -%>
