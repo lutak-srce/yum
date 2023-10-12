@@ -3,7 +3,7 @@
 #
 # This module manages Graylog sidecar repo files for $lsbdistrelease
 #
-class yum::repo::graylog-sidecar (
+class yum::repo::graylog_sidecar (
   $exclude   = [],
   $include   = [],
   $source    = false,
