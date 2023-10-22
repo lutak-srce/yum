@@ -7,31 +7,12 @@ class yum::repo::cvmfs (
   $exclude   = [ ],
   $debuginfo = false,
 ) {
-  file { '/etc/yum.repos.d/cernvm.repo':
+  file { '/etc/yum.repos.d/cvmfs.repo':
     ensure  => file,
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/cernvm.erb"),
-    require => Package['cvmfs-release'],
+    content => template('yum/generic/cvmfs.erb'),
   }
 
-  # install package depending on major version
-  case $::operatingsystemrelease {
-    default: {}
-    /^5.*/: {
-      package { 'cvmfs-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/EL/5/x86_64/cvmfs-release-2-4.el5.noarch.rpm',
-      }
-    }
-    /^6.*/: {
-      package { 'cvmfs-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'http://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/EL/6/x86_64/cvmfs-release-2-4.el6.noarch.rpm',
-      }
-    }
-  }
 }
