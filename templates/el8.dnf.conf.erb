@@ -10,3 +10,6 @@ proxy=<%= @http_proxy %>
 <% case @ip_resolve when '4', 'IPv4', '6', 'IPv6' then -%>
 ip_resolve=<%= @ip_resolve %>
 <% end -%>
+<% if @localpkg_gpgcheck -%>
+localpkg_gpgcheck=True
+<% end -%>

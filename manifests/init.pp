@@ -10,6 +10,7 @@ class yum (
   $purge_repos_d     = true,
   $distroverpkg      = 'centos-release',
   $ip_resolve        = undef,
+  $localpkg_gpgcheck = undef,
   $installonly_limit,
 ) {
 
