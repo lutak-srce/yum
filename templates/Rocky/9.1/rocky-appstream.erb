@@ -29,9 +29,9 @@ mirrorlist=https://mirrors.rockylinux.org/mirrorlist?arch=$basearch&repo=AppStre
 <% end -%>
 gpgcheck=1
 <% if @debuginfo -%>
-enabled = 1
+enabled=1
 <% else -%>
-enabled = 0
+enabled=0
 <% end -%>
 metadata_expire=6h
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
@@ -53,9 +53,9 @@ mirrorlist=https://mirrors.rockylinux.org/mirrorlist?arch=source&repo=AppStream-
 <% end -%>
 gpgcheck=1
 <% if @source -%>
-enabled = 1
+enabled=1
 <% else -%>
-enabled = 0
+enabled=0
 <% end -%>
 metadata_expire=6h
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
