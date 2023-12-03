@@ -6,7 +6,7 @@ name=Extra Packages for Enterprise Linux $releasever - $basearch
 baseurl=<%= @baseurl %>
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 <% else -%>
-#baseurl=https://download.example/pub/epel/$releasever/Everything/$basearch
+#baseurl=https://download.example/pub/epel/$releasever/Everything/$basearch/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 <% end -%>
 enabled=1
@@ -29,7 +29,7 @@ name=Extra Packages for Enterprise Linux $releasever - $basearch - Debug
 baseurl=<%= @baseurl + '/debug' %>
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 <% else -%>
-#baseurl=https://download.example/pub/epel/$releasever/Everything/$basearch/debug
+#baseurl=https://download.example/pub/epel/$releasever/Everything/$basearch/debug/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 <% end -%>
 <% if @debuginfo -%>
@@ -55,7 +55,7 @@ name=Extra Packages for Enterprise Linux $releasever - $basearch - Source
 baseurl=<%= @baseurl + '/SRPMS' %>
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 <% else -%>
-#baseurl=https://download.example/pub/epel/$releasever/Everything/SRPMS
+#baseurl=https://download.example/pub/epel/$releasever/Everything/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
 <% end -%>
 <% if @source -%>
