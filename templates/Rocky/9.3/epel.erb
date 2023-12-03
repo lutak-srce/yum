@@ -1,7 +1,7 @@
 [epel]
 name=Extra Packages for Enterprise Linux $releasever - $basearch
 # It is much more secure to use the metalink, but if you wish to use a local mirror
-# place it's address here.
+# place its address here.
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
@@ -24,7 +24,7 @@ includepkgs=<%= @include.join(' ') %>
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux $releasever - $basearch - Debug
 # It is much more secure to use the metalink, but if you wish to use a local mirror
-# place it's address here.
+# place its address here.
 <% if @baseurl -%>
 baseurl=<%= @baseurl + '/debug' %>
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-$releasever&arch=$basearch&infra=$infra&content=$contentdir
@@ -50,7 +50,7 @@ includepkgs=<%= @include.join(' ') %>
 [epel-source]
 name=Extra Packages for Enterprise Linux $releasever - $basearch - Source
 # It is much more secure to use the metalink, but if you wish to use a local mirror
-# place it's address here.
+# place its address here.
 <% if @baseurl -%>
 baseurl=<%= @baseurl + '/SRPMS' %>
 #metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-$releasever&arch=$basearch&infra=$infra&content=$contentdir
