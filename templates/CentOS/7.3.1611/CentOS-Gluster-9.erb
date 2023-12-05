@@ -3,9 +3,14 @@
 # Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
 # information
 
-[centos-gluster<%= @version.gsub(/\./,'') %>]
+[centos-gluster<%= @version %>]
 name=CentOS-$releasever - Gluster <%= @version %>
-baseurl=http://mirror.centos.org/centos/$releasever/storage/$basearch/gluster-<%= @version %>/
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+mirrorlist=http://mirrorlist.centos.org?arch=$basearch&release=$releasever&repo=storage-gluster-<%= @version %>
+#baseurl=http://mirror.centos.org/$contentdir/$releasever/storage/$basearch/gluster-<%= @version %>/
+<% end -%>
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
@@ -17,7 +22,7 @@ exclude=<%= @exclude.join(' ') %>
 includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
-[centos-gluster<%= @version.gsub(/\./,'') %>-test]
+[centos-gluster<%= @version %>-test]
 name=CentOS-$releasever - Gluster <%= @version %> Testing
 baseurl=http://buildlogs.centos.org/centos/$releasever/storage/$basearch/gluster-<%= @version %>/
 gpgcheck=0

@@ -1,0 +1,38 @@
+# CentOS-Gluster-<%= @version %>.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-gluster<%= @version %>]
+name=CentOS-$releasever - Gluster <%= @version %>
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+mirrorlist=http://mirrorlist.centos.org?arch=$basearch&release=$releasever&repo=storage-gluster-<%= @version %>
+#baseurl=http://mirror.centos.org/$contentdir/$releasever/storage/$basearch/gluster-<%= @version %>/
+<% end -%>
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[centos-gluster<%= @version %>-test]
+name=CentOS-$releasever - Gluster <%= @version %> Testing
+baseurl=http://buildlogs.centos.org/centos/$releasever/storage/$basearch/gluster-<%= @version %>/
+gpgcheck=0
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+

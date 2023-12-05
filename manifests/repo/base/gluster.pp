@@ -20,7 +20,7 @@ class yum::repo::base::gluster (
   case $facts['os']['name'] {
     default : {}
 
-    'Rocky' : {
+    /(Rocky|CentOS)/ : {
       file { "/etc/yum.repos.d/CentOS-Gluster-${version}.repo":
         ensure  => file,
         mode    => '0644',
