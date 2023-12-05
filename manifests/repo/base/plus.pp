@@ -20,6 +20,9 @@ class yum::repo::base::plus (
     default: {
       $prefix = 'rocky-plus'
     }
+    /^7.*/: {
+      $prefix = "${facts['os']['name']}-Plus"
+    }
     /^8.*/: {
       $prefix = "${facts['os']['name']}-Plus"
     }
