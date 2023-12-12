@@ -3,7 +3,7 @@
 #
 [percona-release-$basearch]
 name = Percona release-$basearch YUM repository for $basearch
-baseurl = http://repo.percona.com/percona/yum/release/$releasever/RPMS/$basearch
+baseurl = https://repo.percona.com/percona/yum/release/$releasever/RPMS/$basearch
 enable = 1
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
@@ -17,7 +17,7 @@ includepkgs = <%= @include.join(' ') %>
 
 [percona-release-noarch]
 name = Percona release-noarch YUM repository for $basearch
-baseurl = http://repo.percona.com/percona/yum/release/$releasever/RPMS/noarch
+baseurl = https://repo.percona.com/percona/yum/release/$releasever/RPMS/noarch
 enable = 1
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
@@ -31,7 +31,7 @@ includepkgs = <%= @include.join(' ') %>
 
 [percona-release-sources]
 name = Percona release-sources YUM repository for $basearch
-baseurl = http://repo.percona.com/percona/yum/release/$releasever/SRPMS
+baseurl = https://repo.percona.com/percona/yum/release/$releasever/SRPMS
 enable = 0
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY

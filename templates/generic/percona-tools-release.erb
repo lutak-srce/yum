@@ -15,6 +15,7 @@ exclude = <%= @exclude.join(' ') %>
 includepkgs = <%= @include.join(' ') %>
 <% end -%>
 
+<% if @facts['os']['release']['major'].to_i < 9 %>
 [tools-release-noarch]
 name = Percona Tools release/noarch YUM repository
 baseurl = http://repo.percona.com/tools/yum/release/$releasever/RPMS/noarch
@@ -29,6 +30,7 @@ exclude = <%= @exclude.join(' ') %>
 includepkgs = <%= @include.join(' ') %>
 <% end -%>
 
+<% end -%>
 [tools-release-sources]
 name = Percona Tools release/sources YUM repository
 baseurl = http://repo.percona.com/tools/yum/release/$releasever/SRPMS
