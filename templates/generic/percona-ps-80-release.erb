@@ -3,7 +3,7 @@
 #
 [ps-80-release-x86_64]
 name = Percona Server 8.0 release/x86_64 YUM repository
-baseurl = http://repo.percona.com/ps-80/yum/release/$releasever/RPMS/x86_64
+baseurl = https://repo.percona.com/ps-80/yum/release/$releasever/RPMS/x86_64
 enabled = 1
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
@@ -15,9 +15,10 @@ exclude = <%= @exclude.join(' ') %>
 includepkgs = <%= @include.join(' ') %>
 <% end -%>
 
+<% if @facts['os']['release']['major'].to_i < 9 %>
 [ps-80-release-noarch]
 name = Percona Server 8.0 release/noarch YUM repository
-baseurl = http://repo.percona.com/ps-80/yum/release/$releasever/RPMS/noarch
+baseurl = https://repo.percona.com/ps-80/yum/release/$releasever/RPMS/noarch
 enabled = 1
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
@@ -29,9 +30,10 @@ exclude = <%= @exclude.join(' ') %>
 includepkgs = <%= @include.join(' ') %>
 <% end -%>
 
+<% end -%>
 [ps-80-release-sources]
 name = Percona Server 8.0 release/sources YUM repository
-baseurl = http://repo.percona.com/ps-80/yum/release/$releasever/SRPMS
+baseurl = https://repo.percona.com/ps-80/yum/release/$releasever/SRPMS
 enabled = 0
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
