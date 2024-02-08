@@ -74,14 +74,6 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
 repo_gpgcheck=1
 
-[pgdg11]
-name=PostgreSQL 11 for RHEL / <%= desc_os_name %> $releasever - $basearch
-baseurl=https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-$releasever-$basearch
-enabled=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
-repo_gpgcheck=1
-
 # PGDG RHEL / <%= desc_os_name %> Updates Testing common repository.
 
 [pgdg-common-testing]
@@ -130,14 +122,6 @@ repo_gpgcheck=1
 [pgdg12-updates-testing]
 name=PostgreSQL 12 for RHEL / <%= desc_os_name %> $releasever - $basearch - Updates testing
 baseurl=https://download.postgresql.org/pub/repos/yum/testing/12/redhat/rhel-$releasever-$basearch
-enabled=0
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
-repo_gpgcheck=1
-
-[pgdg11-updates-testing]
-name=PostgreSQL 11 for RHEL / <%= desc_os_name %> $releasever - $basearch - Updates testing
-baseurl=https://download.postgresql.org/pub/repos/yum/testing/11/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
@@ -255,28 +239,6 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
 repo_gpgcheck=1
 
-[pgdg11-source]
-name=PostgreSQL 11 for RHEL / <%= desc_os_name %> $releasever - $basearch - Source
-<% if @facts['os']['release']['major'] < '8' -%>
-failovermethod=priority
-<% end -%>
-baseurl=https://download.postgresql.org/pub/repos/yum/srpms/11/redhat/rhel-$releasever-$basearch
-enabled=0
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
-repo_gpgcheck=1
-
-[pgdg11-source-updates-testing]
-name=PostgreSQL 11 for RHEL / <%= desc_os_name %> $releasever - $basearch - Source update testing
-<% if @facts['os']['release']['major'] < '8' -%>
-failovermethod=priority
-<% end -%>
-baseurl=https://download.postgresql.org/pub/repos/yum/srpms/testing/11/redhat/rhel-$releasever-$basearch
-enabled=0
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
-repo_gpgcheck=1
-
 # Debuginfo/debugsource packages for stable repos
 
 [pgdg15-debuginfo]
@@ -306,14 +268,6 @@ repo_gpgcheck=1
 [pgdg12-debuginfo]
 name=PostgreSQL 12 for RHEL / <%= desc_os_name %> $releasever - $basearch - Debuginfo
 baseurl=https://download.postgresql.org/pub/repos/yum/debug/12/redhat/rhel-$releasever-$basearch
-enabled=0
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
-repo_gpgcheck=1
-
-[pgdg11-debuginfo]
-name=PostgreSQL 11 for RHEL / <%= desc_os_name %> $releasever - $basearch - Debuginfo
-baseurl=https://download.postgresql.org/pub/repos/yum/debug/11/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
@@ -357,14 +311,6 @@ repo_gpgcheck=1
 [pgdg12-updates-testing-debuginfo]
 name=PostgreSQL 12 for RHEL / <%= desc_os_name %> $releasever - $basearch - Debuginfo
 baseurl=https://download.postgresql.org/pub/repos/yum/testing/debug/12/redhat/rhel-$releasever-$basearch
-enabled=0
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
-repo_gpgcheck=1
-
-[pgdg11-updates-testing-debuginfo]
-name=PostgreSQL 11 for RHEL / <%= desc_os_name %> $releasever - $basearch - Debuginfo
-baseurl=https://download.postgresql.org/pub/repos/yum/testing/debug/11/redhat/rhel-$releasever-$basearch
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG
