@@ -1,0 +1,56 @@
+[zfs]
+name=ZFS on Linux for EL$releasever - dkms
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=http://download.zfsonlinux.org/epel/$releasever/$basearch/
+<% end -%>
+enabled=1
+metadata_expire=7d
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-openzfs-el-$releasever
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[zfs-kmod]
+name=ZFS on Linux for EL$releasever - kmod
+<% if @baseurl_kmod -%>
+baseurl=<%= @baseurl_kmod %>
+<% else -%>
+baseurl=http://download.zfsonlinux.org/epel/$releasever/kmod/$basearch/
+<% end -%>
+enabled=0
+metadata_expire=7d
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-openzfs-el-$releasever
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[zfs-source]
+name=ZFS on Linux for EL$releasever - Source
+baseurl=http://download.zfsonlinux.org/epel/$releasever/SRPMS/
+<% if @source -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-openzfs-el-$releasever
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
