@@ -4,6 +4,7 @@
 # This module manages Docker Community Edition repo files for $lsbdistrelease
 #
 class yum::repo::dockerce (
+  $baseurl   = undef,
   $priority  = '61',
   $exclude   = [],
   $include   = [],
