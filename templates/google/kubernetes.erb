@@ -3,11 +3,11 @@ name=Kubernetes
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-$basearch
+baseurl=https://pkgs.k8s.io/core:/stable:/v<%= @version %>/rpm/
 <% end -%>
 enabled=1
 gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+gpgkey=https://pkgs.k8s.io/core:/stable:/v<%= @version %>/rpm/repodata/repomd.xml.key
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
