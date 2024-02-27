@@ -5,8 +5,9 @@
 #
 class yum::repo::google::kubernetes (
   $baseurl   = undef,
+  $version   = '1.25',
   $priority  = 1,
-  $exclude   = [],
+  $exclude   = [ 'kubelet', 'kubeadm', 'kubectl', 'cri-tools', 'kubernetes-cni' ],
   $include   = [],
 ){
   require ::yum::repo::base
