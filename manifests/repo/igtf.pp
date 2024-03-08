@@ -14,6 +14,6 @@ class yum::repo::igtf (
     mode   => '0644',
     owner  => root,
     group  => root,
-    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/EGI-trustanchors.repo",
+    source => "puppet:///modules/yum/EGI-trustanchors.repo"
   }
 }
