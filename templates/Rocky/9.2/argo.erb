@@ -1,0 +1,12 @@
+[argo-<%= @type %>]
+name=ARGO Product Repository
+baseurl=http://rpm-repo.argo.grnet.gr/ARGO/<%= @type %>/rocky/
+gpgcheck=0
+enabled=1
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
