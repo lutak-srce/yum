@@ -16,14 +16,11 @@ class yum::repo::base::plus (
 ){
   require yum::repo::base
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['major'] {
     default: {
-      $prefix = 'rocky-plus'
+      $prefix = "${facts['os']['name']}-plus"
     }
-    /^7.*/: {
-      $prefix = "${facts['os']['name']}-Plus"
-    }
-    /^8.*/: {
+    /^[678].*/: {
       $prefix = "${facts['os']['name']}-Plus"
     }
   }
