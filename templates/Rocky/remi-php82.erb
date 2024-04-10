@@ -1,0 +1,74 @@
+# This repository only provides PHP 8.2 and its extensions
+# NOTICE: common dependencies are in "remi-safe"
+
+[remi-php82]
+name=Remi's PHP 8.2 RPM repository for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/<%= @facts['os']['release']['major'] %>/php82/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/<%= @facts['os']['release']['major'] %>/php82/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/<%= @facts['os']['release']['major'] %>/php82/mirror
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[remi-php82-debuginfo]
+name=Remi's PHP 8.2 RPM repository for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/<%= @facts['os']['release']['major'] %>/debug-php82/$basearch/
+<% if @debuginfo -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[remi-php82-test]
+name=Remi's PHP 8.2 test RPM repository for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/<%= @facts['os']['release']['major'] %>/test80/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/<%= @facts['os']['release']['major'] %>/test80/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/<%= @facts['os']['release']['major'] %>/test80/mirror
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+<% if @test -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[remi-php82-test-debuginfo]
+name=Remi's PHP 8.2 test RPM repository for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/<%= @facts['os']['release']['major'] %>/debug-test80/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+<% if @test_debuginfo -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+priority=<%= @priority %>
+<% if @exclude.to_s != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_s != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
