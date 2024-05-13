@@ -1,10 +1,11 @@
-[nodesource]
-name=Node.js Packages for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch
-baseurl=https://rpm.nodesource.com/pub_<%= @version %>/el/<%= @facts['os']['release']['major'] %>/$basearch
-failovermethod=priority
+[nodesource-nodejs]
+name=Node.js Packages for Linux RPM based distros - x86_64
+baseurl=https://rpm.nodesource.com/pub_<%= @version %>/nodistro/nodejs/x86_64
+priority=9
 enabled=1
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
+gpgkey=https://rpm.nodesource.com/gpgkey/ns-operations-public.key
+module_hotfixes=1
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
@@ -13,17 +14,14 @@ exclude=<%= @exclude.join(' ') %>
 includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
-[nodesource-source]
-name=Node.js for Enterprise Linux <%= @facts['os']['release']['major'] %> - $basearch - Source
-baseurl=https://rpm.nodesource.com/pub_<%= @version %>/el/<%= @facts['os']['release']['major'] %>/SRPMS
-failovermethod=priority
-<% if @source -%>
+[nodesource-nsolid]
+name=N|Solid Packages for Linux RPM based distros - x86_64
+baseurl=https://rpm.nodesource.com/pub_<%= @version %>/nodistro/nsolid/x86_64
+priority=9
 enabled=1
-<% else -%>
-enabled=0
-<% end -%>
-gpgkey=file:///etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
 gpgcheck=1
+gpgkey=https://rpm.nodesource.com/gpgkey/ns-operations-public.key
+module_hotfixes=1
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
