@@ -14,8 +14,8 @@ class yum::repo::puppet (
 
   require yum::repo::base
 
-  $puppet_repo_file = $version ? {
-    '7'     => "puppet${version}-release.repo",
+  $puppet_repo_file = Integer($version) ? {
+    7       => "puppet${version}-release.repo",
     default => "puppet${version}.repo"
   }
 
