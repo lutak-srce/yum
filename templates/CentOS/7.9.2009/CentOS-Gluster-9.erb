@@ -8,8 +8,8 @@ name=CentOS-$releasever - Gluster <%= @version %>
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-mirrorlist=http://mirrorlist.centos.org?arch=$basearch&release=$releasever&repo=storage-gluster-<%= @version %>
-#baseurl=http://mirror.centos.org/$contentdir/$releasever/storage/$basearch/gluster-<%= @version %>/
+#mirrorlist=http://mirrorlist.centos.org?arch=$basearch&release=$releasever&repo=storage-gluster-<%= @version %>
+baseurl=https://vault.centos.org/7.9.2009/storage/$basearch/gluster-<%= @version %>/
 <% end -%>
 gpgcheck=1
 enabled=1
