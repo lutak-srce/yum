@@ -32,7 +32,11 @@ includepkgs=<%= @include.join(' ') %>
 [updates]
 name=CentOS-$releasever - Updates
 <% if @baseurl -%>
+<% if @baseurl_updates -%>
+baseurl=<%= @baseurl_updates %>
+<% else -%>
 baseurl=<%= @baseurl.sub('/os/','/updates/') %>
+<% end -%>
 <% else -%>
 #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra
 baseurl=https://vault.centos.org/7.9.2009/updates/$basearch/

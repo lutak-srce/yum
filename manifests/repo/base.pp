@@ -5,14 +5,15 @@
 
 # CentOS
 class yum::repo::base (
-  $priority       = '1',
-  $exclude        = [],
-  $include        = [],
-  $baseurl        = undef,
-  $baseurl_debug  = undef,
-  $baseurl_source = undef,
-  $debuginfo      = false,
-  $source         = false,
+  $priority        = '1',
+  $exclude         = [],
+  $include         = [],
+  $baseurl         = undef,
+  $baseurl_updates = undef,
+  $baseurl_debug   = undef,
+  $baseurl_source  = undef,
+  $debuginfo       = false,
+  $source          = false,
 ){
 
   case $::operatingsystem {
