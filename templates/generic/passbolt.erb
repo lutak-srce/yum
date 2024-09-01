@@ -1,0 +1,17 @@
+[passbolt-server]
+name=Passbolt Server
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://download.passbolt.com/pro/rpm/el<%= @facts['os']['release']['major'] %>/stable
+<% end -%>
+enabled=1
+gpgcheck=1
+gpgkey=https://download.passbolt.com/pub.key
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
