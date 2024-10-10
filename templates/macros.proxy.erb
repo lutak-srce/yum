@@ -1,2 +1,2 @@
-%_httpproxy <%= @http_proxy %>
+%_httpproxy <%= @http_proxy.gsub(/:[0-9]+$/,'') %>
 %_httpport <%= @http_port %>
