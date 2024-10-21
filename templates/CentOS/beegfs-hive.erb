@@ -1,0 +1,16 @@
+[BeeGFSHive]
+name=BeeGFS Hive (rhel <%= @facts['os']['release']['major'] %>
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://www.beegfs.io/release/hive/dists/rhel<%= @facts['os']['release']['major'] %>
+<% end -%>
+gpgkey=https://www.beegfs.io/release/hive/gpg/GPG-KEY-hive
+gpgcheck=1
+enabled=1
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
