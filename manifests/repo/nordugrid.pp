@@ -8,6 +8,7 @@ class yum::repo::nordugrid (
   $exclude   = [],
   $include   = [],
   $debuginfo = false,
+  $version   = 6,
 ){
 
   require yum::repo::base
@@ -54,10 +55,21 @@ class yum::repo::nordugrid (
       }
     }
     /^9.*/: {
-      package {'nordugrid-release':
-        ensure   => present,
-        provider => 'rpm',
-        source   => 'https://download.nordugrid.org/packages/nordugrid-release/releases/6/rocky/9/x86_64/nordugrid-release-6-1.el9.noarch.rpm',
+      case $version {
+        default: {
+          package {'nordugrid-release':
+            ensure   => present,
+            provider => 'rpm',
+            source   => 'https://download.nordugrid.org/packages/nordugrid-release/releases/6/rocky/9/x86_64/nordugrid-release-6-1.el9.noarch.rpm',
+          }
+        }
+        7: {
+          package {'nordugrid-release':
+            ensure   => present,
+            provider => 'rpm',
+            source   => 'https://download.nordugrid.org/packages/nordugrid-release/testing/7rc1/rocky/9/x86_64/nordugrid-release-7-0.rc1.el9.noarch.rpm',
+          }
+        }
       }
     }
   }
