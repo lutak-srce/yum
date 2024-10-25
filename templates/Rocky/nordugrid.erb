@@ -3,7 +3,7 @@ name=NorduGrid - $basearch - Base
 baseurl=http://download.nordugrid.org/repos/<%= @version %>/rocky/$releasever/$basearch/base
 enabled=1
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nordugrid-<%= @version $>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nordugrid-<%= @version %>
 priority=<%= @priority %>
 <% if @exclude.to_s != '' -%>
 exclude=<%= @exclude.to_a.join(' ') %>
