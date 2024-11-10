@@ -13,9 +13,10 @@ class yum::repo::jenkins (
   require yum::repo::base
 
   exec { 'jenkins_key':
-    command => '/bin/rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key',
-    unless  => '/bin/rpm -qa | /bin/grep -i D50582E6 > /dev/null',
+    command => '/bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key',
+    unless  => '/bin/rpm -qa | /bin/grep -E -i "EF5975CA-6421CE2B" > /dev/null',
   }
+
   file { '/etc/yum.repos.d/jenkins.repo':
     ensure  => file,
     mode    => '0644',
