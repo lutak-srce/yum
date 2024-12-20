@@ -15,7 +15,7 @@ class yum::repo::clickhouse(
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/clickhouse.erb"),
+    content => template("yum/${facts['os']['name']}/clickhouse.erb"),
   }
 
 }

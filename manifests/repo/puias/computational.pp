@@ -12,7 +12,7 @@ class yum::repo::puias::computational (
 ){
   require yum::repo::puias::addons
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { '/etc/yum.repos.d/puias-computational.repo':
@@ -20,7 +20,7 @@ class yum::repo::puias::computational (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/puias-computational.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/puias-computational.erb"),
       }
     }
   }

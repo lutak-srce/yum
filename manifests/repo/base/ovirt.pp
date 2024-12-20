@@ -17,7 +17,7 @@ class yum::repo::base::ovirt (
 
   package { "centos-release-ovirt${version_nodot}": }
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { "/etc/yum.repos.d/CentOS-oVirt-${version}.repo":
@@ -25,7 +25,7 @@ class yum::repo::base::ovirt (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-oVirt.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/CentOS-oVirt.erb"),
         require => Package["centos-release-ovirt${version_nodot}"],
       }
     }

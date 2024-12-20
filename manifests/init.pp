@@ -25,7 +25,7 @@ class yum (
   # base package
   package {'yum': ensure => present }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^5.*/: {
       file { '/etc/yum.conf' :

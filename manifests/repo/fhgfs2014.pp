@@ -14,6 +14,6 @@ class yum::repo::fhgfs2014 (
     mode   => '0644',
     owner  => root,
     group  => root,
-    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/fhgfs-2014.repo",
+    source => "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/fhgfs-2014.repo",
   }
 }

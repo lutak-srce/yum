@@ -16,6 +16,6 @@ class yum::repo::remi::test(
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/remi-test.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/remi-test.erb"),
   }
 }

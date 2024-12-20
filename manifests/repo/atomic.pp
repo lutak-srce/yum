@@ -29,10 +29,10 @@ class yum::repo::atomic (
   }
 
   file { '/etc/yum.repos.d/atomic.repo' :
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/atomic.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/atomic.erb"),
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^5.*/: {
       package { 'atomic-release' :

@@ -11,7 +11,7 @@ class yum::repo::cuda (
 ) {
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       file { '/etc/yum.repos.d/cuda.repo':
@@ -19,7 +19,7 @@ class yum::repo::cuda (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/cuda.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/cuda.erb"),
         require => Package['cuda-repo-rhel6'],
       }
       package { 'cuda-repo-rhel6':
@@ -34,7 +34,7 @@ class yum::repo::cuda (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/cuda.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/cuda.erb"),
         require => Package['cuda-repo-rhel7'],
       }
       package { 'cuda-repo-rhel7':
@@ -49,7 +49,7 @@ class yum::repo::cuda (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/cuda.erb"),
+        content => template("yum/${facts['os']['name']}/cuda.erb"),
         require => Package['cuda-repo-rhel8'],
       }
       package { 'cuda-repo-rhel8':
@@ -64,7 +64,7 @@ class yum::repo::cuda (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/cuda.erb"),
+        content => template("yum/${facts['os']['name']}/cuda.erb"),
       }
     }
   }

@@ -13,6 +13,6 @@ class yum::repo::rsyslog (
     mode   => '0644',
     owner  => root,
     group  => root,
-    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/rsyslog.repo",
+    source => "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/rsyslog.repo",
   }
 }

@@ -16,6 +16,6 @@ class yum::repo::remi::php56(
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/remi-php56.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/remi-php56.erb"),
   }
 }

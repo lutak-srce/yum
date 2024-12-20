@@ -12,7 +12,7 @@ class yum::repo::puias::addons (
 ){
   require yum::repo::base
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { '/etc/yum.repos.d/puias-addons.repo':
@@ -20,12 +20,12 @@ class yum::repo::puias::addons (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/puias-addons.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/puias-addons.erb"),
       }
     }
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       package { 'puias-release' :

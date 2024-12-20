@@ -55,16 +55,16 @@ class yum::repo::asterisk (
   }
 
 
-  file { "/etc/yum.repos.d/${::operatingsystem}-${repoversion}.repo" :
+  file { "/etc/yum.repos.d/${facts['os']['name']}-${repoversion}.repo" :
     ensure  => file,
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/asterisk/${repoversion}.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/asterisk/${repoversion}.erb"),
     require => Package['asterisknow-version'],
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       package { 'asterisknow-version' :

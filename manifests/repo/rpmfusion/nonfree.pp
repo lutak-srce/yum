@@ -17,7 +17,7 @@ class yum::repo::rpmfusion::nonfree (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rpmfusion-nonfree-updates.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rpmfusion-nonfree-updates.erb"),
     require => Package['rpmfusion-nonfree-release'],
   }
 
@@ -27,12 +27,12 @@ class yum::repo::rpmfusion::nonfree (
       mode    => '0644',
       owner   => root,
       group   => root,
-      content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rpmfusion-nonfree-updates-testing.erb"),
+      content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rpmfusion-nonfree-updates-testing.erb"),
       require => Package['rpmfusion-nonfree-release'],
     }
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default : {}
     /^5.*/: {
       package {'rpmfusion-nonfree-release':

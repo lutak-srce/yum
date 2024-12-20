@@ -17,6 +17,6 @@ class yum::repo::epel::testing (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/epel-testing.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/epel-testing.erb"),
   }
 }

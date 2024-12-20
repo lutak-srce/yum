@@ -17,7 +17,7 @@ class yum::repo::nodesource (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/nodesource.erb"),
+    content => template("yum/${facts['os']['name']}/nodesource.erb"),
     require => Package['nodesource-release'],
   }
 

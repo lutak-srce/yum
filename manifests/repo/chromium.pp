@@ -15,7 +15,7 @@ class yum::repo::chromium (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/chromium-el6.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/chromium-el6.erb"),
   }
 
 }

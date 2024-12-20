@@ -15,6 +15,6 @@ class yum::repo::devtoolset(
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/devtoolset.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/devtoolset.erb"),
   }
 }

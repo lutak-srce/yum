@@ -13,7 +13,7 @@ class yum::repo::base::sclorh (
 
   package { 'centos-release-scl-rh': }
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { '/etc/yum.repos.d/CentOS-SCLo-scl-rh.repo':
@@ -21,7 +21,7 @@ class yum::repo::base::sclorh (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-SCLo-scl-rh.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/CentOS-SCLo-scl-rh.erb"),
         require => Package['centos-release-scl-rh'],
       }
     }

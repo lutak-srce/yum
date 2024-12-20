@@ -16,7 +16,7 @@ class yum::repo::base (
   $source          = false,
 ){
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default: {
     }
     # Amazon AMI Linux (RedHat derivative)
@@ -40,7 +40,7 @@ class yum::repo::base (
     }
 
     'Rocky' : {
-      case $::operatingsystemrelease {
+      case $facts['os']['release']['full'] {
         default: {
         }
         /^9.*/: {
@@ -51,7 +51,7 @@ class yum::repo::base (
             mode    => '0644',
             owner   => root,
             group   => root,
-            content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rocky.erb"),
+            content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rocky.erb"),
             require => Package['rocky-release'],
           }
         }
@@ -63,7 +63,7 @@ class yum::repo::base (
             mode    => '0644',
             owner   => root,
             group   => root,
-            content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-Base.erb"),
+            content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/Rocky-Base.erb"),
             require => Package['rocky-release'],
           }
 
@@ -73,7 +73,7 @@ class yum::repo::base (
               mode    => '0644',
               owner   => root,
               group   => root,
-              content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/Rocky-Debuginfo.erb"),
+              content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/Rocky-Debuginfo.erb"),
               require => Package['rocky-release'],
             }
           }
@@ -87,10 +87,10 @@ class yum::repo::base (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/oracle-linux.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/oracle-linux.erb"),
         require => Package['oraclelinux-release'],
       }
-      case $::operatingsystemrelease {
+      case $facts['os']['release']['full'] {
         default: {
           package { 'oraclelinux-release': }
         }
@@ -104,7 +104,7 @@ class yum::repo::base (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-Base.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/CentOS-Base.erb"),
         require => Package['centos-release'],
       }
 
@@ -114,12 +114,12 @@ class yum::repo::base (
           mode    => '0644',
           owner   => root,
           group   => root,
-          content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-Debuginfo.erb"),
+          content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/CentOS-Debuginfo.erb"),
           require => Package['centos-release'],
         }
       }
 
-      case $::operatingsystemrelease {
+      case $facts['os']['release']['full'] {
         default: {
         }
         /^5.*/: {
@@ -140,7 +140,7 @@ class yum::repo::base (
           # yum helpers
           package { 'yum-utils': }
           package { 'yum-plugin-changelog': }
-          if Float($::operatingsystemrelease) < 6.7  { package { 'yum-plugin-downloadonly': } }
+          if Float($facts['os']['release']['full']) < 6.7  { package { 'yum-plugin-downloadonly': } }
           package { 'yum-plugin-merge-conf': }
           package { 'yum-plugin-priorities': }
           package { 'yum-plugin-protectbase': }
