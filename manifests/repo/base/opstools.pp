@@ -11,7 +11,7 @@ class yum::repo::base::opstools (
   $include   = [],
 ){
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { '/etc/yum.repos.d/CentOS-OpsTools.repo':
@@ -19,7 +19,7 @@ class yum::repo::base::opstools (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-OpsTools.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/CentOS-OpsTools.erb"),
       }
     }
   }

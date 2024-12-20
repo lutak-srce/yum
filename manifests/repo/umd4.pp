@@ -15,7 +15,7 @@ class yum::repo::umd4 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/UMD-4-base.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/UMD-4-base.erb"),
     require => Package['umd-release'],
   }
   file { '/etc/yum.repos.d/UMD-4-updates.repo':
@@ -23,7 +23,7 @@ class yum::repo::umd4 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content =>  template("yum/${::operatingsystem}/${::operatingsystemrelease}/UMD-4-updates.erb"),
+    content =>  template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/UMD-4-updates.erb"),
     require => Package['umd-release'],
   }
   file { '/etc/yum.repos.d/EGI-trustanchors.repo':
@@ -31,11 +31,11 @@ class yum::repo::umd4 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/EGI-trustanchors.repo",
+    source  => "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/EGI-trustanchors.repo",
     require => Package['umd-release'],
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       package {'umd-release':

@@ -15,11 +15,11 @@ class yum::repo::rpmforge (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rpmforge.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rpmforge.erb"),
     require => Package['rpmforge-release'],
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default : {}
     /^5.*/: {
       package {'rpmforge-release':

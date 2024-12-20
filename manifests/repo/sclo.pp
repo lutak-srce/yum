@@ -16,7 +16,7 @@ class yum::repo::sclo (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-SCLo-scl.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/CentOS-SCLo-scl.erb"),
     require => Package['centos-release-scl'],
   }
   file { '/etc/yum.repos.d/CentOS-SCLo-scl-rh.repo':
@@ -24,11 +24,11 @@ class yum::repo::sclo (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-SCLo-scl-rh.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/CentOS-SCLo-scl-rh.erb"),
     require => Package['centos-release-scl-rh'],
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^[6-7].*/: {
       package {'centos-release-scl':

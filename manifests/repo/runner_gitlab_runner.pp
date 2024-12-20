@@ -17,7 +17,7 @@ class yum::repo::runner_gitlab_runner (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/runner_gitlab-runner.erb"),
+    content => template("yum/${facts['os']['name']}/runner_gitlab-runner.erb"),
   }
 
 }

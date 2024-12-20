@@ -18,7 +18,7 @@ class yum::repo::argo (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/argo.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/argo.erb"),
   }
 
 }

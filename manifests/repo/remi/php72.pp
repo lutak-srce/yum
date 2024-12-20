@@ -16,6 +16,6 @@ class yum::repo::remi::php72(
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/remi-php72.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/remi-php72.erb"),
   }
 }

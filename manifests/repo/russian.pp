@@ -15,11 +15,11 @@ class yum::repo::russian (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/russianfedora-free.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/russianfedora-free.erb"),
     require => Package['russianfedora-free-release'],
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       package { 'russianfedora-free-release' :

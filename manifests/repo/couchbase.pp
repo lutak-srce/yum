@@ -16,7 +16,7 @@ class yum::repo::couchbase (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/couchbase-Base.erb"),
+    content => template("yum/${facts['os']['name']}/couchbase-Base.erb"),
     require => Package['couchbase-release'],
   }
 

@@ -16,7 +16,7 @@ class yum::repo::logstash (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/logstash.erb"),
+    content => template("yum/${facts['os']['name']}/logstash.erb"),
   }
 
 }

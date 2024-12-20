@@ -15,12 +15,12 @@ class yum::repo::mysql (
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/mysql-community.repo",
+    source  => "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/mysql-community.repo",
     require => Package['mysql-community-release'],
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^5.*/: {
       package { 'mysql-community-release':

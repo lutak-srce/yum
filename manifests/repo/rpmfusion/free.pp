@@ -17,7 +17,7 @@ class yum::repo::rpmfusion::free (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rpmfusion-free-updates.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rpmfusion-free-updates.erb"),
     require => Package['rpmfusion-free-release'],
   }
 
@@ -27,12 +27,12 @@ class yum::repo::rpmfusion::free (
       mode    => '0644',
       owner   => root,
       group   => root,
-      content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rpmfusion-free-updates-testing.erb"),
+      content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rpmfusion-free-updates-testing.erb"),
       require => Package['rpmfusion-free-release'],
     }
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default : {}
     /^5.*/: {
       require ::yum::repo::epel

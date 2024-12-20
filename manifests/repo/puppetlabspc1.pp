@@ -17,12 +17,12 @@ class yum::repo::puppetlabspc1 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/puppetlabs-pc1.erb"),
+    content => template("yum/${facts['os']['name']}/puppetlabs-pc1.erb"),
     require => Package['puppetlabs-release-pc1'],
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^5.*/: {
       package { 'puppetlabs-release-pc1' :

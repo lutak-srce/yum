@@ -13,7 +13,7 @@ class yum::repo::zabbix::frontend (
 
   $version = $yum::repo::zabbix::version
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { '/etc/yum.repos.d/zabbix-frontend.repo':
@@ -21,7 +21,7 @@ class yum::repo::zabbix::frontend (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/zabbix-frontend.erb"),
+        content => template("yum/${facts['os']['name']}/zabbix-frontend.erb"),
       }
     }
   }

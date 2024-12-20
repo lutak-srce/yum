@@ -20,7 +20,7 @@ class yum::repo::ovirt (
   include ::yum::repo::base::opstools
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {
       package { "ovirt-release${version_nodot}":
         ensure   => present,
@@ -35,7 +35,7 @@ class yum::repo::ovirt (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/ovirt.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/ovirt.erb"),
     require => Package["ovirt-release${version_nodot}"],
   }
 

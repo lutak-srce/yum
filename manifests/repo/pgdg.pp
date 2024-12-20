@@ -21,7 +21,7 @@ class yum::repo::pgdg {
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/pgdg-redhat-all.erb"),
+    content => template("yum/${facts['os']['name']}/pgdg-redhat-all.erb"),
     require => Package['pgdg-redhat-repo'],
   }
 
