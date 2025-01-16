@@ -18,9 +18,9 @@ class yum::repo::base::plus (
 
   case $facts['os']['release']['major'] {
     default: {
-      $prefix = "${facts['os']['name']}-plus"
+      $prefix = downcase("${facts['os']['name']}-plus")
     }
-    /^[678].*/: {
+    /^[678]$/: {
       $prefix = "${facts['os']['name']}-Plus"
     }
   }
