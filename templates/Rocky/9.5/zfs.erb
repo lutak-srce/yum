@@ -4,20 +4,20 @@ name=ZFS on Linux for EL$releasever - kmod
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=http://download.zfsonlinux.org/epel/9.4/kmod/$basearch/
+baseurl=http://download.zfsonlinux.org/epel/9.5/kmod/$basearch/
 <% end -%>
 <% else -%>
 name=ZFS on Linux for EL$releasever - dkms
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=http://download.zfsonlinux.org/epel/9.4/$basearch/
+baseurl=http://download.zfsonlinux.org/epel/9.5/$basearch/
 <% end -%>
 <% end -%>
 enabled=1
 metadata_expire=7d
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-openzfs
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-openzfs-el-$releasever
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
@@ -28,14 +28,14 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [zfs-source]
 name=ZFS on Linux for EL$releasever - Source
-baseurl=http://download.zfsonlinux.org/epel/9.4/SRPMS/
+baseurl=http://download.zfsonlinux.org/epel/9.5/SRPMS/
 <% if @source -%>
 enabled=1
 <% else -%>
 enabled=0
 <% end -%>
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-openzfs
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-openzfs-el-$releasever
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
