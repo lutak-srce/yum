@@ -36,7 +36,7 @@ class yum::repo::percona (
       package { 'percona-release':
         ensure   => present,
         provider => 'rpm',
-        source   => 'https://repo.percona.com/percona/yum/release/8/RPMS/x86_64/percona-release-1.0-27.noarch.rpm',
+        source   => 'https://repo.percona.com/yum/percona-release-latest.noarch.rpm',
       }
 
       $repofile_path = '/etc/yum.repos.d/percona-original-release.repo'
@@ -51,11 +51,8 @@ class yum::repo::percona (
       }
     }
     /8(\.)?0/: {
-      file { '/etc/yum.repos.d/percona-tools-release.rep.repo':
-        content => template('yum/generic/percona-tools-release.erb'),
-      }
-      file { '/etc/yum.repos.d/percona-ps-80-release.repo':
-        content => template('yum/generic/percona-ps-80-release.erb'),
+      file { '/etc/yum.repos.d/percona-pdps-8.0-release.repo':
+        content => template('yum/generic/percona-pdps-8.0-release.erb'),
       }
     }
   }
