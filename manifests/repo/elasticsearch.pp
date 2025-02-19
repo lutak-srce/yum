@@ -18,7 +18,7 @@ class yum::repo::elasticsearch (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/elasticsearch.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/elasticsearch.erb"),
   }
 
 }

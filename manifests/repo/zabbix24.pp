@@ -13,12 +13,12 @@ class yum::repo::zabbix24 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/zabbix24.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/zabbix24.erb"),
     require => Package['zabbix-release'],
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^5.*/: {
       package { 'zabbix-release':

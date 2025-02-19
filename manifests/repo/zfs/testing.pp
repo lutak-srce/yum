@@ -15,6 +15,6 @@ class yum::repo::zfs::testing (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/zfs-testing.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/zfs-testing.erb"),
   }
 }

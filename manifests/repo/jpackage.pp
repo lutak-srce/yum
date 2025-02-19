@@ -15,12 +15,12 @@ class yum::repo::jpackage (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/jpackage.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/jpackage.erb"),
     require => Package['jpackage-release'],
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       package { 'jpackage-release':

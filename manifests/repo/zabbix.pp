@@ -16,7 +16,7 @@ class yum::repo::zabbix (
 ) {
  
   if ( $gpg_key == '' ) {
-    case $::operatingsystemrelease {
+    case $facts['os']['release']['full'] {
       default: {
         $gpgkey = 'RPM-GPG-KEY-ZABBIX-A14FE591'
       }
@@ -33,7 +33,7 @@ class yum::repo::zabbix (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/zabbix.erb"),
+    content => template("yum/${facts['os']['name']}/zabbix.erb"),
     require => Package['zabbix-release'],
   }
 

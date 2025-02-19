@@ -12,7 +12,7 @@ class yum::repo::base::contrib (
 ){
   require yum::repo::base
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { '/etc/yum.repos.d/CentOS-Contrib.repo':
@@ -20,7 +20,7 @@ class yum::repo::base::contrib (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/CentOS-Contrib.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/CentOS-Contrib.erb"),
       }
     }
   }

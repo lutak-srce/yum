@@ -9,7 +9,7 @@ class yum::repo::epel::modular (
 ) {
   require yum::repo::epel
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^8.*/: {
       file { '/etc/yum.repos.d/epel-modular.repo':
@@ -17,7 +17,7 @@ class yum::repo::epel::modular (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/epel-modular.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/epel-modular.erb"),
       }
     }
   }

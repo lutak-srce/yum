@@ -12,7 +12,7 @@ class yum::repo::elrepo::extras (
 ){
   require yum::repo::elrepo
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     /(CentOS|Rocky)/ : {
       file { '/etc/yum.repos.d/elrepo-extras.repo':

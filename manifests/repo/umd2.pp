@@ -15,11 +15,11 @@ class yum::repo::umd2 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/UMD-2-base.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/UMD-2-base.erb"),
     require => Package['umd-release'],
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^5.*/: {
       package {'umd-release':

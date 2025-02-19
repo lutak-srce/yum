@@ -18,7 +18,7 @@ class yum::repo::elastic (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/elastic.erb"),
+    content => template("yum/${facts['os']['name']}/elastic.erb"),
   }
 
 }

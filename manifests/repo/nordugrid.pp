@@ -18,7 +18,7 @@ class yum::repo::nordugrid (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/nordugrid.erb"),
+    content => template("yum/${facts['os']['name']}/nordugrid.erb"),
     require => Package['nordugrid-release'],
   }
 
@@ -27,11 +27,11 @@ class yum::repo::nordugrid (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/nordugrid-updates.erb"),
+    content => template("yum/${facts['os']['name']}/nordugrid-updates.erb"),
     require => Package['nordugrid-release'],
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       package {'nordugrid-release':

@@ -15,6 +15,6 @@ class yum::repo::pulp (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/pulp.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/pulp.erb"),
   }
 }

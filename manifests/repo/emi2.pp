@@ -14,6 +14,6 @@ class yum::repo::emi2 (
     mode   => '0644',
     owner  => root,
     group  => root,
-    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/emi2-base.repo",
+    source => "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/emi2-base.repo",
   }
 }

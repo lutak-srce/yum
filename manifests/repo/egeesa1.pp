@@ -14,11 +14,11 @@ class yum::repo::egeesa1(
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  =>  "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/sa1-centos5-release.repo",
+    source  =>  "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/sa1-centos5-release.repo",
     require => Package['sa1-release'],
   }
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^5.*/: {
       package {'sa1-release':

@@ -18,7 +18,7 @@ class yum::repo::nginx (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/nginx.erb"),
+    content => template("yum/${facts['os']['name']}/nginx.erb"),
   }
 
 }

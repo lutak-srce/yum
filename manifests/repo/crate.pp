@@ -19,11 +19,11 @@ class yum::repo::crate (
   }
 
   file { '/etc/yum.repos.d/crate.repo':
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/crate.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/crate.erb"),
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       package { 'crate-release':

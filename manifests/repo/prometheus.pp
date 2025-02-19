@@ -15,7 +15,7 @@ class yum::repo::prometheus (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/prometheus.erb"),
+    content => template("yum/${facts['os']['name']}/prometheus.erb"),
   }
 
 }

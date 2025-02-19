@@ -15,7 +15,7 @@ class yum::repo::tommigdevel (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/tommigdevel.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/tommigdevel.erb"),
   }
 
 }
