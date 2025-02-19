@@ -4,13 +4,15 @@
 # This module manages Zabbix repo files for $lsbdistrelease
 #
 class yum::repo::zabbix (
-  $priority  = '1',
-  $version   = '3.2',
-  $release   = '1',
-  $exclude   = [],
-  $include   = [],
-  $debuginfo = false,
-  $gpg_key   = '',
+  $priority       = '1',
+  $version        = '3.2',
+  $release        = '1',
+  $exclude        = [],
+  $include        = [],
+  $debuginfo      = false,
+  $gpg_key        = '',
+  $baseurl        = undef,
+  $non_suppported = '1',
 ) {
  
   if ( $gpg_key == '' ) {
