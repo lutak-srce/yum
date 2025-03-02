@@ -7,11 +7,11 @@ class yum::repo::webmin (
   $include   = [],
   $debuginfo = false,
 ){
-  require ::yum::repo::base
+  require yum::repo::base
 
   exec {'webminrepokeyimport':
-    command => '/bin/rpm --import http://www.webmin.com/jcameron-key.asc',
-    unless  => '/bin/rpm -qa | /bin/grep -q 11f63c51',
+    command => '/bin/rpm --import https://download.webmin.com/developers-key.asc',
+    unless  => '/bin/rpm -qv gpg-pubkey-8916f2a2-64ae6550',
   }
 
   file { '/etc/yum.repos.d/webmin.repo':
@@ -19,7 +19,7 @@ class yum::repo::webmin (
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  =>  "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/webmin.repo",
+    content => template("yum/generic/webmin.erb"),
     require => Exec['webminrepokeyimport'],
   }
 }
