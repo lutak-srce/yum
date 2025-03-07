@@ -1,6 +1,6 @@
 [ilorest]
 name=hpe restful interface tool
-baseurl=http://downloads.linux.hpe.com/SDR/repo/ilorest/rhel/$releasever/$basearch/current
+baseurl=https://downloads.linux.hpe.com/SDR/repo/ilorest/rhel/$releasever/$basearch/current
 enabled=1
-gpgcheck=0
-gpgkey=http://downloads.linux.hpe.com/SDR/repo/ilorest/GPG-KEY-hprest
+gpgcheck=1
+gpgkey=https://downloads.linux.hpe.com/SDR/repo/ilorest/GPG-KEY-hprest
