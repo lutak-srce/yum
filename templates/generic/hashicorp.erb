@@ -1,0 +1,35 @@
+[hashicorp]
+name=Hashicorp Stable - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://rpm.releases.hashicorp.com/RHEL/$releasever/$basearch/stable
+<% end -%>
+enabled=1
+gpgcheck=1
+gpgkey=https://rpm.releases.hashicorp.com/gpg
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[hashicorp-test]
+name=Hashicorp Test - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('stable', 'test') %>
+<% else -%>
+baseurl=https://rpm.releases.hashicorp.com/RHEL/$releasever/$basearch/test
+<% end -%>
+enabled=0
+gpgcheck=1
+gpgkey=https://rpm.releases.hashicorp.com/gpg%   
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
