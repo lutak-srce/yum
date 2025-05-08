@@ -1,7 +1,7 @@
 [zabbix]
 name=Zabbix Official Repository - $basearch
 <% if @baseurl -%>
-baseurl = <%= @baseurl %>
+baseurl=<%= @baseurl %>
 <% else -%>
 baseurl=http://repo.zabbix.com/zabbix/<%= @version %>/rhel/<%= @facts['os']['release']['major'] %>/$basearch/
 <% end -%>
