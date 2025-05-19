@@ -1,0 +1,16 @@
+#
+# This repo is managed by "percona-release" utility, do not edit!
+#
+[pdps-8.4-release-x86_64]
+name = Percona Distribution for MySQL 8.4 - PS release/x86_64 YUM repository
+baseurl = https://repo.percona.com/pdps-84-lts/yum/release/$releasever/RPMS/x86_64
+enabled = 1
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+priority = <%= @priority %>
+<% unless @exclude.empty? -%>
+exclude = <%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs = <%= @include.join(' ') %>
+<% end -%>

@@ -55,6 +55,11 @@ class yum::repo::percona (
         content => template('yum/generic/percona-pdps-8.0-release.erb'),
       }
     }
+    /8(\.)?4/: {
+      file { '/etc/yum.repos.d/percona-pdps-8.4-release.repo':
+        content => template('yum/generic/percona-pdps-8.4-release.erb'),
+      }
+    }
   }
 
 }
