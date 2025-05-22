@@ -5,6 +5,7 @@
 class yum::repo::webmin (
   $exclude   = [],
   $include   = [],
+  $priority  = 1,
   $debuginfo = false,
 ){
   require yum::repo::base
