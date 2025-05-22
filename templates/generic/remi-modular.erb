@@ -1,0 +1,63 @@
+# Repository: https://rpms.remirepo.net/
+# Blog:       https://blog.remirepo.net/
+# Forum:      https://forum.remirepo.net/
+
+[remi-modular]
+name=Remi's Modular repository for Enterprise Linux $releasever - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/$releasever/modular/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/$releasever/modular/$basearch/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/$releasever/modular/$basearch/mirror
+enabled=1
+gpgcheck=1
+# can be enabled if not behind a proxy because of possible cache issue
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi.el$releasever
+priority=<%= @priority %>
+<% if @exclude.to_a.join(' ') != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_a.join(' ') != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[remi-modular-debuginfo]
+name=Remi's Modular repository for Enterprise Linux $releasever - $basearch - debuginfo
+#baseurl=http://rpms.remirepo.net/enterprise/$releasever/debug-modular/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/$releasever/debug-modular/$basearch/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/$releasever/debug-modular/$basearch/mirror
+enabled=0
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi.el$releasever
+
+[remi-modular-test]
+name=Remi's Modular testing repository for Enterprise Linux $releasever - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/$releasever/modular-test/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/$releasever/modular-test/$basearch/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/$releasever/modular-test/$basearch/mirror
+<% if @test -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi.el$releasever
+priority=<%= @priority %>
+<% if @exclude.to_a.join(' ') != '' -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% if @include.to_a.join(' ') != '' -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[remi-modular-test-debuginfo]
+name=Remi's Modular testing repository for Enterprise Linux $releasever - $basearch - debuginfo
+#baseurl=http://rpms.remirepo.net/enterprise/$releasever/debug-modular-test/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/$releasever/debug-modular-test/$basearch/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/$releasever/debug-modular-test/$basearch/mirror
+enabled=0
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi.el$releasever
+
