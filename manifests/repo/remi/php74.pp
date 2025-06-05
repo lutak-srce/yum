@@ -10,7 +10,7 @@ class yum::repo::remi::php74(
   $debuginfo = false,
 ) {
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default : {}
     /^7.*/: {
       require yum::repo::remi
@@ -19,7 +19,7 @@ class yum::repo::remi::php74(
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/remi-php74.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/remi-php74.erb"),
       }
     }
     /^8.*/: {

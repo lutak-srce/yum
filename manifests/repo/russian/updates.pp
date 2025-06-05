@@ -12,7 +12,7 @@ class yum::repo::russian::updates (
 ){
   require yum::repo::russian
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { '/etc/yum.repos.d/russianfedora-free-updates.repo':
@@ -20,7 +20,7 @@ class yum::repo::russian::updates (
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/russianfedora-free-updates.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/russianfedora-free-updates.erb"),
       }
     }
   }

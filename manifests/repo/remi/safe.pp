@@ -16,6 +16,6 @@ class yum::repo::remi::safe(
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/remi-safe.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/remi-safe.erb"),
   }
 }

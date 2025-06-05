@@ -14,6 +14,6 @@ class yum::repo::htcondor (
     mode   => '0644',
     owner  => root,
     group  => root,
-    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/htcondor.repo",
+    source => "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/htcondor.repo",
   }
 }

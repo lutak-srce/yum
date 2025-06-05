@@ -15,12 +15,12 @@ class yum::repo::passenger (
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/passenger.repo",
+    source  => "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/passenger.repo",
     require => Package['passenger-release'],
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default : { }
     /^5.*/: {
       package { 'passenger-release' :

@@ -12,7 +12,7 @@ class yum::repo::remi::php80(
   $test_debuginfo = false,
 ) {
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default : {}
     /^7.*/: {
       require yum::repo::remi
@@ -21,7 +21,7 @@ class yum::repo::remi::php80(
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/remi-php80.erb"),
+        content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/remi-php80.erb"),
       }
     }
   }

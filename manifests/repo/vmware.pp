@@ -17,13 +17,13 @@ class yum::repo::vmware (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/vmware-osps.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/vmware-osps.erb"),
     require => Package['vmware-tools-repo-RHEL'],
   }
   package { 'vmware-tools-repo-RHEL':
     ensure   => $version,
-    name     => "vmware-tools-repo-RHEL${::operatingsystemmajrelease}",
+    name     => "vmware-tools-repo-RHEL${facts['os']['release']['major']}",
     provider => 'rpm',
-    source   => "http://packages.vmware.com/tools/esx/${esxi_version}/repos/vmware-tools-repo-RHEL${::operatingsystemmajrelease}-${version}.${::architecture}.rpm",
+    source   => "http://packages.vmware.com/tools/esx/${esxi_version}/repos/vmware-tools-repo-RHEL${facts['os']['release']['major']}-${version}.${facts['os']['architecture']}.rpm",
   }
 }

@@ -15,6 +15,6 @@ class yum::repo::rpmforge::extras (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rpmforge-extras.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rpmforge-extras.erb"),
   }
 }

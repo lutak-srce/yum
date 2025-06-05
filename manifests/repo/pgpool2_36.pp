@@ -25,7 +25,7 @@ class yum::repo::pgpool2_36 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/pgpool2_36.erb"),
+    content => template("yum/${facts['os']['name']}/pgpool2_36.erb"),
   }
 
 }

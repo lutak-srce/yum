@@ -14,6 +14,6 @@ class yum::repo::msgdevel(
     mode   => '0644',
     owner  => root,
     group  => root,
-    source => "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/msg-devel.repo",
+    source => "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/msg-devel.repo",
   }
 }

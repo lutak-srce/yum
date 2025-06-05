@@ -23,6 +23,6 @@ class yum::repo::epel::bacula (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/epel-bacula.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/epel-bacula.erb"),
   }
 }
