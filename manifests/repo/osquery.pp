@@ -17,7 +17,7 @@ class yum::repo::osquery (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/osquery-s3-rpm.erb"),
+    content => template("yum/${facts['os']['name']}/osquery-s3-rpm.erb"),
   }
 
 }

@@ -16,12 +16,12 @@ class yum::repo::nux::dextop (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/nux/dextop.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/nux/dextop.erb"),
     require => Package['nux-dextop-release'],
   }
 
   # install package depending on major version
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {}
     /^6.*/: {
       package { 'nux-dextop-release':

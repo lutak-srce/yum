@@ -16,7 +16,7 @@ class yum::repo::base::highavailability (
 
   require yum::repo::base
 
-  case $::operatingsystemrelease {
+  case $facts['os']['release']['full'] {
     default: {
       $prefix = 'Rocky-HighAvailability'
     }

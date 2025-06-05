@@ -20,6 +20,6 @@ class yum::repo::grafana (
   }
 
   file { '/etc/yum.repos.d/grafana.repo':
-    content => template("yum/${::operatingsystem}/grafana.erb"),
+    content => template("yum/${facts['os']['name']}/grafana.erb"),
   }
 }

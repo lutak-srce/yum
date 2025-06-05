@@ -15,6 +15,6 @@ class yum::repo::rpmforge::testing (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${::operatingsystem}/${::operatingsystemrelease}/rpmforge-testing.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rpmforge-testing.erb"),
   }
 }

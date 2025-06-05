@@ -13,7 +13,7 @@ class yum::repo::srce::extras (
 
   require yum::repo::srce
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     default : {}
     'CentOS' : {
       file { '/etc/yum.repos.d/srce-extras.repo' :

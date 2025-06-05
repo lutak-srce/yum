@@ -14,6 +14,6 @@ class yum::repo::s3tools (
     mode   => '0644',
     owner  => root,
     group  => root,
-    source =>  "puppet:///modules/yum/${::operatingsystem}/${::operatingsystemrelease}/s3tools.repo",
+    source =>  "puppet:///modules/yum/${facts['os']['name']}/${facts['os']['release']['full']}/s3tools.repo",
   }
 }
