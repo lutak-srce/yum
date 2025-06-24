@@ -1,0 +1,13 @@
+[liquibase]
+name=Liquibase RPM Packages
+baseurl=https://repo.liquibase.com/yum/noarch
+enabled=1
+gpgkey=https://repo.liquibase.com/liquibase.asc
+gpgcheck=0
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
