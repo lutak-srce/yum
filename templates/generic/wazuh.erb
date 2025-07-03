@@ -8,7 +8,6 @@ baseurl=https://packages.wazuh.com/<%= @version %>.x/yum/
 gpgcheck=1
 gpgkey=https://packages.wazuh.com/key/GPG-KEY-WAZUH
 enabled=1
-protect=1
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
