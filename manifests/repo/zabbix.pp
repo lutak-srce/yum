@@ -40,7 +40,7 @@ class yum::repo::zabbix (
   # install package depending on major version
   package { 'zabbix-release':
     provider => 'rpm',
-    source   => "https://repo.zabbix.com/zabbix/${version}/rhel/${facts['os']['release']['major']}/x86_64/zabbix-release-${version}-${release}.el${facts['os']['release']['major']}.noarch.rpm",
+    source   => "https://repo.zabbix.com/zabbix/${version}/rhel/${facts['os']['release']['major']}/x86_64/zabbix-release-latest.el${facts['os']['release']['major']}.noarch.rpm",
   }
 
 }
