@@ -3,7 +3,7 @@ name=Zabbix Official Repository - $basearch
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=http://repo.zabbix.com/zabbix/<%= @version %>/rhel/$releasever/$basearch/
+baseurl=https://repo.zabbix.com/zabbix/<%= @version %>/rhel/$releasever/$basearch/
 <% end -%>
 enabled=1
 gpgcheck=1
@@ -18,7 +18,7 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [zabbix-non-supported]
 name=Zabbix Official Repository non-supported - $basearch
-baseurl=http://repo.zabbix.com/non-supported/rhel/$releasever/$basearch/
+baseurl=https://repo.zabbix.com/non-supported/rhel/$releasever/$basearch/
 enabled=<%= @non_supported %>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX-08EFA7DD
 gpgcheck=1
