@@ -1,7 +1,7 @@
 #
 # = Class: yum::repo::openvox
 #
-# This module manages voxpopuli repo files for openvox
+# This module manages voxpupuli repo files for openvox
 #
 class yum::repo::openvox (
   $version  = '8',
@@ -25,7 +25,7 @@ class yum::repo::openvox (
 
   package { "openvox${version}-release" :
     provider => 'rpm',
-    source   => "https://yum.voxpopuli.org/openvox${version}-release-el-${facts['os']['release']['major']}.noarch.rpm",
+    source   => "https://yum.voxpupuli.org/openvox${version}-release-el-${facts['os']['release']['major']}.noarch.rpm",
   }
 
 }
