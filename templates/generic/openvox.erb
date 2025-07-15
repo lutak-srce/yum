@@ -1,0 +1,17 @@
+[openvox<%= @version %>]
+name=Openvox <%= @version %> Repository el <%= @facts['os']['release']['major'] %> - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://yum.voxpopuli.org/openvox<%= @version %>/el/<%= @facts['os']['release']['major'] %>/$basearch
+<% end -%>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-openvox<%= @version %>-release
+enabled=1
+gpgcheck=1
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
