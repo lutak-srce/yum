@@ -7,7 +7,7 @@ name=Remi's RPM repository for Enterprise Linux $releasever - $basearch
 #baseurl=http://rpms.remirepo.net/enterprise/$releasever/remi/$basearch/
 #mirrorlist=https://rpms.remirepo.net/enterprise/$releasever/remi/$basearch/httpsmirror
 mirrorlist=http://cdn.remirepo.net/enterprise/$releasever/remi/$basearch/mirror
-<% if @remi -%>
+<% if @remi or @test -%>
 enabled=1
 <% else -%>
 enabled=0

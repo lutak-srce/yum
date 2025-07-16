@@ -12,6 +12,7 @@ class yum::repo::remi (
   $debuginfo      = false,
   $test_debuginfo = false,
 ) {
+
   file { '/etc/yum.repos.d/remi.repo':
     ensure  => file,
     mode    => '0644',
@@ -20,9 +21,11 @@ class yum::repo::remi (
     content => template('yum/generic/remi.erb'),
     require => Package['remi-release'],
   }
+
   package { 'remi-release' :
     ensure   => present,
     provider => 'rpm',
     source   => "http://rpms.famillecollet.com/enterprise/remi-release-${facts['os']['release']['major']}.rpm",
   }
+
 }
