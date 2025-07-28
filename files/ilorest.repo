@@ -3,4 +3,4 @@ name=hpe restful interface tool
 baseurl=https://downloads.linux.hpe.com/SDR/repo/ilorest/rhel/$releasever/$basearch/current
 enabled=1
 gpgcheck=1
-gpgkey=https://downloads.linux.hpe.com/SDR/repo/ilorest/GPG-KEY-hprest
+gpgkey=https://downloads.linux.hpe.com/SDR/repo/ilorest/GPG-KEY-hprest https://downloads.linux.hpe.com/SDR/hpePublicKey2048_key2.pub
