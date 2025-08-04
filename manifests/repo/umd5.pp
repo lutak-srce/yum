@@ -22,7 +22,7 @@ class yum::repo::umd5 (
     mode    => '0644',
     owner   => root,
     group   => root,
-    source => "puppet:///modules/yum/EGI-trustanchors.repo"
+    source => "puppet:///modules/yum/EGI-trustanchors.repo",
     require => Package['umd-release'],
   }
 
