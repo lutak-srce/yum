@@ -1,0 +1,13 @@
+[UMD-5-release]
+name=UMD 5 main repository (Alma Linux 9 )
+baseurl=https://repository.egi.eu/sw/production/umd/5/al9/release/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://repository.egi.eu/sw/production/umd/UMD-5-RPM-PGP-KEY
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
