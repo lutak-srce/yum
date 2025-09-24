@@ -43,6 +43,18 @@ class yum::repo::base (
       case $facts['os']['release']['full'] {
         default: {
         }
+        /^10.*/: {
+          package { 'rocky-release': }
+          package { 'yum-utils': }
+          file { '/etc/yum.repos.d/rocky.repo':
+            ensure  => file,
+            mode    => '0644',
+            owner   => root,
+            group   => root,
+            content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rocky.erb"),
+            require => Package['rocky-release'],
+          }
+        }
         /^9.*/: {
           package { 'rocky-release': }
           package { 'yum-utils': }
