@@ -10,7 +10,7 @@ gpgcheck=1
 enabled=1
 countme=1
 metadata_expire=6h
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-10
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
@@ -34,7 +34,7 @@ enabled=1
 enabled=0
 <% end -%>
 metadata_expire=6h
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-10
 
 [crb-source]
 name=Rocky Linux $releasever - CRB - Source
@@ -51,7 +51,7 @@ enabled=1
 enabled=0
 <% end -%>
 metadata_expire=6h
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-10
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
