@@ -1,0 +1,15 @@
+[main]
+gpgcheck=1
+installonly_limit=<%= @installonly_limit %>
+clean_requirements_on_remove=True
+best=True
+skip_if_unavailable=False
+<% if @http_proxy != 'UNDEF' -%>
+proxy=<%= @http_proxy %>
+<% end -%>
+<% case @ip_resolve when '4', 'IPv4', '6', 'IPv6' then -%>
+ip_resolve=<%= @ip_resolve %>
+<% end -%>
+<% if @localpkg_gpgcheck -%>
+localpkg_gpgcheck=True
+<% end -%>
