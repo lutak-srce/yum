@@ -23,6 +23,9 @@ class yum::repo::zabbix (
       /^9.*/: {
         $gpgkey = 'RPM-GPG-KEY-ZABBIX-08EFA7DD'
       }
+      /^10.*/: {
+        $gpgkey = 'RPM-GPG-KEY-ZABBIX-08EFA7DD'
+      }
     }
   } else {
     $gpgkey = $gpg_key
