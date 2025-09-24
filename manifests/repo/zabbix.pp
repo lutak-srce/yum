@@ -14,7 +14,7 @@ class yum::repo::zabbix (
   $baseurl       = undef,
   $non_supported = '1',
 ) {
- 
+
   if ( $gpg_key == '' ) {
     case $facts['os']['release']['full'] {
       default: {
