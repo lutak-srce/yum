@@ -1,6 +1,6 @@
 [Ceph]
 name=Ceph packages for $basearch
-baseurl=http://download.ceph.com/rpm-<%= @release %>/el9/$basearch
+baseurl=http://download.ceph.com/rpm-<%= @release %>/el10/$basearch
 enabled=1
 gpgcheck=1
 type=rpm-md
@@ -15,7 +15,7 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [Ceph-noarch]
 name=Ceph noarch packages
-baseurl=http://download.ceph.com/rpm-<%= @release %>/el9/noarch
+baseurl=http://download.ceph.com/rpm-<%= @release %>/el10/noarch
 enabled=1
 gpgcheck=1
 type=rpm-md
