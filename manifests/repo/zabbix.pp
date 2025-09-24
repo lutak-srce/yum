@@ -14,13 +14,16 @@ class yum::repo::zabbix (
   $baseurl       = undef,
   $non_supported = '1',
 ) {
- 
+
   if ( $gpg_key == '' ) {
     case $facts['os']['release']['full'] {
       default: {
         $gpgkey = 'RPM-GPG-KEY-ZABBIX-A14FE591'
       }
       /^9.*/: {
+        $gpgkey = 'RPM-GPG-KEY-ZABBIX-08EFA7DD'
+      }
+      /^10.*/: {
         $gpgkey = 'RPM-GPG-KEY-ZABBIX-08EFA7DD'
       }
     }

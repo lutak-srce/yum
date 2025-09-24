@@ -1,0 +1,68 @@
+[appstream]
+name=Rocky Linux $releasever - AppStream
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+mirrorlist=https://mirrors.rockylinux.org/mirrorlist?arch=$basearch&repo=AppStream-$releasever$rltype
+#baseurl=http://dl.rockylinux.org/$contentdir/$releasever/AppStream/$basearch/os/
+<% end -%>
+gpgcheck=1
+enabled=1
+countme=1
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-10
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[appstream-debuginfo]
+name=Rocky Linux $releasever - AppStream - Debug
+<% if @baseurl_debug -%>
+baseurl=<%= @baseurl_debug %>
+<% else -%>
+mirrorlist=https://mirrors.rockylinux.org/mirrorlist?arch=$basearch&repo=AppStream-$releasever-debug$rltype
+#baseurl=http://dl.rockylinux.org/$contentdir/$releasever/AppStream/$basearch/debug/tree/
+<% end -%>
+gpgcheck=1
+<% if @debuginfo -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-10
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[appstream-source]
+name=Rocky Linux $releasever - AppStream - Source
+<% if @baseurl_source -%>
+baseurl=<%= @baseurl_source %>
+<% else -%>
+mirrorlist=https://mirrors.rockylinux.org/mirrorlist?arch=source&repo=AppStream-$releasever-source$rltype
+#baseurl=http://dl.rockylinux.org/$contentdir/$releasever/AppStream/source/tree/
+<% end -%>
+gpgcheck=1
+<% if @source -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-10
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
