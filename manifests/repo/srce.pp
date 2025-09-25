@@ -9,7 +9,6 @@ class yum::repo::srce (
   $include   = [],
   $baseurl   = undef,
   $debuginfo = false,
-  $srcerelease = '5-3',
 ) {
 
   file { '/etc/yum.repos.d/srce.repo' :
@@ -24,6 +23,7 @@ class yum::repo::srce (
   # install package depending on major version
   case $facts['os']['release']['full'] {
     /^10.*/: { $srcerelease = '6-0' }
+    default: { $srcerelease = '5-3' }
   }
   package { 'srce-release' :
     ensure   => present,
