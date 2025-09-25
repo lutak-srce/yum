@@ -21,9 +21,13 @@ class yum::repo::srce (
   }
 
   # install package depending on major version
+  case $facts['os']['release']['full'] {
+    /^10.*/: { $srcerelease = '6-0' }
+    default: { $srcerelease = '5-3' }
+  }
   package { 'srce-release' :
     ensure   => present,
     provider => 'rpm',
-    source   => "http://ftp.srce.hr/srce-redhat/base/el${facts['os']['release']['major']}/x86_64/srce-release-5-3.el${facts['os']['release']['major']}.srce.noarch.rpm",
+    source   => "http://ftp.srce.hr/srce-redhat/base/el${facts['os']['release']['major']}/x86_64/srce-release-${srcerelease}.el${facts['os']['release']['major']}.srce.noarch.rpm",
   }
 }
