@@ -1,0 +1,24 @@
+# Srce nonPublic packages, like JAVA, Tivoli TSM, ...
+[srce-intern]
+name=Srce nonPublic Packages for Enterprise Linux $releasever - $basearch
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+baseurl=https://ftp.srce.hr/redhat/intern/el<%= @facts['os']['release']['major'] %>/$basearch/
+<% end -%>
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SRCE-256
+priority=5
+
+[srce-intern-source]
+name=Srce nonPublic Packages for Enterprise Linux $releasever - Source
+<% if @baseurl -%>
+baseurl=<%= @baseurl.sub('$basearch', 'SRPMS') %>
+<% else -%>
+baseurl=https://ftp.srce.hr/redhat/base/el<%= @facts['os']['release']['major'] %>/SRPMS
+<% end -%>
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SRCE
+priority=5
