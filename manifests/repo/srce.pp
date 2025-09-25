@@ -11,19 +11,30 @@ class yum::repo::srce (
   $debuginfo = false,
 ) {
 
-  file { '/etc/yum.repos.d/srce.repo' :
-    ensure  => file,
-    mode    => '0644',
-    owner   => root,
-    group   => root,
-    content => template('yum/CentOS/srce.erb'),
-    require => Package['srce-release'],
-  }
-
   # install package depending on major version
   case $facts['os']['release']['full'] {
-    /^10.*/: { $srcerelease = '6-0' }
-    default: { $srcerelease = '5-3' }
+    /^10.*/: {
+      $srcerelease = '6-0'
+      file { '/etc/yum.repos.d/srce.repo' :
+        ensure  => file,
+        mode    => '0644',
+        owner   => root,
+        group   => root,
+        content => template('yum/Rocky/10/srce.erb'),
+        require => Package['srce-release'],
+      }
+    }
+    default: {
+      $srcerelease = '5-3'
+      file { '/etc/yum.repos.d/srce.repo' :
+        ensure  => file,
+        mode    => '0644',
+        owner   => root,
+        group   => root,
+        content => template('yum/CentOS/srce.erb'),
+        require => Package['srce-release'],
+      }
+    }
   }
   package { 'srce-release' :
     ensure   => present,
