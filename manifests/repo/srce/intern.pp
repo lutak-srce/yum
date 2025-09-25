@@ -12,28 +12,30 @@ class yum::repo::srce::intern (
 
   require yum::repo::srce
 
+
+
   # install package depending on major version
   case $facts['os']['release']['full'] {
     /^10.*/: {
       $srcerelease = '6-0'
-      file { '/etc/yum.repos.d/srce.repo' :
+      file { '/etc/yum.repos.d/srce-intern.repo' :
         ensure  => file,
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template('yum/Rocky/10/srce.erb'),
-        require => Package['srce-release'],
+        content => template('yum/Rocky/10/srce-intern.erb'),
+        require => Package['srce-release-intern'],
       }
     }
     default: {
       $srcerelease = '5-3'
-      file { '/etc/yum.repos.d/srce.repo' :
+      file { '/etc/yum.repos.d/srce-intern.repo' :
         ensure  => file,
         mode    => '0644',
         owner   => root,
         group   => root,
-        content => template('yum/CentOS/srce.erb'),
-        require => Package['srce-release'],
+        content => template('yum/CentOS/srce-intern.erb'),
+        require => Package['srce-release-intern'],
       }
     }
   }
