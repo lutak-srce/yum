@@ -22,7 +22,7 @@ class yum::repo::gitlab (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/gitlab_gitlab-ce.erb"),
+    content => template('yum/generic/gitlab_gitlab-ce.erb'),
     require => Exec['gitlab_key'],
   }
 

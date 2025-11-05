@@ -1,6 +1,6 @@
 [gitlab_gitlab-ce]
 name=gitlab_gitlab-ce
-baseurl=https://packages.gitlab.com/gitlab/gitlab-ce/el/7/$basearch
+baseurl=https://packages.gitlab.com/gitlab/gitlab-ce/el/$releasever/$basearch
 repo_gpgcheck=1
 gpgcheck=0
 enabled=1
@@ -8,6 +8,7 @@ gpgkey=https://packages.gitlab.com/gitlab/gitlab-ce/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
+priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
 <% end -%>
@@ -15,10 +16,9 @@ exclude=<%= @exclude.join(' ') %>
 includepkgs=<%= @include.join(' ') %>
 <% end -%>
 
-
 [gitlab_gitlab-ce-source]
 name=gitlab_gitlab-ce-source
-baseurl=https://packages.gitlab.com/gitlab/gitlab-ce/el/7/SRPMS
+baseurl=https://packages.gitlab.com/gitlab/gitlab-ce/el/$releasever/SRPMS
 repo_gpgcheck=1
 gpgcheck=0
 enabled=1
@@ -26,6 +26,7 @@ gpgkey=https://packages.gitlab.com/gitlab/gitlab-ce/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
+priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.join(' ') %>
 <% end -%>
