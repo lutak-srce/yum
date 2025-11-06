@@ -14,7 +14,7 @@ class yum::repo::gitlab (
 
   exec { 'gitlab_key':
     command => '/bin/rpm --import https://packages.gitlab.com/gitlab/gitlab-ce/gpgkey',
-    unless  => '/bin/rpm -qa | /bin/grep -i e15e78f4-55310c0e > /dev/null',
+    unless  => '/bin/rpm -qa | /bin/grep -i gpg-pubkey-51312f3f-65df946d > /dev/null',
   }
 
   file { '/etc/yum.repos.d/gitlab_gitlab-ce.repo':
