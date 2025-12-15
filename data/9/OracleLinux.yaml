@@ -1,0 +1,3 @@
+---
+yum::repo::base::appstream::repo_name: 'oracle-linux-appstream'
+yum::repo::base::crb::repo_name:       'oracle-linux-crb'

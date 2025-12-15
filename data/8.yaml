@@ -1,2 +1,4 @@
 ---
 yum::installonly_limit: 3
+
+yum::repo::base::appstream::repo_name: "%{facts.os.name}-AppStream"
