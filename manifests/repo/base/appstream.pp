@@ -12,25 +12,15 @@ class yum::repo::base::appstream (
   $baseurl_source = undef,
   $debuginfo      = false,
   $source         = false,
+  $repo_name,
 ){
-
   require yum::repo::base
 
-  case $facts['os']['release']['full'] {
-    default: {
-      $prefix = 'rocky-appstream'
-    }
-    /^8.*/: {
-      $prefix = "${facts['os']['name']}-AppStream"
-    }
-  }
-
-  file { "/etc/yum.repos.d/${prefix}.repo":
+  file { "/etc/yum.repos.d/${repo_name}.repo":
     ensure  => file,
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/${prefix}.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/${repo_name}.erb"),
   }
-
 }

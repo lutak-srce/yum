@@ -12,16 +12,16 @@ class yum::repo::base::crb (
   $baseurl_source = undef,
   $debuginfo      = false,
   $source         = false,
+  $repo_name,
 ){
-
   require yum::repo::base
 
-  file { "/etc/yum.repos.d/rocky-crb.repo":
+  file { "/etc/yum.repos.d/${repo_name}.repo":
     ensure  => file,
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/rocky-crb.erb"),
+    content => template("yum/${facts['os']['name']}/${facts['os']['release']['full']}/${repo_name}.erb"),
   }
 
 }

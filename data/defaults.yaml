@@ -1,2 +1,5 @@
 ---
 yum::installonly_limit: 5
+
+yum::repo::base::appstream::repo_name: 'rocky-appstream'
+yum::repo::base::crb::repo_name:       'rocky-crb'
