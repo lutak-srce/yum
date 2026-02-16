@@ -4,14 +4,14 @@ name=ZFS on Linux for EL8 - kmod
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=http://download.zfsonlinux.org/epel/8.7/kmod/$basearch/
+baseurl=http://download.zfsonlinux.org/epel/8.10/kmod/$basearch/
 <% end -%>
 <% else -%>
 name=ZFS on Linux for EL8 - dkms
 <% if @baseurl -%>
 baseurl=<%= @baseurl %>
 <% else -%>
-baseurl=http://download.zfsonlinux.org/epel/8.7/$basearch/
+baseurl=http://download.zfsonlinux.org/epel/8.10/$basearch/
 <% end -%>
 <% end -%>
 enabled=1
@@ -28,7 +28,7 @@ includepkgs=<%= @include.to_a.join(' ') %>
 
 [zfs-source]
 name=ZFS on Linux for EL8 - Source
-baseurl=http://download.zfsonlinux.org/epel/8.7/SRPMS/
+baseurl=http://download.zfsonlinux.org/epel/8.10/SRPMS/
 <% if @source -%>
 enabled=1
 <% else -%>
