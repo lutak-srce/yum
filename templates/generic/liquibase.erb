@@ -1,9 +1,23 @@
-[liquibase]
-name=Liquibase RPM Packages
-baseurl=https://repo.liquibase.com/yum/noarch
+[liquibase-oss]
+name=Liquibase OSS RPM Packages
+baseurl=https://package.liquibase.com/yum/noarch
 enabled=1
+gpgcheck=1
 gpgkey=https://repo.liquibase.com/liquibase.asc
-gpgcheck=0
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.to_a.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.to_a.join(' ') %>
+<% end -%>
+
+[liquibase-secure]
+name=Liquibase Secure RPM Packages
+baseurl=https://package.liquibase.com/yum/noarch
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.liquibase.com/liquibase.asc
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
