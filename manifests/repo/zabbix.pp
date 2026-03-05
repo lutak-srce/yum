@@ -4,15 +4,16 @@
 # This module manages Zabbix repo files for $lsbdistrelease
 #
 class yum::repo::zabbix (
-  $priority      = '1',
-  $version       = '3.2',
-  $release       = '1',
-  $exclude       = [],
-  $include       = [],
-  $debuginfo     = false,
-  $gpg_key       = '',
-  $baseurl       = undef,
-  $non_supported = '1',
+  $priority        = '1',
+  $version         = '3.2',
+  $release         = '1',
+  $exclude         = [],
+  $include         = [],
+  $debuginfo       = false,
+  $gpg_key         = '',
+  $baseurl         = undef,
+  $non_supported   = '1',
+  $release_version = 'present',
 ) {
 
   if ( $gpg_key == '' ) {
@@ -43,6 +44,7 @@ class yum::repo::zabbix (
   # install package depending on major version
   package { 'zabbix-release':
     provider => 'rpm',
+    ensure   => $release_version,
     source   => "https://repo.zabbix.com/zabbix/${version}/rhel/${facts['os']['release']['major']}/x86_64/zabbix-release-latest.el${facts['os']['release']['major']}.noarch.rpm",
   }
 
