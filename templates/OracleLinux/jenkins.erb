@@ -1,13 +1,21 @@
 [jenkins]
 name=Jenkins
 <% if @version == 'stable' or @version == 'LTS' -%>
-baseurl=https://pkg.jenkins.io/redhat-stable
+type=rpm-md
+baseurl=https://pkg.jenkins.io/rpm-stable
+gpgkey=https://pkg.jenkins.io/rpm-stable/repodata/repomd.xml.key
+<% elsif @version == 'legacy' -%>
+baseurl=https://pkg.jenkins.io/redhat-stable-legacy
+gpgkey=http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 <% else -%>
-baseurl=https://pkg.jenkins.io/redhat
+baseurl=https://pkg.jenkins.io/rpm
+gpgkey=http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 <% end -%>
 enabled=1
 gpgcheck=1
-gpgkey=http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+<% if @version == 'stable' or @version == 'LTS' -%>
+repo_gpgcheck=1
+<% end -%>
 priority=<%= @priority %>
 <% unless @exclude.empty? -%>
 exclude=<%= @exclude.to_a.join(' ') %>
