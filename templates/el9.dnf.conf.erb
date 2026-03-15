@@ -13,3 +13,6 @@ ip_resolve=<%= @ip_resolve %>
 <% if @localpkg_gpgcheck -%>
 localpkg_gpgcheck=True
 <% end -%>
+<% unless @install_weak_deps -%>
+install_weak_deps=False
+<% end -%>

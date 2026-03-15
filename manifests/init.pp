@@ -11,6 +11,7 @@ class yum (
   $distroverpkg      = 'centos-release',
   $ip_resolve        = undef,
   $localpkg_gpgcheck = undef,
+  $install_weak_deps = undef,
   $installonly_limit,
 ) {
 
