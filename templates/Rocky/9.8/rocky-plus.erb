@@ -1,0 +1,68 @@
+[plus]
+name=Rocky Linux $releasever - Plus
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+mirrorlist=https://mirrors.rockylinux.org/mirrorlist?arch=$basearch&repo=plus-$releasever$rltype
+#baseurl=http://dl.rockylinux.org/$contentdir/$releasever/plus/$basearch/os/
+<% end -%>
+gpgcheck=1
+enabled=1
+countme=1
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[plus-debug]
+name=Rocky Linux $releasever - Plus - Debug
+<% if @baseurl_debug -%>
+baseurl=<%= @baseurl_debug %>
+<% else -%>
+mirrorlist=https://mirrors.rockylinux.org/mirrorlist?arch=$basearch&repo=plus-$releasever-debug$rltype
+#baseurl=http://dl.rockylinux.org/$contentdir/$releasever/plus/$basearch/debug/tree/
+<% end -%>
+gpgcheck=1
+<% if @debuginfo -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[plus-source]
+name=Rocky Linux $releasever - Plus - Source
+<% if @baseurl_source -%>
+baseurl=<%= @baseurl_source %>
+<% else -%>
+mirrorlist=https://mirrors.rockylinux.org/mirrorlist?arch=source&repo=plus-$releasever-source$rltype
+#baseurl=http://dl.rockylinux.org/$contentdir/$releasever/plus/source/tree/
+<% end -%>
+gpgcheck=1
+<% if @source -%>
+enabled=1
+<% else -%>
+enabled=0
+<% end -%>
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
