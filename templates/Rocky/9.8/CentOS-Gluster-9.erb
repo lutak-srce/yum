@@ -1,0 +1,31 @@
+# CentOS-Gluster-<%= @version %>.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-gluster<%= @version %>]
+name=CentOS-$stream - Gluster <%= @version %>
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+metalink=https://mirrors.centos.org/metalink?repo=centos-storage-sig-gluster-<%= @version %>-$stream&arch=$basearch
+#baseurl=http://mirror.stream.centos.org/SIGs/$stream/storage/$basearch/gluster-<%= @version %>/
+<% end -%>
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
+[centos-gluster<%= @version %>-test]
+name=CentOS-$stream - Gluster <%= @version %> Testing
+baseurl=http://buildlogs.centos.org/centos/$stream/storage/$basearch/gluster-<%= @version %>/
+gpgcheck=0
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
+

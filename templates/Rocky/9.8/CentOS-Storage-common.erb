@@ -1,0 +1,23 @@
+# CentOS-Storage.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-storage-common]
+name=CentOS-$releasever - Storage SIG - common
+<% if @baseurl -%>
+baseurl=<%= @baseurl %>
+<% else -%>
+metalink=https://mirrors.centos.org/metalink?repo=centos-storage-sig-all-all-9-stream&arch=$basearch
+<% end -%>
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
+priority=<%= @priority %>
+<% unless @exclude.empty? -%>
+exclude=<%= @exclude.join(' ') %>
+<% end -%>
+<% unless @include.empty? -%>
+includepkgs=<%= @include.join(' ') %>
+<% end -%>
+
